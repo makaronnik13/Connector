@@ -203,7 +203,7 @@ using System.Linq;
                 foreach (Link c in links)
                 {
                     float offset = s * i / (p.Key.narrativeLinks.Count() - 1);
-                    if (p.Key.narrativeLinks.Count() == 1)
+					if (links.Count() == 1)
                     {
                         offset = 100f / 2 - 5;
                     }

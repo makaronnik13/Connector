@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: e3aa7b563707a44a188a03e9de3df145
+timeCreated: 1514502520
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: friday night
+  fontNames:
+  - friday night
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

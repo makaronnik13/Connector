@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 95644bc3ba1a2435fb5c632a07d09569
+timeCreated: 1514502519
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Comic Book
+  fontNames:
+  - Comic Book
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0f667c5515eff4c8684375d8b49db737, type: 3}
+  - {fileID: 12800000, guid: 7cdcffd75cc3446b2afb673c627493c3, type: 3}
+  - {fileID: 12800000, guid: 202471081327742b8a231dda370b2ade, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
