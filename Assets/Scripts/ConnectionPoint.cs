@@ -2,73 +2,114 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class ConnectionPoint : MonoBehaviour {
-	
-	[Range(0, 360)]
-	public float Horizontal;
-	[Range(-90,90)]
-	public float Vertiacal;
-	private float Radius
-	{
-		get
-		{
-			return Screen.height * 0.47f;
-		}
-	}
+public class ConnectionPoint : MonoBehaviour, IDropHandler, IDragHandler
+{
+    private enum PointState
+    {
+        Inactive,
+        Pinging,
+        Recieving
+    }
+    private PointState pointState = PointState.Inactive;
+    private float Radius
+    {
+        get
+        {
+            return r;
+        }
+    }
+	private float Horizontal;
+	private float Vertiacal;
+    private Material material;
+    private Button button;
+    private Button Button
+    {
+        get
+        {
+            if (!button)
+            {
+                button = GetComponent<Button>();
+            }
+            return button;
+        }
+    }
+    private bool visible;
+    private Image img;
+    private Image Img
+    {
+        get
+        {
+            if (!img)
+            {
+                img = GetComponent<Image>();
+            }
+            return img;
+        }
+    }
 
+    private float r = 267f;
 	public State state;
 
-	private bool taskActive = true;
-
-	private Button button;
-	private Button Button
-	{
-		get
-		{
-			if(!button)
-			{
-				button = GetComponent<Button> ();
-			}
-			return button;
-		}
-	}
-
-	private bool visible;
-
-	private Image img;
-	private Image Img
-	{
-		get
-		{
-			if(!img)
-			{
-				img = GetComponent<Image> ();
-			}
-			return img;
-		}
-	}
-
-	void Start()
+    #region LifeCycle
+    void Start()
 	{
 		Rotator.Instance.OnAngleChanged += OnPlanetRotationChanged;
 		DialogController.Instance.onDialogFinished += DialogFinished;
 		GetComponent<Button> ().onClick.AddListener (PointClicked);
 	}
+    public void Init(State state)
+    {
+        this.state = state;
+        Horizontal = state.Horizontal;
+        Vertiacal = state.Vertical;
+        pointState = PointState.Pinging;
 
-	private void DialogFinished(State s1, State s2)
+        material = new Material(GetComponent<Image>().material);
+        GetComponent<Image>().material = material;
+
+
+        material.SetColor("_Color", Color.red);
+        material.SetFloat("_frequency", 0.3f);
+        material.SetFloat("_speed", 0.15f);
+    }
+    #endregion
+
+    private void DialogFinished(State s1, State s2)
 	{
 		if(s1 == state)
 		{
 			if (s2 == null) {
-				taskActive = false;
-			} else 
+				pointState = PointState.Recieving;
+               material.SetColor("_Color", Color.yellow);
+               material.SetFloat("_frequency", 0.15f);
+                material.SetFloat("_speed", 0.05f);
+            } else 
 			{
-				Destroy (gameObject);
+                Rotator.Instance.OnAngleChanged -= OnPlanetRotationChanged;
+                DialogController.Instance.onDialogFinished -= DialogFinished;
+                Destroy (gameObject);
 			}
 		}
 
-	}
+        if (s2 == state)
+        {
+            if (s1 == null)
+            {
+                pointState = PointState.Recieving;
+               material.SetColor("_Color", Color.yellow);
+                material.SetFloat("_frequency", 0.15f);
+               material.SetFloat("_speed", 0.05f);
+            }
+            else
+            {
+                Rotator.Instance.OnAngleChanged -= OnPlanetRotationChanged;
+                DialogController.Instance.onDialogFinished -= DialogFinished;
+                Destroy(gameObject);
+            }
+        }
+    }
 
 	private void OnPlanetRotationChanged(float angle)
 	{
@@ -95,13 +136,32 @@ public class ConnectionPoint : MonoBehaviour {
 	{
 		if(Rotator.Instance.rotating)
 		{
-			if (taskActive) {
+			if (pointState == PointState.Pinging)
+            {
 				DialogController.Instance.Talk (state);
-				Rotator.Instance.rotating = false;
-			} else 
-			{
-				//DialogController.Instance.Talk (TaskManager.Instance.SelectedTask ,state);
 			}
 		}
 	}
+
+    #region Callbacks
+    public void OnDrop(PointerEventData eventData)
+    {
+  
+        if (ConnectionLine.Instance.From == state || pointState!= PointState.Recieving)
+        {
+            return;
+        }
+
+ 
+        DialogController.Instance.Talk (ConnectionLine.Instance.From , state);  
+    }
+    public void OnDrag(PointerEventData eventData)
+    {
+      
+        if (pointState == PointState.Recieving)
+        {
+            ConnectionLine.Instance.SetStart(GetComponent<RectTransform>());
+        }
+    }
+    #endregion
 }

@@ -4,26 +4,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-    public class CombinationsEditor : EditorWindow
-    {
-
+public class CombinationsEditor : EditorWindow
+{
     private enum EditorMode
     {
         Narrative,
         Combinations
     }
-
     private EditorMode editorMode = EditorMode.Combinations;
-
     private Vector2 screenDelta = Vector2.zero;
-
     private Link selectedPath = null;
-
-   // private Combination selectedPath;
     private Vector2 lastMousePosition;
 	private List<KeyValuePair<State, GUIDraggableObject>> statesPositions = new List<KeyValuePair<State, GUIDraggableObject>> ();
-
-
     private List<KeyValuePair<State, GUIDraggableObject>> StatesPositions
 	{
 		get
@@ -43,9 +35,8 @@ using System.Linq;
 			return statesPositions;
 		}
 	}
-
 	private static Texture2D backgroundTexture;    
-        private static Texture2D BackgroundTexture
+    private static Texture2D BackgroundTexture
         {
             get
             {
@@ -58,8 +49,27 @@ using System.Linq;
             }
         }
 
+    public static List<State> ProjectStates()
+    {
+        List<State> st = new List<State>();
+        string[] guids = AssetDatabase.FindAssets("t:State");
 
-	[MenuItem("Window/CombinationsEditor")]
+
+        foreach (string s in guids)
+        {
+            string assetPath = AssetDatabase.GUIDToAssetPath(s);
+            State asset = AssetDatabase.LoadAssetAtPath(assetPath, typeof(State)) as State;
+            st.Add(asset);
+        }
+
+        if (st.Count == 0)
+        {
+            EditorWindow.GetWindow<CombinationsEditor>().Close();
+        }
+        return st;
+    }
+
+    [MenuItem("Window/CombinationsEditor")]
 	static CombinationsEditor Init()
         {
 			CombinationsEditor window = (CombinationsEditor)EditorWindow.GetWindow<CombinationsEditor>("Combinations editor", true, new Type[3] { typeof(Animator), typeof(Console), typeof(SceneView) });
@@ -67,8 +77,15 @@ using System.Linq;
             window.ShowAuxWindow();
             return window;
         }
-
-        void OnGUI()
+    private void OnDisable()
+    {
+        foreach (KeyValuePair<State, GUIDraggableObject> kvp in StatesPositions)
+        {
+            kvp.Key.Drag(kvp.Value.Position);
+            EditorUtility.SetDirty(kvp.Key);
+        }
+    }
+    private void OnGUI()
         {
 
 
@@ -150,15 +167,13 @@ using System.Linq;
         }
 
         GUI.color = Color.black;
-        GUI.Label(new Rect(5, 5, 20, 20), (Texture2D)Resources.Load("Icons/narrative") as Texture2D);
-        GUI.Label(new Rect(35, 5, 20, 20), (Texture2D)Resources.Load("Icons/combinations") as Texture2D);
+        GUI.Label(new Rect(5, 5, 20, 20), (Texture2D)Resources.Load("Icons/combinations") as Texture2D);
+        GUI.Label(new Rect(35, 5, 20, 20), (Texture2D)Resources.Load("Icons/narrative") as Texture2D);
         GUI.color = Color.white;
     }
 
     private void DrawCreatingLine()
     {
-      
-
         if (selectedPath!=null && Event.current.type == EventType.keyDown && Event.current.keyCode == KeyCode.Delete)
         {
 
@@ -174,7 +189,6 @@ using System.Linq;
                     p.Key.RemoveCombinationLink(p.Key.combinationLinks.ToList().IndexOf((CombinationLink)selectedPath));
                 }
             }
-
             selectedPath= null;
             Repaint();
         }
@@ -218,23 +232,15 @@ using System.Linq;
             Handles.BeginGUI();
             DrawNodeCurve(start, new Rect(Event.current.mousePosition, Vector2.one), Color.white, 2);
             Handles.EndGUI();
-        }
-
-      
+        }    
     }
 
-    void DrowChainsWindow()
+    private void DrowChainsWindow()
         {
-		
-
             Rect fieldRect = new Rect(0, 0, position.width, position.height);
-            GUI.DrawTextureWithTexCoords(fieldRect, BackgroundTexture, new Rect(0, 0, fieldRect.width / BackgroundTexture.width, fieldRect.height / BackgroundTexture.height));
-        
-            
+            GUI.DrawTextureWithTexCoords(fieldRect, BackgroundTexture, new Rect(0, 0, fieldRect.width / BackgroundTexture.width, fieldRect.height / BackgroundTexture.height));   
 			DrawPathes();
-            
             BeginWindows();
-
         State manipulatingState = null;
 
 		for (int i = 0; i<=StatesPositions.Count-1; i++) 
@@ -277,18 +283,11 @@ using System.Linq;
             }
         }
 
-
-
 		for (int i = 0; i<=StatesPositions.Count-1; i++)
 			{
 			
 				DrawStateBox (StatesPositions [i]);
 			}
-
-	
-
-
-
             EndWindows();
     }
 
@@ -325,6 +324,7 @@ using System.Linq;
                     if (editorMode == EditorMode.Narrative && kvp.Key.narrativeLinks.Contains(selectedPath))
                     {
                         selectedPath.endPoint = state.Key;
+                        selectedPath.endPoint.InNarrativeLinks.Add((NarrativeLink)selectedPath);
                     }
 
                 if (editorMode == EditorMode.Combinations && kvp.Key.combinationLinks.Contains(selectedPath))
@@ -403,7 +403,7 @@ using System.Linq;
         return containCursor;
     }
 
-    void DrawStateBox(KeyValuePair<State, GUIDraggableObject> state)
+    private void DrawStateBox(KeyValuePair<State, GUIDraggableObject> state)
 	{
 
 			
@@ -450,7 +450,7 @@ using System.Linq;
         
 	}
 
-	void DrawPathes()
+	private void DrawPathes()
 	{
 		foreach (KeyValuePair<State, GUIDraggableObject> state in StatesPositions)
 		{
@@ -503,7 +503,7 @@ using System.Linq;
 		}
 	}
 
-		void DrawNodeCurve(Rect start, Rect end, Color c, float width)
+	private	void DrawNodeCurve(Rect start, Rect end, Color c, float width)
         {
             float force = 1f;
             Vector3 startPos = new Vector3(start.x + start.width / 2, start.y + start.height / 2, 0);
@@ -563,35 +563,4 @@ using System.Linq;
             }
 		Handles.DrawBezier(middlePoint, endPos, startTan2, endTan2, c, null, 3*width);
         }
-
-		
-	public static List<State> ProjectStates()
-	{
-		List<State> st = new List<State>();
-		string[] guids = AssetDatabase.FindAssets("t:State");
-
-
-		foreach(string s in guids)
-		{
-			string assetPath = AssetDatabase.GUIDToAssetPath(s);
-			State asset = AssetDatabase.LoadAssetAtPath(assetPath, typeof(State)) as State;
-			st.Add (asset);
-		}
-
-		if(st.Count==0)
-		{
-			EditorWindow.GetWindow<CombinationsEditor> ().Close ();
-		}
-		return st;
-	}
-
-	private void OnDisable()
-	{
-		foreach(KeyValuePair<State, GUIDraggableObject> kvp in StatesPositions)
-		{
-			kvp.Key.Drag (kvp.Value.Position);
-            EditorUtility.SetDirty(kvp.Key);
-        }
-	}
-
   }

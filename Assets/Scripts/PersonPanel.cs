@@ -43,9 +43,4 @@ public class PersonPanel : MonoBehaviour {
 	{
 		Animator.SetBool ("Showing", false);
 	}
-
-	void Start()
-	{
-		GetComponent<Button> ().onClick.AddListener (()=>DialogController.Instance.Skip());
-	}
 }

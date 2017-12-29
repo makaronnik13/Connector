@@ -20,7 +20,8 @@ public class State: ScriptableObject
     public NarrativeLink[] narrativeLinks = new NarrativeLink[0];
     public CombinationLink[] combinationLinks = new CombinationLink[0];
 
-
+    [HideInInspector]
+    public List<NarrativeLink> InNarrativeLinks = new List<NarrativeLink>();
 
     [HideInInspector]
 	[SerializeField]
@@ -63,7 +64,13 @@ public class State: ScriptableObject
 
     public void RemoveNarrativeLink(int i)
     {
+
         List<NarrativeLink> comb = narrativeLinks.ToList();
+
+        if (comb[i].endPoint)
+        {
+            comb[i].endPoint.InNarrativeLinks.Remove(comb[i]);
+        }
         comb.RemoveAt(i);
         narrativeLinks = comb.ToArray();
     }

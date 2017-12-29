@@ -11,33 +11,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c9f6f5225a742e3a5c4b9f44031068, type: 3}
   m_Name: New State
   m_EditorClassIdentifier: 
-  StateName: Finding friends
+  StateName: Finding friend
   Horizontal: 201
   Vertical: 55
   description: 
   monolog:
     replics:
     - person: 0
-      text: I have a problem
-    - person: 0
       text: I need friends
-    - person: 0
-      text: Please, help me
   narrativeLinks:
+  - endPoint: {fileID: 11400000, guid: 8f9e572b9f3aa664a85cd5e161ed2844, type: 2}
+  combinationLinks:
   - endPoint: {fileID: 11400000, guid: 6b60138004e454e018db75e3aab11b4e, type: 2}
     dialog:
       replics:
       - person: 0
-        text: Hello
+        text: Hi
       - person: 1
-        text: Hey!
-      - person: 0
-        text: Do you wana be by bro?
-      - person: 1
-        text: Sure! Lets party!
-      - person: 0
-        text: Yey!
-  combinationLinks: []
-  X: 111
-  Y: 128
+        text: Hi
+  InNarrativeLinks: []
+  X: 162
+  Y: -42
   Sprite: {fileID: 21300000, guid: 09b68f7456ffa42ee9a915081d9b403d, type: 3}

@@ -23,6 +23,7 @@ MonoBehaviour:
       text: Help me find someone
   narrativeLinks: []
   combinationLinks: []
-  X: 401
-  Y: 233
+  InNarrativeLinks: []
+  X: 365
+  Y: 244
   Sprite: {fileID: 21300000, guid: 3c6bc630dec29495ba9caf75a5ac3517, type: 3}

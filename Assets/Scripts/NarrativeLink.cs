@@ -6,5 +6,5 @@ using UnityEngine;
 
 public class NarrativeLink: Link
 {
-	public Dialog dialog;
+	
 }
