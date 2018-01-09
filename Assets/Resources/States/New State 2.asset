@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Name: New State 2
   m_EditorClassIdentifier: 
   StateName: Pizza time
-  Horizontal: 201
-  Vertical: 55
+  day: 1
+  minute: 0
   description: 
   monolog:
+    clip: {fileID: 0}
     replics:
     - person: 0
       text: I need pizza
+  StoryState: 0
   narrativeLinks: []
   combinationLinks: []
   InNarrativeLinks:

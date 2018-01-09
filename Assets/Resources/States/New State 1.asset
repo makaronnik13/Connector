@@ -12,18 +12,20 @@ MonoBehaviour:
   m_Name: New State 1
   m_EditorClassIdentifier: 
   StateName: Lonely guy
-  Horizontal: 286
-  Vertical: 44
+  day: 1
+  minute: 0
   description: 
   monolog:
+    clip: {fileID: 0}
     replics:
     - person: 0
       text: Hi, i have no friends
     - person: 0
       text: Help me find someone
+  StoryState: 0
   narrativeLinks: []
   combinationLinks: []
   InNarrativeLinks: []
-  X: 365
-  Y: 244
+  X: 279
+  Y: 212
   Sprite: {fileID: 21300000, guid: 3c6bc630dec29495ba9caf75a5ac3517, type: 3}

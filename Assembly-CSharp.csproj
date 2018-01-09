@@ -51,37 +51,49 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ConnectionsButtonsManager.cs" />
-     <Compile Include="Assets\DialogController.cs" />
      <Compile Include="Assets\Scripts\BillBoard.cs" />
      <Compile Include="Assets\Scripts\CombinationLink.cs" />
+     <Compile Include="Assets\Scripts\ConnectionLine.cs" />
      <Compile Include="Assets\Scripts\ConnectionPoint.cs" />
+     <Compile Include="Assets\Scripts\ConnectionsButtonsManager.cs" />
      <Compile Include="Assets\Scripts\Dialog.cs" />
+     <Compile Include="Assets\Scripts\DialogController.cs" />
      <Compile Include="Assets\Scripts\Link.cs" />
+     <Compile Include="Assets\Scripts\MenuController.cs" />
      <Compile Include="Assets\Scripts\NarrativeLink.cs" />
      <Compile Include="Assets\Scripts\PersonPanel.cs" />
      <Compile Include="Assets\Scripts\Replica.cs" />
      <Compile Include="Assets\Scripts\Rotator.cs" />
      <Compile Include="Assets\Scripts\Singleton.cs" />
+     <Compile Include="Assets\Scripts\SoundController.cs" />
      <Compile Include="Assets\Scripts\State.cs" />
-     <Compile Include="Assets\TascsManager.cs" />
-     <Compile Include="Assets\Task.cs" />
+     <Compile Include="Assets\Scripts\TascsManager.cs" />
+     <Compile Include="Assets\Scripts\Task.cs" />
+     <Compile Include="Assets\Scripts\TranslationDictionary.cs" />
+     <Compile Include="Assets\ThirdPartyAssets\CurvedLine\CurvedLinePoint.cs" />
+     <Compile Include="Assets\ThirdPartyAssets\CurvedLine\CurvedLineRenderer.cs" />
+     <Compile Include="Assets\ThirdPartyAssets\CurvedLine\LineSmoother.cs" />
      <Compile Include="Assets\ThirdPartyAssets\Typewriter\AccelerateTyping.cs" />
      <Compile Include="Assets\ThirdPartyAssets\Typewriter\AdvanceOnKeypressOrMouseInput.cs" />
      <Compile Include="Assets\ThirdPartyAssets\Typewriter\Billboard.cs" />
      <Compile Include="Assets\ThirdPartyAssets\Typewriter\TalkWhenNear.cs" />
      <Compile Include="Assets\ThirdPartyAssets\Typewriter\Typewriter.cs" />
+     <None Include="Assets\Resources\Earth\Planet2.shader" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.xml" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.xml" />
+     <None Include="Assets\Earth\Eatrh3d\Planet3d.shader" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.xml" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.Editor.xml" />
+     <None Include="Assets\Resources\Earth\Planet_Elliptical.shader" />
      <None Include="Assets\Resources\Shaders\Planet.shader" />
+     <None Include="Assets\Resources\Shaders\Radar3.shader" />
      <None Include="Assets\Plugins\Sirenix\Readme.txt" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.xml" />
      <None Include="Assets\Resources\Fonts\comic_book\Font License.txt" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\link.xml" />
      <None Include="Assets\Resources\Fonts\anime_ace_bb\animeace2bb_tt\font info.txt" />
      <None Include="Assets\Resources\Fonts\anime_ace_bb\animeace2bb_ot\font info.txt" />
+     <None Include="Assets\Resources\Shaders\Rays.shader" />
      <None Include="Assets\Resources\Fonts\friday_night\Terms of Use End User Lisence Agreement.txt" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.xml" />
      <None Include="Assets\Resources\Fonts\avengeance_mightiest_avenger\PersonalUseEULA_AVENGEANCE.txt" />
@@ -107,22 +119,22 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.OdinInspector.Attributes">
- <HintPath>/Users/nikita/Desktop/Connector/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
+ <HintPath>/Users/nikita/Desktop/Projects/Connector/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.OdinInspector.Editor">
- <HintPath>/Users/nikita/Desktop/Connector/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
+ <HintPath>/Users/nikita/Desktop/Projects/Connector/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.Serialization.Config">
- <HintPath>/Users/nikita/Desktop/Connector/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
+ <HintPath>/Users/nikita/Desktop/Projects/Connector/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.Serialization">
- <HintPath>/Users/nikita/Desktop/Connector/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
+ <HintPath>/Users/nikita/Desktop/Projects/Connector/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.Utilities">
- <HintPath>/Users/nikita/Desktop/Connector/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.dll</HintPath>
+ <HintPath>/Users/nikita/Desktop/Projects/Connector/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.Utilities.Editor">
- <HintPath>/Users/nikita/Desktop/Connector/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
+ <HintPath>/Users/nikita/Desktop/Projects/Connector/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

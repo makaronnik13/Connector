@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class ConnectionPoint : MonoBehaviour, IDropHandler, IDragHandler
 {
+	public float min, max;
+
     private enum PointState
     {
         Inactive,
@@ -62,8 +64,7 @@ public class ConnectionPoint : MonoBehaviour, IDropHandler, IDragHandler
     public void Init(State state)
     {
         this.state = state;
-        Horizontal = state.Horizontal;
-        Vertiacal = state.Vertical;
+       
         pointState = PointState.Pinging;
 
         material = new Material(GetComponent<Image>().material);
@@ -111,6 +112,9 @@ public class ConnectionPoint : MonoBehaviour, IDropHandler, IDragHandler
         }
     }
 
+
+
+
 	private void OnPlanetRotationChanged(float angle)
 	{
 		float angleHorizontal = (angle - Horizontal)*Mathf.Deg2Rad;
@@ -128,9 +132,13 @@ public class ConnectionPoint : MonoBehaviour, IDropHandler, IDragHandler
 		float SectionRadius = Mathf.Cos (Vertiacal*Mathf.Deg2Rad)*Radius;
 
 		//Debug.Log (Mathf.Abs(Mathf.Sin(angleHorizontal)));
-		Img.color = Color.Lerp (Color.white, new Color(1,1,1,0), Mathf.Pow(Mathf.Abs(Mathf.Sin(angleHorizontal)), 30));
+		Color c1 = new Color(Img.material.color.r, Img.material.color.g, Img.material.color.b, 1);
+		Color c2 = new Color(Img.material.color.r, Img.material.color.g, Img.material.color.b, 0);
+		Img.material.color = Color.Lerp (c1, c2, Mathf.Pow(Mathf.Abs(Mathf.Sin(angleHorizontal)), 30));
+
 		transform.localPosition = new Vector3 (Mathf.Sin(angleHorizontal)*SectionRadius, Mathf.Sin(Vertiacal*Mathf.Deg2Rad)*Radius, transform.localPosition.z);
 	}
+
 
 	private void PointClicked()
 	{

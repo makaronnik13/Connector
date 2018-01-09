@@ -13,5 +13,7 @@ public class Dialog
 		SecondPerson
 	}
 
+	public AudioClip clip;
+
 	public List<Replica> replics;
 }

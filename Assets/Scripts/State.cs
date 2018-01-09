@@ -8,17 +8,27 @@ using Sirenix.OdinInspector;
 public class State: ScriptableObject
 {
     public string StateName;
-	[Range(0,360)]
-	public float Horizontal;
-	[Range(-90,90)]
-	public float Vertical;
+
+	public int day = 1;
+	public int minute = 0;
 
 	[MultiLineProperty]
 	public string description;
 
 	public Dialog monolog;
+
+	public bool StoryState = false;
+
+	[ShowIf("IsStory")]
     public NarrativeLink[] narrativeLinks = new NarrativeLink[0];
+
+	private bool IsStory()
+	{
+		return StoryState;
+	}
+
     public CombinationLink[] combinationLinks = new CombinationLink[0];
+
 
     [HideInInspector]
     public List<NarrativeLink> InNarrativeLinks = new List<NarrativeLink>();

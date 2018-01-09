@@ -309,8 +309,7 @@ public class CombinationsEditor : EditorWindow
             int i = 0;
 
         Rect aim = new Rect(state.Value.Position.x + screenDelta.x + 100f / 2-7f, state.Value.Position.y + screenDelta.y- 5, 15, 15);
-		Rect aim2 = new Rect(state.Value.Position.x + screenDelta.x + 100f / 2-10f, state.Value.Position.y + screenDelta.y- 13, 20, 20);
-
+	
         GUI.Label(aim, new GUIContent(Resources.Load("Icons/button") as Texture2D));
 		
 		GUI.color = Color.white;
@@ -340,6 +339,11 @@ public class CombinationsEditor : EditorWindow
             {
             containCursor = true;
             }
+			
+		if(editorMode == EditorMode.Narrative && !state.Key.StoryState)	
+		{
+			return false;
+		}
 
             foreach (Link c in combinations)
             {
@@ -355,8 +359,6 @@ public class CombinationsEditor : EditorWindow
                     size = 20;
                 }
                 Rect start = new Rect(state.Value.Position.x + screenDelta.x + offset-size/4, state.Value.Position.y + screenDelta.y + 110, size, size);
-
-                Vector3 aimPosition = start.position + Vector2.down * 5f;
 
  
             GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, 1);
@@ -457,6 +459,10 @@ public class CombinationsEditor : EditorWindow
             Link[] combinations = new Link[0];
             if (editorMode == EditorMode.Narrative)
             {
+				if(!state.Key.StoryState)	
+				{
+					continue;
+				}
                 combinations = state.Key.narrativeLinks;
             }
             if (editorMode == EditorMode.Combinations)
