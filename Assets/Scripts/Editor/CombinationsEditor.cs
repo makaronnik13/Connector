@@ -427,9 +427,9 @@ public class CombinationsEditor : EditorWindow
 		GUILayout.Label (state.Key.StateName, GUILayout.ExpandWidth(true));
 	
 		Texture2D texture = new Texture2D(1,1);
-		if(state.Key.Sprite)
+		if(state.Key.person && state.Key.person.PersonSprite)
 		{
-		    texture = state.Key.Sprite.texture;
+		    texture = state.Key.person.PersonSprite.texture;
 		}
 		GUILayout.Label (texture, GUILayout.Height(100));
 		

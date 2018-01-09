@@ -43,10 +43,9 @@ public class State: ScriptableObject
 		Y = p.y;
 	}
 
-   
 
-    [AssetsOnly, InlineEditor(InlineEditorModes.LargePreview)]
-    public Sprite Sprite;
+
+    public Person person;
 
     public void AddNarrativeLink()
     {

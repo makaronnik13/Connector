@@ -8,7 +8,39 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 
     public float coef = 1;
 
+    public Color[] colors;
+
+    public Person startPerson;
+
     private Material material;
+    private List<Vector3> points = new List<Vector3>();
+
+    public void Drop(RectTransform endTransform, Person endPerson)
+    {
+        GameObject newWire = new GameObject();
+
+        newWire.AddComponent<Wire>().Init(startPerson, endPerson);
+
+        newWire.transform.SetParent(transform);
+        LineRenderer lr = newWire.AddComponent<LineRenderer>();
+        lr.material = new Material(material);
+        lr.useWorldSpace = true;
+        lr.SetWidth(GetComponent<LineRenderer>().startWidth, GetComponent<LineRenderer>().endWidth);
+
+        Vector3 start = new Vector3(startTransform.position.x, startTransform.position.y, -5);
+        Vector3 end = new Vector3(endTransform.position.x, endTransform.position.y, -5);
+        points.Clear();
+        for (int i = 0; i < 10; i++)
+        {
+            points.Add(new Vector3(Mathf.Lerp(start.x, end.x, (i + .0f) / 10), Mathf.Lerp(start.y, end.y, (float)Math.Pow((double)((i + .0f) / 10), (double)2f)), start.z));
+        }
+        points.Add(end);
+        points = LineSmoother.SmoothLine(points.ToArray(), 0.3f).ToList();
+
+        lr.positionCount = points.Count;
+        lr.SetPositions(points.ToArray());
+    }
+
     private RectTransform startTransform;
     private LineRenderer line;
     private LineRenderer Line
@@ -23,25 +55,6 @@ public class ConnectionLine : Singleton<ConnectionLine> {
         }
     }
 
-    public State From
-    {
-        get
-        {
-            if (startTransform)
-            {
-                if (startTransform.GetComponent<Task>())
-                {
-                    return startTransform.GetComponent<Task>().state;
-                }
-
-                if (startTransform.GetComponent<ConnectionPoint>())
-                {
-                    return startTransform.GetComponent<ConnectionPoint>().state;
-                }
-            }
-            return null;
-        }
-    }
 
     #region Lifecycle
     private void Update()
@@ -52,7 +65,7 @@ public class ConnectionLine : Singleton<ConnectionLine> {
             Vector3 start = new Vector3(startTransform.position.x, startTransform.position.y, -5);
             Vector3 end = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 5));
 
-            List<Vector3> points = new List<Vector3>();
+            points.Clear();
 
             for (int i = 0; i<10;i++)
             {
@@ -65,7 +78,6 @@ public class ConnectionLine : Singleton<ConnectionLine> {
             Line.positionCount = points.Count;
 
             Line.SetPositions(points.ToArray());
-            material.SetFloat("_frequency", coef * Vector3.Distance(start, end));
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -84,10 +96,19 @@ public class ConnectionLine : Singleton<ConnectionLine> {
         startTransform = null;
         Line.enabled = false;
     }
-    public void SetStart(RectTransform start)
+    public void SetStart(RectTransform start, Person person)
     {
+        if(start == startTransform)
+        {
+            return;
+        }
 
-        if(startTransform!=start)
+        startPerson = person;
+
+        Color c = colors[UnityEngine.Random.Range(0, colors.Count() - 1)];
+        material.color = c;
+
+        if (startTransform!=start)
         {
             startTransform = start;
             Line.enabled = true;

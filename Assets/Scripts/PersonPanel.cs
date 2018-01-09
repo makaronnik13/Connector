@@ -36,11 +36,11 @@ public class PersonPanel : MonoBehaviour {
 
 	public void Show()
 	{
-		Animator.SetBool ("Showing", true);
+		
 	}
 
 	public void Hide()
 	{
-		Animator.SetBool ("Showing", false);
+		
 	}
 }

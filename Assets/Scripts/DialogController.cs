@@ -126,11 +126,11 @@ public class DialogController: Singleton<DialogController>{
 
 		if(replica.person == Dialog.Person.FirstPerson)
 		{
-			firstPersonPanel.Show (firstState.Sprite, replica.text);
+			firstPersonPanel.Show (firstState.person.PersonSprite, replica.text);
 		}
 		if(replica.person == Dialog.Person.SecondPerson)
 		{
-			secondPersonPanel.Show (secondState.Sprite, replica.text);
+			secondPersonPanel.Show (secondState.person.PersonSprite, replica.text);
 		}
 
 		Invoke ("PlayNextReplica", replica.text.Length*secondsForSymbol+dellay);

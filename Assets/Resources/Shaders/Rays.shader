@@ -28,7 +28,8 @@ Shader "Shader Forge/Rays" {
             Blend SrcAlpha OneMinusSrcAlpha
             Cull Off
             ZWrite Off
-            
+			ZTest Always
+
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
