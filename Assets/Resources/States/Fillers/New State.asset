@@ -37,4 +37,4 @@ MonoBehaviour:
   InNarrativeLinks: []
   X: 270
   Y: 34
-  Sprite: {fileID: 21300000, guid: 09b68f7456ffa42ee9a915081d9b403d, type: 3}
+  person: {fileID: 11400000, guid: 0bc2049c2b85ec846bdd6d05bbe9580f, type: 2}

@@ -63,6 +63,7 @@
      <None Include="Assets\Resources\Shaders\Radar3.shader" />
      <None Include="Assets\Plugins\Sirenix\Readme.txt" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.xml" />
+     <None Include="Assets\Resources\Shaders\Wire.shader" />
      <None Include="Assets\Resources\Fonts\comic_book\Font License.txt" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\link.xml" />
      <None Include="Assets\Resources\Fonts\anime_ace_bb\animeace2bb_tt\font info.txt" />

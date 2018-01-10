@@ -23,7 +23,6 @@ public class DialogController: Singleton<DialogController>{
 
 	public void Talk(State firstPersonState)
 	{
-		firstPersonPanel.GetComponent<Animator> ().SetBool ("Single", true);
 		firstState = firstPersonState;
 		List<Replica> replics = new List<Replica>(firstState.monolog.replics);
 		replics.Reverse ();
@@ -66,10 +65,6 @@ public class DialogController: Singleton<DialogController>{
             link = defaultLink;
         }
 
-        firstPersonPanel.GetComponent<Animator> ().SetBool ("Single", false);
-
-
-
 		firstState = firstPersonState;
 		secondState = secondPersonState;
 		List<Replica> replics = new List<Replica>(link.dialog.replics);
@@ -80,7 +75,8 @@ public class DialogController: Singleton<DialogController>{
 
 	void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
+		/*
+		if(Input.GetKeyDown(KeyCode.Return))
 		{
 			Skip ();
 
@@ -89,7 +85,7 @@ public class DialogController: Singleton<DialogController>{
                 HideDialog();
             }
 
-		}
+		}*/
 	}
 
 	public void Skip()
@@ -100,6 +96,7 @@ public class DialogController: Singleton<DialogController>{
 
 	private void HideDialog()
 	{
+		Debug.Log ("HideDialog");
 
             firstPersonPanel.Hide();
             secondPersonPanel.Hide();
@@ -117,6 +114,7 @@ public class DialogController: Singleton<DialogController>{
         if (replicasStack.Count==0)
 		{
             canFinish = true;
+			Invoke ("HideDialog", 2);
             return;
 		}
 
@@ -126,6 +124,7 @@ public class DialogController: Singleton<DialogController>{
 
 		if(replica.person == Dialog.Person.FirstPerson)
 		{
+
 			firstPersonPanel.Show (firstState.person.PersonSprite, replica.text);
 		}
 		if(replica.person == Dialog.Person.SecondPerson)
@@ -135,4 +134,5 @@ public class DialogController: Singleton<DialogController>{
 
 		Invoke ("PlayNextReplica", replica.text.Length*secondsForSymbol+dellay);
 	}
+
 }

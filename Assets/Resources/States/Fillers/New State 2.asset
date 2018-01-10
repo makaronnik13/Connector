@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69c9f6f5225a742e3a5c4b9f44031068, type: 3}
-  m_Name: New State 1
+  m_Name: New State 2
   m_EditorClassIdentifier: 
-  StateName: Lonely guy
+  StateName: Pizza time
   day: 1
   minute: 0
   description: 
@@ -19,13 +19,12 @@ MonoBehaviour:
     clip: {fileID: 0}
     replics:
     - person: 0
-      text: Hi, i have no friends
-    - person: 0
-      text: Help me find someone
+      text: I need pizza
   StoryState: 0
   narrativeLinks: []
   combinationLinks: []
-  InNarrativeLinks: []
-  X: 279
-  Y: 212
-  Sprite: {fileID: 21300000, guid: 3c6bc630dec29495ba9caf75a5ac3517, type: 3}
+  InNarrativeLinks:
+  - endPoint: {fileID: 11400000}
+  X: 34
+  Y: 242
+  person: {fileID: 11400000, guid: 21c045e0beee0ed42a3bea81f824829e, type: 2}

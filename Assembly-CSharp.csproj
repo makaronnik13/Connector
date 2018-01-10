@@ -51,25 +51,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Addres.cs" />
+     <Compile Include="Assets\Scripts\AddresBook.cs" />
      <Compile Include="Assets\Scripts\BillBoard.cs" />
+     <Compile Include="Assets\Scripts\BookMark.cs" />
+     <Compile Include="Assets\Scripts\CallPanel.cs" />
+     <Compile Include="Assets\Scripts\CallsController.cs" />
      <Compile Include="Assets\Scripts\CombinationLink.cs" />
      <Compile Include="Assets\Scripts\ConnectionLine.cs" />
-     <Compile Include="Assets\Scripts\ConnectionPoint.cs" />
-     <Compile Include="Assets\Scripts\ConnectionsButtonsManager.cs" />
      <Compile Include="Assets\Scripts\Dialog.cs" />
      <Compile Include="Assets\Scripts\DialogController.cs" />
+     <Compile Include="Assets\Scripts\Glass.cs" />
+     <Compile Include="Assets\Scripts\HabField.cs" />
+     <Compile Include="Assets\Scripts\Jack.cs" />
      <Compile Include="Assets\Scripts\Link.cs" />
      <Compile Include="Assets\Scripts\MenuController.cs" />
      <Compile Include="Assets\Scripts\NarrativeLink.cs" />
+     <Compile Include="Assets\Scripts\PaperWithName.cs" />
+     <Compile Include="Assets\Scripts\Person.cs" />
      <Compile Include="Assets\Scripts\PersonPanel.cs" />
      <Compile Include="Assets\Scripts\Replica.cs" />
      <Compile Include="Assets\Scripts\Rotator.cs" />
      <Compile Include="Assets\Scripts\Singleton.cs" />
      <Compile Include="Assets\Scripts\SoundController.cs" />
      <Compile Include="Assets\Scripts\State.cs" />
-     <Compile Include="Assets\Scripts\TascsManager.cs" />
-     <Compile Include="Assets\Scripts\Task.cs" />
      <Compile Include="Assets\Scripts\TranslationDictionary.cs" />
+     <Compile Include="Assets\Scripts\Wire.cs" />
      <Compile Include="Assets\ThirdPartyAssets\CurvedLine\CurvedLinePoint.cs" />
      <Compile Include="Assets\ThirdPartyAssets\CurvedLine\CurvedLineRenderer.cs" />
      <Compile Include="Assets\ThirdPartyAssets\CurvedLine\LineSmoother.cs" />
@@ -89,6 +96,7 @@
      <None Include="Assets\Resources\Shaders\Radar3.shader" />
      <None Include="Assets\Plugins\Sirenix\Readme.txt" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.xml" />
+     <None Include="Assets\Resources\Shaders\Wire.shader" />
      <None Include="Assets\Resources\Fonts\comic_book\Font License.txt" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\link.xml" />
      <None Include="Assets\Resources\Fonts\anime_ace_bb\animeace2bb_tt\font info.txt" />
