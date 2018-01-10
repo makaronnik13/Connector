@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using System;
+using System.Linq;
 
 public class DialogController: Singleton<DialogController>{
 
@@ -21,17 +22,43 @@ public class DialogController: Singleton<DialogController>{
 
 	public Action<State,State> onDialogFinished = (State s1, State s2)=>{};
 
-	public void Talk(State firstPersonState)
+    private void Start()
+    {
+        firstPersonPanel.writer.OnComplete += SectionComplete;
+    }
+
+    private void SectionComplete()
+    {
+        Debug.Log("!");
+        PlayNextReplica();
+    }
+
+    public void Talk(State firstPersonState)
 	{
 		firstState = firstPersonState;
 		List<Replica> replics = new List<Replica>(firstState.monolog.replics);
-		replics.Reverse ();
-		replicasStack = new Stack<Replica>(replics);
-		PlayNextReplica ();
-	}
+
+        replics.Reverse();
+        replicasStack = new Stack<Replica>(replics);
+        replics.Reverse();
+
+        firstPersonPanel.writer.initialText = replics[0].text;
+       
+        replics.RemoveAt(0);
+
+        firstPersonPanel.writer.additionalTextSections = replics.Select(r=>r.text).ToArray();
+
+        firstPersonPanel.writer.Start();
+        PlayNextReplica ();
+    }
 
 	public void Talk(State firstPersonState, State secondPersonState)
 	{
+        firstPersonPanel.writer.Stop();
+
+        /*
+        CancelInvoke();
+
         CombinationLink link = null;
 
         foreach (CombinationLink cl in firstPersonState.combinationLinks)
@@ -71,68 +98,61 @@ public class DialogController: Singleton<DialogController>{
 		replics.Reverse ();
 		replicasStack = new Stack<Replica>(replics);
 		PlayNextReplica ();
+        */
 	}
 
 	void Update()
 	{
-		/*
-		if(Input.GetKeyDown(KeyCode.Return))
+		if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
 		{
-			Skip ();
-
-            if (canFinish)
-            {
-                HideDialog();
-            }
-
-		}*/
+			Skip ();   
+		}
 	}
 
 	public void Skip()
 	{
-		CancelInvoke ("PlayNextReplica");
-		PlayNextReplica ();
-	}
+        firstPersonPanel.writer.charactersPerSecond = 1000;
+        //CancelInvoke ("PlayNextReplica");
+        //PlayNextReplica ();
+    }
 
-	private void HideDialog()
-	{
-		Debug.Log ("HideDialog");
+    private void HideDialog()
+    {
+        if (firstState != null || secondState != null)
+        {
+            Debug.Log("HideDialog");
 
             firstPersonPanel.Hide();
             secondPersonPanel.Hide();
-            Rotator.Instance.rotating = true;
             onDialogFinished.Invoke(firstState, secondState);
             firstState = null;
             secondState = null;
-        canFinish = false;
-	}
+            canFinish = false;
+        }
+    }
 
 	private void PlayNextReplica()
 	{
+        firstPersonPanel.writer.charactersPerSecond = 10;
         canFinish = false;
 
-        if (replicasStack.Count==0)
+        if (replicasStack.Count==0 || firstState == null)
 		{
             canFinish = true;
-			Invoke ("HideDialog", 2);
+			Invoke ("HideDialog", 1);
             return;
 		}
-
-        Rotator.Instance.rotating = false;
 
         Replica replica = (Replica)replicasStack.Pop ();
 
 		if(replica.person == Dialog.Person.FirstPerson)
 		{
-
 			firstPersonPanel.Show (firstState.person.PersonSprite, replica.text);
 		}
 		if(replica.person == Dialog.Person.SecondPerson)
 		{
 			secondPersonPanel.Show (secondState.person.PersonSprite, replica.text);
 		}
-
-		Invoke ("PlayNextReplica", replica.text.Length*secondsForSymbol+dellay);
 	}
 
 }

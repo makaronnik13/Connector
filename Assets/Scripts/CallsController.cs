@@ -66,6 +66,7 @@ public class CallsController : Singleton<CallsController>
 
     private void DialogFinished(State arg1, State arg2)
     {
+        /*
         if (arg1 != null && arg2 != null)
         {
             //add narrative conditions
@@ -83,7 +84,7 @@ public class CallsController : Singleton<CallsController>
                     AddState(nl.endPoint);
                 }
             }
-        }
+        }*/
     }
 
     private void Update()
@@ -92,19 +93,15 @@ public class CallsController : Singleton<CallsController>
 		nextStateTime += Time.deltaTime;
 		if(nextStateTime >= StateRate)
 		{
-			Debug.Log ("Time");
 			if (EmptyPanel) 
 			{
-				Debug.Log ("has empty panel");
-				Debug.Log (fillerStates.Count);
-
 				List<State> awaliableStates = fillerStates.Where (s=>s.minute<=time).ToList();
 
-				Debug.Log (awaliableStates.Count);
 				if (awaliableStates.Count > 0) 
 				{
-					EmptyPanel.LaunchTalk (awaliableStates [Random.Range (0, awaliableStates.Count - 1)]);
-					RemoveState (awaliableStates [Random.Range (0, awaliableStates.Count - 1)]);
+                    State s = awaliableStates[Random.Range(0, awaliableStates.Count - 1)];
+                    EmptyPanel.LaunchTalk (s);
+					RemoveState (s);
 				}
 			} 
 			else 

@@ -89,8 +89,7 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
 
 	void DialogFinished(State s1, State s2)
 	{
-		Debug.Log ("Dialog finished");
-		if((s1==null && s2 == state) || (s1 == state || s2 == null))
+		if((s1==null && s2 == state) || (s1 == state && s2 == null))
 		{
 			callPanelState = CallPanelState.Waiting;
 		}

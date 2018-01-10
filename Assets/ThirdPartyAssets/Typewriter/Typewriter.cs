@@ -143,6 +143,8 @@ public class Typewriter : MonoBehaviour {
 			else {
 				yield return new WaitForSeconds(delayBetweenTextSections);
 			}
+
+            OnComplete.Invoke();
 		}
 		
 		if(onCompleteEvent.Length > 0) {

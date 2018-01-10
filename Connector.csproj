@@ -105,24 +105,24 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Addres.cs" />
-    <Compile Include="Assets\AddresBook.cs" />
-    <Compile Include="Assets\BookMark.cs" />
-    <Compile Include="Assets\CallPanel.cs" />
-    <Compile Include="Assets\CallsController.cs" />
-    <Compile Include="Assets\Glass.cs" />
-    <Compile Include="Assets\HabField.cs" />
-    <Compile Include="Assets\Jack.cs" />
-    <Compile Include="Assets\PaperWithName.cs" />
-    <Compile Include="Assets\Person.cs" />
+    <Compile Include="Assets\Scripts\Addres.cs" />
+    <Compile Include="Assets\Scripts\AddresBook.cs" />
     <Compile Include="Assets\Scripts\BillBoard.cs" />
+    <Compile Include="Assets\Scripts\BookMark.cs" />
+    <Compile Include="Assets\Scripts\CallPanel.cs" />
+    <Compile Include="Assets\Scripts\CallsController.cs" />
     <Compile Include="Assets\Scripts\CombinationLink.cs" />
     <Compile Include="Assets\Scripts\ConnectionLine.cs" />
     <Compile Include="Assets\Scripts\Dialog.cs" />
     <Compile Include="Assets\Scripts\DialogController.cs" />
+    <Compile Include="Assets\Scripts\Glass.cs" />
+    <Compile Include="Assets\Scripts\HabField.cs" />
+    <Compile Include="Assets\Scripts\Jack.cs" />
     <Compile Include="Assets\Scripts\Link.cs" />
     <Compile Include="Assets\Scripts\MenuController.cs" />
     <Compile Include="Assets\Scripts\NarrativeLink.cs" />
+    <Compile Include="Assets\Scripts\PaperWithName.cs" />
+    <Compile Include="Assets\Scripts\Person.cs" />
     <Compile Include="Assets\Scripts\PersonPanel.cs" />
     <Compile Include="Assets\Scripts\Replica.cs" />
     <Compile Include="Assets\Scripts\Rotator.cs" />

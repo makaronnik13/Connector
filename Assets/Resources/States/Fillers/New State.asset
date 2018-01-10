@@ -21,7 +21,7 @@ MonoBehaviour:
     - person: 0
       text: Hi
     - person: 0
-      text: I need friends
+      text: ' i need friends bla bala bla bla bla bla bla bla bla bla bla esgresdgesgesgesg'
   StoryState: 0
   narrativeLinks:
   - endPoint: {fileID: 11400000, guid: 8f9e572b9f3aa664a85cd5e161ed2844, type: 2}

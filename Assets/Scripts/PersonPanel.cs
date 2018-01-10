@@ -7,6 +7,8 @@ using System;
 
 public class PersonPanel : MonoBehaviour {
 
+    private Sprite defaultSprite;
+
 	public Sprite spriteTest;
 	public string textTest;
 	private Animator animator;
@@ -25,22 +27,20 @@ public class PersonPanel : MonoBehaviour {
 	public Image img;
 	public Typewriter writer;
 
-	public void Show(Sprite sprite, string text)
-	{
-		writer.Stop ();
-		img.sprite = sprite;
-		writer.initialText = text;
-		writer.Start();
-		Show ();
-	}
+    private void Start()
+    {
+        defaultSprite = img.sprite;
+    }
 
-	public void Show()
+    public void Show(Sprite sprite, string text)
 	{
-		
+		img.sprite = sprite;
 	}
 
 	public void Hide()
 	{
-		
+        img.sprite = defaultSprite;
+        writer.Stop();
+        writer.guiTextComponent.text = "";
 	}
 }
