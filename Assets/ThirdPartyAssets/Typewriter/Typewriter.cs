@@ -66,7 +66,18 @@ public class Typewriter : MonoBehaviour {
 			Write();
 		}
 	}
-	
+
+	public void Write(string initial, string[] texts)
+	{
+		initialText = initial;
+		additionalTextSections = texts;
+		textSections = new string[1 + additionalTextSections.Length];
+		textSections[0] = initialText;	
+		System.Array.Copy(additionalTextSections, 0, textSections, 1, additionalTextSections.Length);
+		Write ();
+	}
+
+
 	// Starts the text writing to the assigned GUIText;
 	public void Write() {
 		if(null == guiTextComponent && null == textMesh) {
@@ -207,5 +218,15 @@ public class Typewriter : MonoBehaviour {
 			sb.Append("\n");
 		}
 		return sb.Remove(sb.Length - 1, 1).ToString();
+	}
+
+	public void Reset()
+	{
+		Stop ();
+		StopAllCoroutines ();
+		initialText = "";
+		textSections = new string[0];
+		finished = true;
+		animating = false;
 	}
 }

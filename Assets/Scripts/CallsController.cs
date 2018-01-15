@@ -6,7 +6,7 @@ using System.Linq;
 public class CallsController : Singleton<CallsController>
 {
 
-	private List<State> fillerStates = new List<State>();
+	private List<FillerState> fillerStates = new List<FillerState>();
     public float time = 0;
 
     public float SessionDuration = 60*60;
@@ -45,8 +45,8 @@ public class CallsController : Singleton<CallsController>
     void Start()
     {
         time = 0;
-        State[] states = Resources.LoadAll<State>("States/Fillers");
-        foreach (State state in states)
+		FillerState[] states = Resources.LoadAll<FillerState>("States/Fillers");
+		foreach (FillerState state in states)
         {
         	AddState(state);
         }
@@ -54,15 +54,16 @@ public class CallsController : Singleton<CallsController>
         DialogController.Instance.onDialogFinished += DialogFinished;
     }
 
-    private void AddState(State state)
+	private void AddState(FillerState state)
     {
         fillerStates.Add(state);
     }
 
-    public void RemoveState(State state)
+	public void RemoveState(FillerState state)
     {
         fillerStates.Remove(state);
     }
+
 
     private void DialogFinished(State arg1, State arg2)
     {
@@ -95,11 +96,11 @@ public class CallsController : Singleton<CallsController>
 		{
 			if (EmptyPanel) 
 			{
-				List<State> awaliableStates = fillerStates.Where (s=>s.minute<=time).ToList();
+				List<FillerState> awaliableStates = fillerStates.Where (s=>s.minute<=time).ToList();
 
 				if (awaliableStates.Count > 0) 
 				{
-                    State s = awaliableStates[Random.Range(0, awaliableStates.Count - 1)];
+					FillerState s = awaliableStates[Random.Range(0, awaliableStates.Count - 1)];
                     EmptyPanel.LaunchTalk (s);
 					RemoveState (s);
 				}

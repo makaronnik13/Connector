@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\ConnectionLine.cs" />
      <Compile Include="Assets\Scripts\Dialog.cs" />
      <Compile Include="Assets\Scripts\DialogController.cs" />
+     <Compile Include="Assets\Scripts\FillerState.cs" />
      <Compile Include="Assets\Scripts\Glass.cs" />
      <Compile Include="Assets\Scripts\HabField.cs" />
      <Compile Include="Assets\Scripts\Jack.cs" />
@@ -75,6 +76,7 @@
      <Compile Include="Assets\Scripts\Singleton.cs" />
      <Compile Include="Assets\Scripts\SoundController.cs" />
      <Compile Include="Assets\Scripts\State.cs" />
+     <Compile Include="Assets\Scripts\StorryState.cs" />
      <Compile Include="Assets\Scripts\TranslationDictionary.cs" />
      <Compile Include="Assets\Scripts\Wire.cs" />
      <Compile Include="Assets\ThirdPartyAssets\CurvedLine\CurvedLinePoint.cs" />

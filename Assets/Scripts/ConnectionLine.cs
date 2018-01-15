@@ -15,7 +15,7 @@ public class ConnectionLine : Singleton<ConnectionLine> {
     private Material material;
     private List<Vector3> points = new List<Vector3>();
 
-    public void Drop(RectTransform endTransform, Person endPerson)
+	public Wire Drop(RectTransform endTransform, Person endPerson)
     {
         GameObject newWire = new GameObject();
 
@@ -39,6 +39,7 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 
         lr.positionCount = points.Count;
         lr.SetPositions(points.ToArray());
+		return newWire.GetComponent<Wire> ();
     }
 
     private RectTransform startTransform;
@@ -81,7 +82,7 @@ public class ConnectionLine : Singleton<ConnectionLine> {
         }
         if (Input.GetMouseButtonUp(0))
         {
-            Hide();
+			Invoke("Hide", 0.1f);
         }
     }
     private void Start()
@@ -102,7 +103,7 @@ public class ConnectionLine : Singleton<ConnectionLine> {
         {
             return;
         }
-
+			
         startPerson = person;
 
         Color c = colors[UnityEngine.Random.Range(0, colors.Count() - 1)];

@@ -8,6 +8,7 @@ public class Glass : MonoBehaviour, IDragHandler, IDropHandler
 
     public void OnDrag(PointerEventData eventData)
     {
+		Debug.Log ("drag glass");
         GetComponentInParent<HabField>().StartDragPaper();
     }
 

@@ -7,6 +7,7 @@ public class PaperWithName : MonoBehaviour {
 
     public Person person;
     public bool Dragging;
+	public HabField startField;
 
     private Canvas parentCanvas
     {
@@ -16,8 +17,9 @@ public class PaperWithName : MonoBehaviour {
         }
     }
 
-	public void Init(Person p)
+	public void Init(Person p, HabField startHab = null)
     {
+		startField = startHab;
         Dragging = true;
         person = p;
         GetComponentInChildren<Text>().text =  p.Surname[0]+". " + p.FirstName;

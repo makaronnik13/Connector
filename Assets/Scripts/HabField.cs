@@ -6,9 +6,15 @@ using UnityEngine;
 public class HabField : MonoBehaviour, IWireDraggReciewer
 {
     public Person person;
+	public Wire wire;
 
     public void StartDragWire(RectTransform t)
     {
+		if(wire)
+		{
+			wire.Disconnect ();
+			wire = null;
+		}
         if (person == null)
         {
             return;
@@ -24,20 +30,29 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
             return;
         }
 
-        if (FindObjectsOfType<CallPanel>().ToList().Find(cp=>cp.state && cp.state.person == ConnectionLine.Instance.startPerson))
+		CallPanel callPanel = FindObjectsOfType<CallPanel> ().ToList ().Find (cp => cp.state && cp.state.person == ConnectionLine.Instance.startPerson);  
+		if (callPanel)
         {
-            ConnectionLine.Instance.Drop(endTransform, person);
+			wire = ConnectionLine.Instance.Drop(endTransform, person);
+			callPanel.DropWire ();
+			callPanel.wire = wire;
         }
     }
 
     public void StartDragPaper()
     {
-        if (!person.Service || person == null)
+
+		Debug.Log (person);
+		if (person == null || person.Service)
         {
             return;
         }
 
-
+		GameObject paper = GetComponentInChildren<PaperWithName>().gameObject;
+		paper.transform.SetParent(GameObject.FindGameObjectWithTag("GameCanvas").transform);
+		paper.transform.localScale = Vector3.one;
+		paper.GetComponent<PaperWithName>().Init(person, this);
+		person = null;
     }
 
     public void DropPaper()
@@ -52,6 +67,18 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
         {
             return;
         }
+
+		PaperWithName currentPaper = GetComponentInChildren<PaperWithName> ();
+		if (currentPaper) {
+			if (paper.startField) {
+				currentPaper.transform.SetParent (paper.startField.GetComponentInChildren<Glass> ().transform);
+				currentPaper.transform.localPosition = Vector3.zero;
+				paper.startField.person = currentPaper.person;
+			} else {
+				Destroy (currentPaper.gameObject);
+			}
+		}
+
         paper.Dragging = false;
         paper.transform.SetParent(GetComponentInChildren<Glass>().transform);
         paper.transform.localPosition = Vector3.zero;

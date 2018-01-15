@@ -16,8 +16,6 @@ public class DialogController: Singleton<DialogController>{
 
 	private Stack<Replica> replicasStack = new Stack<Replica>();
 
-    private bool canFinish = false;
-
 	public PersonPanel firstPersonPanel, secondPersonPanel;
 
 	public Action<State,State> onDialogFinished = (State s1, State s2)=>{};
@@ -29,12 +27,13 @@ public class DialogController: Singleton<DialogController>{
 
     private void SectionComplete()
     {
-        Debug.Log("!");
         PlayNextReplica();
     }
 
     public void Talk(State firstPersonState)
 	{
+		firstPersonPanel.writer.Reset ();
+
 		firstState = firstPersonState;
 		List<Replica> replics = new List<Replica>(firstState.monolog.replics);
 
@@ -42,20 +41,16 @@ public class DialogController: Singleton<DialogController>{
         replicasStack = new Stack<Replica>(replics);
         replics.Reverse();
 
-        firstPersonPanel.writer.initialText = replics[0].text;
-       
-        replics.RemoveAt(0);
+		string initial = replics [0].text;
+		replics.RemoveAt (0);
+		firstPersonPanel.writer.Write (initial, replics.Select(r=>r.text).ToArray());
 
-        firstPersonPanel.writer.additionalTextSections = replics.Select(r=>r.text).ToArray();
-
-        firstPersonPanel.writer.Start();
         PlayNextReplica ();
     }
 
 	public void Talk(State firstPersonState, State secondPersonState)
 	{
-        firstPersonPanel.writer.Stop();
-
+		firstPersonPanel.writer.Reset ();
         /*
         CancelInvoke();
 
@@ -112,33 +107,26 @@ public class DialogController: Singleton<DialogController>{
 	public void Skip()
 	{
         firstPersonPanel.writer.charactersPerSecond = 1000;
-        //CancelInvoke ("PlayNextReplica");
-        //PlayNextReplica ();
     }
 
     private void HideDialog()
     {
         if (firstState != null || secondState != null)
         {
-            Debug.Log("HideDialog");
-
             firstPersonPanel.Hide();
             secondPersonPanel.Hide();
             onDialogFinished.Invoke(firstState, secondState);
             firstState = null;
             secondState = null;
-            canFinish = false;
         }
     }
 
 	private void PlayNextReplica()
 	{
         firstPersonPanel.writer.charactersPerSecond = 10;
-        canFinish = false;
 
         if (replicasStack.Count==0 || firstState == null)
 		{
-            canFinish = true;
 			Invoke ("HideDialog", 1);
             return;
 		}

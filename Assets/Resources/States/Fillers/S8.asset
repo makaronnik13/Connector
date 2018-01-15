@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73dfac6e7a4cb4514804f4e31575d393, type: 3}
+  m_Name: S8
+  m_EditorClassIdentifier: 
+  day: 1
+  minute: 2
+  monolog:
+    clip: {fileID: 0}
+    replics:
+    - person: 0
+      text: "\u0417\u0434\u0440\u0430\u0441\u0442\u0432\u0443\u0439\u0442\u0435, \u0441\u043E\u0435\u0434\u0435\u043D\u0438\u0442\u0435
+        \u0441 \u0411\u044D\u0439\u043A\u0435\u0440\u043E\u043C"
+  dialog:
+    clip: {fileID: 0}
+    replics: []
+  X: 0
+  Y: 0
+  person: {fileID: 11400000, guid: 6c9b99700d3a5424cae6990b1ba90a86, type: 2}
+  aimPerson: {fileID: 11400000, guid: 5cb536dc51b899546b6fbddd4a6573a3, type: 2}

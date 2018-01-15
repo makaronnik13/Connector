@@ -176,7 +176,7 @@ public class CombinationsEditor : EditorWindow
     {
         if (selectedPath!=null && Event.current.type == EventType.keyDown && Event.current.keyCode == KeyCode.Delete)
         {
-
+			/*
             foreach (KeyValuePair<State, GUIDraggableObject> p in StatesPositions)
             {
                 if (editorMode == EditorMode.Narrative && p.Key.narrativeLinks.Contains(selectedPath))
@@ -189,6 +189,7 @@ public class CombinationsEditor : EditorWindow
                     p.Key.RemoveCombinationLink(p.Key.combinationLinks.ToList().IndexOf((CombinationLink)selectedPath));
                 }
             }
+            */
             selectedPath= null;
             Repaint();
         }
@@ -203,7 +204,7 @@ public class CombinationsEditor : EditorWindow
                 int i = 0;
 
                 Link[] links = new Link[0];
-
+				/*
                 if (editorMode == EditorMode.Narrative)
                 {
                     links = p.Key.narrativeLinks;
@@ -228,6 +229,7 @@ public class CombinationsEditor : EditorWindow
                    
                     i++;
                 }
+                */
             }
             Handles.BeginGUI();
             DrawNodeCurve(start, new Rect(Event.current.mousePosition, Vector2.one), Color.white, 2);
@@ -262,6 +264,7 @@ public class CombinationsEditor : EditorWindow
 
                 State st = StatesPositions[i].Key;
                 Repaint();
+				/*
                 menu.AddItem(new GUIContent("AddLink"), false, ()=> {
                     if (editorMode == EditorMode.Combinations)
                     {
@@ -280,6 +283,7 @@ public class CombinationsEditor : EditorWindow
                 });
 
                 menu.ShowAsContext();
+                */
             }
         }
 
@@ -295,6 +299,8 @@ public class CombinationsEditor : EditorWindow
     {
         bool containCursor = false;
         Link[] combinations = new Link[0];
+
+		/*
         if (editorMode == EditorMode.Combinations)
         {
             combinations = state.Key.combinationLinks;
@@ -303,7 +309,7 @@ public class CombinationsEditor : EditorWindow
         {
             combinations = state.Key.narrativeLinks;
         }
-           
+          */
 
             float s = 90f;
             int i = 0;
@@ -317,6 +323,7 @@ public class CombinationsEditor : EditorWindow
             if (Event.current.type == EventType.mouseUp && aim.Contains(Event.current.mousePosition) && selectedPath != null)
             {
         
+			/*
 
             foreach (KeyValuePair<State, GUIDraggableObject> kvp in statesPositions)
                 {
@@ -331,7 +338,7 @@ public class CombinationsEditor : EditorWindow
                     selectedPath.endPoint = state.Key;
                 }
             }
-
+*/
             selectedPath = null;
             }
 
@@ -339,12 +346,13 @@ public class CombinationsEditor : EditorWindow
             {
             containCursor = true;
             }
-			
+
+		/*
 		if(editorMode == EditorMode.Narrative && !state.Key.StoryState)	
 		{
 			return false;
 		}
-
+*/
             foreach (Link c in combinations)
             {
                 float offset = s * i / (combinations.Count() - 1);
@@ -424,8 +432,7 @@ public class CombinationsEditor : EditorWindow
 
         GUILayout.BeginArea (drawRect, GUI.skin.GetStyle ("Box"));
 		GUILayout.BeginVertical ();
-		GUILayout.Label (state.Key.StateName, GUILayout.ExpandWidth(true));
-	
+
 		Texture2D texture = new Texture2D(1,1);
 		if(state.Key.person && state.Key.person.PersonSprite)
 		{
@@ -457,6 +464,7 @@ public class CombinationsEditor : EditorWindow
 		foreach (KeyValuePair<State, GUIDraggableObject> state in StatesPositions)
 		{
             Link[] combinations = new Link[0];
+			/*
             if (editorMode == EditorMode.Narrative)
             {
 				if(!state.Key.StoryState)	
@@ -469,7 +477,7 @@ public class CombinationsEditor : EditorWindow
             {
                 combinations = state.Key.combinationLinks;
             } 
-
+*/
 			float s =  95;
 			int i = 0;
 

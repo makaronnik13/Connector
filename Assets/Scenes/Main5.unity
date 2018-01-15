@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!114 &15716941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,6 +629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!114 &125575064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1006,6 +1008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!114 &283879625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2662,6 +2665,7 @@ MonoBehaviour:
   _callPanelState: 0
   state: {fileID: 0}
   lamp: {fileID: 428841305}
+  wire: {fileID: 0}
 --- !u!1 &490688949
 GameObject:
   m_ObjectHideFlags: 0
@@ -2907,7 +2911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -3123,6 +3127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!114 &525301148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3210,6 +3215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!114 &532532400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4039,6 +4045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!114 &622620456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4126,6 +4133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!114 &625944024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4998,6 +5006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!114 &717816240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5263,6 +5272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!114 &830949371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5853,6 +5863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!114 &936269391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5956,6 +5967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!114 &985519514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6916,6 +6928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!114 &1198571674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7037,6 +7050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!114 &1202821072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7124,6 +7138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!114 &1203301665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7860,6 +7875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!114 &1327451896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10148,11 +10164,11 @@ MonoBehaviour:
   guiTextComponent: {fileID: 0}
   textMesh: {fileID: 0}
   waitForExternalInputBetweenSections: 0
-  delayBetweenTextSections: 1
+  delayBetweenTextSections: 0.5
   breakOnWholeWords: 1
   animated: 1
   charactersPerSecond: 10
-  startAutomatically: 1
+  startAutomatically: 0
   onCompleteTarget: {fileID: 0}
   onCompleteEvent: 
   onCompleteArgs: 
@@ -10390,6 +10406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!114 &1768081177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11471,6 +11488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!224 &1900954699 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224269942786666128, guid: a9a29eb0cf0ca1541b52776b39992a93,
@@ -12467,6 +12485,7 @@ MonoBehaviour:
   _callPanelState: 0
   state: {fileID: 0}
   lamp: {fileID: 905910665}
+  wire: {fileID: 0}
 --- !u!1 &2017492457
 GameObject:
   m_ObjectHideFlags: 0
@@ -12755,6 +12774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   person: {fileID: 0}
+  wire: {fileID: 0}
 --- !u!114 &2045967752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12809,6 +12829,7 @@ MonoBehaviour:
   _callPanelState: 0
   state: {fileID: 0}
   lamp: {fileID: 1784342532}
+  wire: {fileID: 0}
 --- !u!1 &2056093615
 GameObject:
   m_ObjectHideFlags: 0
@@ -13079,6 +13100,7 @@ MonoBehaviour:
   _callPanelState: 0
   state: {fileID: 0}
   lamp: {fileID: 1619597043}
+  wire: {fileID: 0}
 --- !u!1 &2112123721
 GameObject:
   m_ObjectHideFlags: 0
@@ -13132,9 +13154,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2112123721}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbe9f503fb12e462ebc4735d8160be98, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f7cdaaec0823754bbb9979d3ad3d404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: 0
+  SessionDuration: 3600
+  StateRate: 30
 --- !u!114 &2112123725
 MonoBehaviour:
   m_ObjectHideFlags: 0

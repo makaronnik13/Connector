@@ -67,10 +67,6 @@ public class Translation :  EditorWindow {
 			EditorGUILayout.EndHorizontal ();
 			foreach (State s in States) {
 				EditorGUILayout.BeginHorizontal ();
-				EditorGUILayout.LabelField (s.StateName);
-				foreach (TranslationDictionary.Languages l in Enum.GetValues(typeof(TranslationDictionary.Languages))) {
-					EditorGUILayout.TextField (s.StateName);
-				}
 				EditorGUILayout.EndHorizontal ();
 			}
 
@@ -124,6 +120,7 @@ public class Translation :  EditorWindow {
 				EditorGUILayout.LabelField (l.ToString());
 			}
 			EditorGUILayout.EndHorizontal ();
+			/*
 			foreach (State s in States) {
 				foreach (CombinationLink link in s.combinationLinks) {
 					foreach (Replica replica in link.dialog.replics) {
@@ -136,7 +133,7 @@ public class Translation :  EditorWindow {
 						EditorGUILayout.EndHorizontal ();
 					}
 				}
-			}
+			}*/
 		}
 
 		EditorGUILayout.EndVertical ();

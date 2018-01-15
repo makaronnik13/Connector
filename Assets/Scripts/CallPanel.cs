@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class CallPanel : MonoBehaviour, IWireDraggReciewer
 {
@@ -32,7 +33,7 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
 				lamp.color = Color.white;
 				break;
 			case CallPanel.CallPanelState.Talking:
-				lamp.color = Color.grey;
+				lamp.color = Color.green;
 				break;
 			case CallPanel.CallPanelState.Waiting:
 				lamp.color = Color.yellow;
@@ -44,20 +45,55 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
     public State state;
     public Image lamp;
 
+	public Wire wire;
+
+	public void DropWire()
+	{
+		if(callPanelState == CallPanelState.Waiting)
+		{
+			callPanelState = CallPanelState.Talking;
+		}
+		else if(callPanelState == CallPanelState.Talking)
+		{
+			callPanelState = CallPanelState.Off;
+			state = null;
+			wire = null;
+		}
+
+	}
+
     public void DropWire(RectTransform endTransform)
     {
-        if (state)
+		if (state && callPanelState == CallPanelState.Waiting || callPanelState == CallPanelState.Talking)
         {
-            ConnectionLine.Instance.Drop(endTransform, state.person);
+			if(wire)
+			{
+				wire.Disconnect ();
+			}
+            wire = ConnectionLine.Instance.Drop(endTransform, state.person);
+			FindObjectsOfType<HabField> ().ToList ().Find (hf => hf.person == ConnectionLine.Instance.startPerson).wire = wire;
+			callPanelState = CallPanelState.Talking;
         }
     }
 
     public void StartDragWire(RectTransform tr)
     {
-        if (state)
+		if(wire)
+		{
+			wire.Disconnect ();
+			wire = null;
+		}
+
+		if (state && callPanelState == CallPanelState.Waiting)
         {
             ConnectionLine.Instance.SetStart(tr, state.person);
         }
+
+		if(state && callPanelState == CallPanelState.Talking)
+		{
+			state = null;
+			callPanelState = CallPanelState.Off;
+		}
     }
 
 	public void LaunchTalk(State state)
@@ -68,17 +104,14 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
 
 	public void Push()
 	{
-		Debug.Log (callPanelState);
-
 		if(callPanelState == CallPanelState.Waiting || callPanelState == CallPanelState.Incoming)
 		{
-			Debug.Log ("Talk");
 			DialogController.Instance.Talk (state);
 		}
 
 		if(callPanelState == CallPanelState.Talking)
 		{
-			//listen dialog
+			wire.Listen ();
 		}
 	}
 
