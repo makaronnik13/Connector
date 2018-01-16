@@ -7,7 +7,10 @@ public class CallsController : Singleton<CallsController>
 {
 
 	private List<FillerState> fillerStates = new List<FillerState>();
-    public float time = 0;
+   
+	public AnimationCurve CallsCurve;
+
+	public float time = 0;
 
     public float SessionDuration = 60*60;
 
@@ -90,8 +93,13 @@ public class CallsController : Singleton<CallsController>
 
     private void Update()
     {
-        time += Time.deltaTime;
-		nextStateTime += Time.deltaTime;
+		time += Time.deltaTime;
+
+		float statesPerMinute = CallsCurve.Evaluate (time);
+		float statesPerDeltaTime = statesPerMinute / 60 * Time.deltaTime;
+	
+		Debug.Log (statesPerDeltaTime);
+
 		if(nextStateTime >= StateRate)
 		{
 			if (EmptyPanel) 

@@ -9780,6 +9780,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7cdaaec0823754bbb9979d3ad3d404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CallsCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   time: 0
   SessionDuration: 3600
   StateRate: 5
@@ -13157,6 +13163,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7cdaaec0823754bbb9979d3ad3d404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CallsCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0.0077056885
+      value: 0.4644165
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 4.9912415
+      value: 1.5691376
+      inSlope: -0.25916752
+      outSlope: -0.25916752
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   time: 0
   SessionDuration: 3600
   StateRate: 30

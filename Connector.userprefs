@@ -1,11 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Editor/FillerCallsEditor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CallsController.cs">
     <Files>
-      <File FileName="Assets/Scripts/Editor/FillerCallsEditor.cs" Line="76" Column="6" />
-      <File FileName="Assets/Scripts/Editor/CombinationsEditor.cs" Line="70" Column="6" />
+      <File FileName="Assets/Scripts/Editor/FillerCallsEditor.cs" Line="116" Column="6" />
+      <File FileName="Assets/Scripts/Editor/CombinationsEditor.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/FillerState.cs" Line="9" Column="2" />
-      <File FileName="Assets/Scripts/State.cs" Line="15" Column="2" />
+      <File FileName="Assets/Scripts/State.cs" Line="11" Column="32" />
+      <File FileName="Assets/Scripts/CallsController.cs" Line="101" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

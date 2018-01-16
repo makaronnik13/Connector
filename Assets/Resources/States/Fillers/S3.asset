@@ -13,6 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   day: 3
   minute: 3
+  waitingTime: 30
+  canBeDisconnectedAfter: 10000
+  badChance: 1
   monolog:
     clip: {fileID: 0}
     replics:
