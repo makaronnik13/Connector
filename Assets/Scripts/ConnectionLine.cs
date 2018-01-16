@@ -17,8 +17,31 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 
 	public Wire Drop(RectTransform endTransform, Person endPerson)
     {
+
+        //fake wrong number
+        CallPanel callPanel = FindObjectsOfType<CallPanel>().First(cp => cp.state && (cp.state.person == startPerson || cp.state.person == endPerson));
+        if (callPanel)
+        {
+            Person p = startPerson;
+            if (callPanel.state.person == startPerson)
+            {
+                p = endPerson;
+            }
+
+            if (callPanel.state.secondPerson() != p)
+            {
+                //Disconnect
+                Debug.Log("fail (wrong person)");
+                callPanel.state = null;
+                callPanel.callPanelState = CallPanel.CallPanelState.Off;
+                return null;
+            }
+        }
+
         GameObject newWire = new GameObject();
 
+
+        //send pathId for story state
         newWire.AddComponent<Wire>().Init(startPerson, endPerson);
 
         newWire.transform.SetParent(transform);

@@ -160,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Editor\CombinationsEditor.cs" />
+    <Compile Include="Assets\Scripts\Editor\FillerCallsEditor.cs" />
     <Compile Include="Assets\Scripts\Editor\GUIDragableObject.cs" />
     <Compile Include="Assets\Scripts\Editor\ScriptableObjectUtility.cs" />
     <Compile Include="Assets\Scripts\Editor\Translation.cs" />

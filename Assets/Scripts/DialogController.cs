@@ -7,18 +7,20 @@ using System.Linq;
 
 public class DialogController: Singleton<DialogController>{
 
-	public float secondsForSymbol;
+    private State currentState;
+    public Action<State> OnDialogFinished = (s) => { };
+
+
+    public float secondsForSymbol;
 	public float dellay = 1;
 
     public CombinationLink defaultLink;
-
-	private State firstState, secondState;
+   
+	private Person firstPerson, secondPerson;
 
 	private Stack<Replica> replicasStack = new Stack<Replica>();
 
 	public PersonPanel firstPersonPanel, secondPersonPanel;
-
-	public Action<State,State> onDialogFinished = (State s1, State s2)=>{};
 
     private void Start()
     {
@@ -30,12 +32,13 @@ public class DialogController: Singleton<DialogController>{
         PlayNextReplica();
     }
 
-    public void Talk(State firstPersonState)
+    public void PlayMonolog(State firstPersonState)
 	{
+        currentState = firstPersonState;
 		firstPersonPanel.writer.Reset ();
 
-		firstState = firstPersonState;
-		List<Replica> replics = new List<Replica>(firstState.monolog.replics);
+		firstPerson = firstPersonState.person;
+		List<Replica> replics = new List<Replica>(firstPersonState.monolog.replics);
 
         replics.Reverse();
         replicasStack = new Stack<Replica>(replics);
@@ -48,53 +51,22 @@ public class DialogController: Singleton<DialogController>{
         PlayNextReplica ();
     }
 
-	public void Talk(State firstPersonState, State secondPersonState)
+	public void PlayDialog(State state, float time, int pathId = 0)
 	{
 		firstPersonPanel.writer.Reset ();
-        /*
-        CancelInvoke();
+        firstPerson = state.person;
+        secondPerson = state.secondPerson();
+        List<Replica> replics = new List<Replica>(state.StateDialog(pathId).replics);
 
-        CombinationLink link = null;
+        replics.Reverse();
+        replicasStack = new Stack<Replica>(replics);
+        replics.Reverse();
 
-        foreach (CombinationLink cl in firstPersonState.combinationLinks)
-        {
-            Debug.Log(cl.endPoint);
-
-            if (cl.endPoint == secondPersonState)
-            {
-                link = cl;
-            }
-        }
-
-        foreach (CombinationLink cl in secondPersonState.combinationLinks)
-        {
-
-            if (cl.endPoint == firstPersonState)
-            {
-                link = cl;
-
-                State tempState = firstPersonState;
-                firstPersonState = secondPersonState;
-                secondPersonState = tempState;
-
-            }
-        }
-
-        Debug.Log(link);
-
-        if (link == null)
-        {
-            link = defaultLink;
-        }
-
-		firstState = firstPersonState;
-		secondState = secondPersonState;
-		List<Replica> replics = new List<Replica>(link.dialog.replics);
-		replics.Reverse ();
-		replicasStack = new Stack<Replica>(replics);
-		PlayNextReplica ();
-        */
-	}
+        string initial = replics[0].text;
+        replics.RemoveAt(0);
+        firstPersonPanel.writer.Write(initial, replics.Select(r => r.text).ToArray());
+        PlayNextReplica();
+    }
 
 	void Update()
 	{
@@ -111,13 +83,14 @@ public class DialogController: Singleton<DialogController>{
 
     private void HideDialog()
     {
-        if (firstState != null || secondState != null)
+        if (firstPerson != null || secondPerson != null)
         {
             firstPersonPanel.Hide();
             secondPersonPanel.Hide();
-            onDialogFinished.Invoke(firstState, secondState);
-            firstState = null;
-            secondState = null;
+            firstPerson = null;
+            secondPerson = null;
+            OnDialogFinished.Invoke(currentState);
+            currentState = null;
         }
     }
 
@@ -125,7 +98,7 @@ public class DialogController: Singleton<DialogController>{
 	{
         firstPersonPanel.writer.charactersPerSecond = 10;
 
-        if (replicasStack.Count==0 || firstState == null)
+        if (replicasStack.Count==0 || firstPerson == null)
 		{
 			Invoke ("HideDialog", 1);
             return;
@@ -135,11 +108,11 @@ public class DialogController: Singleton<DialogController>{
 
 		if(replica.person == Dialog.Person.FirstPerson)
 		{
-			firstPersonPanel.Show (firstState.person.PersonSprite, replica.text);
+			firstPersonPanel.Show (firstPerson.PersonSprite, replica.text);
 		}
 		if(replica.person == Dialog.Person.SecondPerson)
 		{
-			secondPersonPanel.Show (secondState.person.PersonSprite, replica.text);
+			secondPersonPanel.Show (secondPerson.PersonSprite, replica.text);
 		}
 	}
 

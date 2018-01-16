@@ -2,22 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class CallsController : Singleton<CallsController>
 {
-
+    public int day = 1;
 	private List<FillerState> fillerStates = new List<FillerState>();
-   
-	public AnimationCurve CallsCurve;
-
-	public float time = 0;
-
-    public float SessionDuration = 60*60;
-
-	public float StateRate = 30;
-
-	private float nextStateTime = 0;
-
+	private float time = 0;
 	private List<CallPanel> callPanels;
 	private List<CallPanel> CallPanels
 	{
@@ -54,10 +45,45 @@ public class CallsController : Singleton<CallsController>
         	AddState(state);
         }
 
-        DialogController.Instance.onDialogFinished += DialogFinished;
+        StartCoroutine(GenerateNewState());
     }
 
-	private void AddState(FillerState state)
+    private IEnumerator GenerateNewState()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            time ++;
+            float statesPerMinute = BalanceManager.Instance.balanceAsset.days.ToList().Find(d=>d.day == day).curve.Evaluate(time / 60);
+            float statesPerDeltaTime = statesPerMinute / 60;
+
+           
+
+            if (UnityEngine.Random.value<statesPerDeltaTime)
+            {
+
+                Debug.Log("!!!");
+
+                if (EmptyPanel)
+                {
+                    List<FillerState> awaliableStates = fillerStates.Where(s => s.minute <= time).ToList();
+
+                    if (awaliableStates.Count > 0)
+                    {
+                        FillerState s = awaliableStates[UnityEngine.Random.Range(0, awaliableStates.Count - 1)];
+                        EmptyPanel.LaunchTalk(s);
+                        RemoveState(s);
+                    }
+                }
+                else
+                {
+                    Debug.Log("no free call hubs");
+                }
+            }
+        }
+    }
+
+    private void AddState(FillerState state)
     {
         fillerStates.Add(state);
     }
@@ -91,33 +117,4 @@ public class CallsController : Singleton<CallsController>
         }*/
     }
 
-    private void Update()
-    {
-		time += Time.deltaTime;
-
-		float statesPerMinute = CallsCurve.Evaluate (time);
-		float statesPerDeltaTime = statesPerMinute / 60 * Time.deltaTime;
-	
-		Debug.Log (statesPerDeltaTime);
-
-		if(nextStateTime >= StateRate)
-		{
-			if (EmptyPanel) 
-			{
-				List<FillerState> awaliableStates = fillerStates.Where (s=>s.minute<=time).ToList();
-
-				if (awaliableStates.Count > 0) 
-				{
-					FillerState s = awaliableStates[Random.Range(0, awaliableStates.Count - 1)];
-                    EmptyPanel.LaunchTalk (s);
-					RemoveState (s);
-				}
-			} 
-			else 
-			{
-				Debug.Log ("гамовер");
-			}
-			nextStateTime = 0;
-		}
-    }
 }

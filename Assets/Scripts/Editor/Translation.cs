@@ -24,7 +24,7 @@ public class Translation :  EditorWindow {
 		{
 			if(states.Count == 0)
 			{
-				states = CombinationsEditor.ProjectStates ();
+				//states = CombinationsEditor.ProjectStates ();
 			}
 			return states;
 		}

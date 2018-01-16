@@ -15,8 +15,8 @@ public class CombinationsEditor : EditorWindow
     private Vector2 screenDelta = Vector2.zero;
     private Link selectedPath = null;
     private Vector2 lastMousePosition;
-	private List<KeyValuePair<State, GUIDraggableObject>> statesPositions = new List<KeyValuePair<State, GUIDraggableObject>> ();
-    private List<KeyValuePair<State, GUIDraggableObject>> StatesPositions
+	private List<KeyValuePair<StorryState, GUIDraggableObject>> statesPositions = new List<KeyValuePair<StorryState, GUIDraggableObject>> ();
+    private List<KeyValuePair<StorryState, GUIDraggableObject>> StatesPositions
 	{
 		get
 		{
@@ -24,9 +24,9 @@ public class CombinationsEditor : EditorWindow
 			{
 				int i = 0;
 
-				foreach (State state in ProjectStates())
+				foreach (StorryState state in ProjectStates())
 					{
-					KeyValuePair<State, GUIDraggableObject> kvp = new KeyValuePair<State, GUIDraggableObject> (state, new GUIDraggableObject (new Vector2(state.X, state.Y)));
+					KeyValuePair<StorryState, GUIDraggableObject> kvp = new KeyValuePair<StorryState, GUIDraggableObject> (state, new GUIDraggableObject (new Vector2(state.X, state.Y)));
 					statesPositions.Add (kvp);
 					kvp.Value.onDrag += kvp.Key.Drag;
 					i++;
@@ -49,16 +49,16 @@ public class CombinationsEditor : EditorWindow
             }
         }
 
-    public static List<State> ProjectStates()
+    public static List<StorryState> ProjectStates()
     {
-        List<State> st = new List<State>();
-        string[] guids = AssetDatabase.FindAssets("t:State");
+        List<StorryState> st = new List<StorryState>();
+        string[] guids = AssetDatabase.FindAssets("t:StorryState");
 
 
         foreach (string s in guids)
         {
             string assetPath = AssetDatabase.GUIDToAssetPath(s);
-            State asset = AssetDatabase.LoadAssetAtPath(assetPath, typeof(State)) as State;
+            StorryState asset = AssetDatabase.LoadAssetAtPath(assetPath, typeof(StorryState)) as StorryState;
             st.Add(asset);
         }
 
@@ -79,7 +79,7 @@ public class CombinationsEditor : EditorWindow
         }
     private void OnDisable()
     {
-        foreach (KeyValuePair<State, GUIDraggableObject> kvp in StatesPositions)
+        foreach (KeyValuePair<StorryState, GUIDraggableObject> kvp in StatesPositions)
         {
             kvp.Key.Drag(kvp.Value.Position);
             EditorUtility.SetDirty(kvp.Key);
@@ -112,6 +112,15 @@ public class CombinationsEditor : EditorWindow
             
         }
 
+        if (currentEvent.button == 0)
+        {
+            if (currentEvent.type == EventType.mouseUp)
+            {
+                Debug.Log("nullate");
+                selectedPath = null;
+            }
+        }
+
         if (currentEvent.button == 1)
         {
             if (currentEvent.type == EventType.MouseDown)
@@ -122,8 +131,8 @@ public class CombinationsEditor : EditorWindow
                 GenericMenu menu = new GenericMenu();
                 menu.AddItem(new GUIContent("AddState"), false, () => 
                 {
-                    State state =  (State)ScriptableObjectUtility.CreateAsset<State>();
-                    KeyValuePair<State, GUIDraggableObject> kvp = new KeyValuePair<State, GUIDraggableObject>(state, new GUIDraggableObject(new Vector2(p.x - screenDelta.x, p.y-screenDelta.y)));
+                    StorryState state =  (StorryState)ScriptableObjectUtility.CreateAsset<StorryState>();
+                    KeyValuePair<StorryState, GUIDraggableObject> kvp = new KeyValuePair<StorryState, GUIDraggableObject>(state, new GUIDraggableObject(new Vector2(p.x - screenDelta.x, p.y-screenDelta.y)));
 
                    // kvp.Value.Position = new Vector2(kvp.Key.X, kvp.Key.Y);
                     statesPositions.Add(kvp);
@@ -198,13 +207,13 @@ public class CombinationsEditor : EditorWindow
         {
            
             Rect start = new Rect();
-            foreach (KeyValuePair<State, GUIDraggableObject> p in StatesPositions)
+            foreach (KeyValuePair<StorryState, GUIDraggableObject> p in StatesPositions)
             {
                 float s = 70;
                 int i = 0;
 
                 Link[] links = new Link[0];
-				/*
+				
                 if (editorMode == EditorMode.Narrative)
                 {
                     links = p.Key.narrativeLinks;
@@ -229,7 +238,7 @@ public class CombinationsEditor : EditorWindow
                    
                     i++;
                 }
-                */
+                
             }
             Handles.BeginGUI();
             DrawNodeCurve(start, new Rect(Event.current.mousePosition, Vector2.one), Color.white, 2);
@@ -243,7 +252,7 @@ public class CombinationsEditor : EditorWindow
             GUI.DrawTextureWithTexCoords(fieldRect, BackgroundTexture, new Rect(0, 0, fieldRect.width / BackgroundTexture.width, fieldRect.height / BackgroundTexture.height));   
 			DrawPathes();
             BeginWindows();
-        State manipulatingState = null;
+        StorryState manipulatingState = null;
 
 		for (int i = 0; i<=StatesPositions.Count-1; i++) 
 		{
@@ -252,7 +261,7 @@ public class CombinationsEditor : EditorWindow
 			{
 				manipulatingState = StatesPositions [i].Key;
 				Selection.activeObject = StatesPositions[i].Key;
-                KeyValuePair<State, GUIDraggableObject> kvp = StatesPositions.Find(k=>k.Key== manipulatingState);
+                KeyValuePair<StorryState, GUIDraggableObject> kvp = StatesPositions.Find(k=>k.Key== manipulatingState);
                 StatesPositions.Remove (kvp);
                 StatesPositions.Add(kvp);
                 Repaint ();
@@ -262,7 +271,7 @@ public class CombinationsEditor : EditorWindow
                 GenericMenu menu = new GenericMenu();
                 Selection.activeObject = StatesPositions[i].Key;
 
-                State st = StatesPositions[i].Key;
+                StorryState st = StatesPositions[i].Key;
                 Repaint();
 				/*
                 menu.AddItem(new GUIContent("AddLink"), false, ()=> {
@@ -295,12 +304,12 @@ public class CombinationsEditor : EditorWindow
             EndWindows();
     }
 
-    private bool DrawButton(KeyValuePair<State, GUIDraggableObject>  state)
+    private bool DrawButton(KeyValuePair<StorryState, GUIDraggableObject>  state)
     {
         bool containCursor = false;
         Link[] combinations = new Link[0];
 
-		/*
+		
         if (editorMode == EditorMode.Combinations)
         {
             combinations = state.Key.combinationLinks;
@@ -309,7 +318,7 @@ public class CombinationsEditor : EditorWindow
         {
             combinations = state.Key.narrativeLinks;
         }
-          */
+          
 
             float s = 90f;
             int i = 0;
@@ -413,7 +422,7 @@ public class CombinationsEditor : EditorWindow
         return containCursor;
     }
 
-    private void DrawStateBox(KeyValuePair<State, GUIDraggableObject> state)
+    private void DrawStateBox(KeyValuePair<StorryState, GUIDraggableObject> state)
 	{
 
 			
@@ -461,7 +470,7 @@ public class CombinationsEditor : EditorWindow
 
 	private void DrawPathes()
 	{
-		foreach (KeyValuePair<State, GUIDraggableObject> state in StatesPositions)
+		foreach (KeyValuePair<StorryState, GUIDraggableObject> state in StatesPositions)
 		{
             Link[] combinations = new Link[0];
 			/*

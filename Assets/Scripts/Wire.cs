@@ -5,12 +5,14 @@ using System.Linq;
 
 public class Wire : MonoBehaviour {
 
+    private int pathId = 0;
     public Person start;
     public Person end;
 	private float dialogTime = 0;
 
-	public void Init(Person start, Person end)
+	public void Init(Person start, Person end, int pathId = 0)
     {
+        this.pathId = pathId;
         this.start = start;
         this.end = end;
     }
@@ -37,8 +39,17 @@ public class Wire : MonoBehaviour {
 		dialogTime += Time.deltaTime;
 	}
 
-	public void Listen()
+	public void Listen(float time)
 	{
-		//DialogController.Instance.Talk (start, end);
+        CallPanel callPanel = FindObjectsOfType<CallPanel>().ToList().Find(cp => cp.state && cp.state.person == start);
+        CallPanel callPanel2 = FindObjectsOfType<CallPanel>().ToList().Find(cp => cp.state && cp.state.person == end);
+
+        CallPanel call = callPanel;
+        if (!call)
+        {
+            call = callPanel2;
+        }
+
+        DialogController.Instance.PlayDialog(call.state, time, pathId);
 	}
 }

@@ -6,14 +6,33 @@ using System.Linq;
 [CreateAssetMenu(menuName = "GameModel/StoryState")]
 public class StorryState : State {
 
-	public NarrativeLink[] narrativeLinks = new NarrativeLink[0];
+    [HideInInspector]
+    [SerializeField]
+    public float X, Y;
+
+    public void Drag(Vector2 p)
+    {
+        X = p.x;
+        Y = p.y;
+    }
+
+    public NarrativeLink[] narrativeLinks = new NarrativeLink[0];
 	public CombinationLink[] combinationLinks = new CombinationLink[0];
 
 	[HideInInspector]
 	public List<NarrativeLink> InNarrativeLinks = new List<NarrativeLink>();
 
+    public override Person secondPerson()
+    {
+        return combinationLinks[0].endPoint.person;
+    }
 
-	public void AddNarrativeLink()
+    public override Dialog StateDialog(int path)
+    {
+        return combinationLinks[path].dialog;
+    }
+
+    public void AddNarrativeLink()
 	{
 		NarrativeLink c = new NarrativeLink();
 		List<NarrativeLink> comb = narrativeLinks.ToList();

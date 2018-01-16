@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using Sirenix.OdinInspector;
 
+[System.Serializable]
 public class State: ScriptableObject
 {
 	public int day = 1;
@@ -14,17 +15,17 @@ public class State: ScriptableObject
 	public float badChance = 1;
 
 	public Dialog monolog;
-	public Dialog dialog;
-
-    [HideInInspector]
-	[SerializeField]
-	public float X, Y;
-
-	public void Drag(Vector2 p)
-	{
-		X = p.x;
-		Y = p.y;
-	}
 
     public Person person;
+
+    public virtual Person secondPerson()
+    {
+        return null;
+    }
+
+    public virtual Dialog StateDialog(int path)
+    {
+        return null;
+    }
+
 }
