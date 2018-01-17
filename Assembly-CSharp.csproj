@@ -53,6 +53,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Addres.cs" />
      <Compile Include="Assets\Scripts\AddresBook.cs" />
+     <Compile Include="Assets\Scripts\Balance.cs" />
+     <Compile Include="Assets\Scripts\BalanceManager.cs" />
      <Compile Include="Assets\Scripts\BillBoard.cs" />
      <Compile Include="Assets\Scripts\BookMark.cs" />
      <Compile Include="Assets\Scripts\CallPanel.cs" />

@@ -84,8 +84,8 @@ public class FillerCallsEditor : EditorWindow {
 				foreach (FillerState fs in FillerStates.Where(fs=>fs.day == i).OrderBy(fs=>fs.minute)) {
 					EditorGUILayout.BeginHorizontal ();
 					EditorGUILayout.BeginVertical (GUILayout.Width(50));
-					fs.day = EditorGUILayout.IntSlider ("day", fs.day, 1, 7);
-					fs.minute = EditorGUILayout.IntField ("minute", fs.minute);
+					fs.day = EditorGUILayout.DelayedIntField ("day", fs.day);
+					fs.minute = EditorGUILayout.DelayedIntField ("minute", fs.minute);
 					fs.minute = Mathf.Clamp (fs.minute, 0, 24 * 60);
 					EditorGUILayout.EndVertical ();
 
