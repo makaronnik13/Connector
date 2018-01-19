@@ -16,11 +16,10 @@ public class StorryState : State {
         Y = p.y;
     }
 
-    public NarrativeLink[] narrativeLinks = new NarrativeLink[0];
+
 	public CombinationLink[] combinationLinks = new CombinationLink[0];
 
-	[HideInInspector]
-	public List<NarrativeLink> InNarrativeLinks = new List<NarrativeLink>();
+    public Link wrongConnectionState;
 
     public override Person secondPerson()
     {
@@ -32,14 +31,7 @@ public class StorryState : State {
         return combinationLinks[path].dialog;
     }
 
-    public void AddNarrativeLink()
-	{
-		NarrativeLink c = new NarrativeLink();
-		List<NarrativeLink> comb = narrativeLinks.ToList();
-		comb.Add(c);
-		narrativeLinks = comb.ToArray();
-	}
-
+ 
 	public void AddCombinationLink()
 	{
 		CombinationLink c = new CombinationLink();
@@ -56,16 +48,5 @@ public class StorryState : State {
 		combinationLinks = comb.ToArray();
 	}
 
-	public void RemoveNarrativeLink(int i)
-	{
-
-		List<NarrativeLink> comb = narrativeLinks.ToList();
-
-		if (comb[i].endPoint)
-		{
-			//comb[i].endPoint.InNarrativeLinks.Remove(comb[i]);
-		}
-		comb.RemoveAt(i);
-		narrativeLinks = comb.ToArray();
-	}
+	
 }

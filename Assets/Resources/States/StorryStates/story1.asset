@@ -20,8 +20,8 @@ MonoBehaviour:
     clip: {fileID: 0}
     replics: []
   person: {fileID: 0}
-  X: 0
-  Y: 0
-  narrativeLinks: []
+  X: 200
+  Y: 515
   combinationLinks: []
-  InNarrativeLinks: []
+  wrongConnectionState:
+    endPoint: {fileID: 0}
