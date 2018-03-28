@@ -126,7 +126,7 @@ public class CombinationsEditor : EditorWindow
 
     private void DrawCreatingLine()
     {
-        if (selectedPath != null && Event.current.type == EventType.keyDown && Event.current.keyCode == KeyCode.Delete)
+        if (selectedPath != null && Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.Delete)
         {
 
             selectedPath = null;
@@ -229,7 +229,7 @@ public class CombinationsEditor : EditorWindow
         GUI.color = Color.white;
 
 
-        if (Event.current.type == EventType.mouseUp && selectedPath != null)
+        if (Event.current.type == EventType.MouseUp && selectedPath != null)
         {
             if (aim.Contains(Event.current.mousePosition))
             {
