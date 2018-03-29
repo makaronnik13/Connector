@@ -20,6 +20,7 @@ public class StorryState : State {
 	public CombinationLink[] combinationLinks = new CombinationLink[0];
 
     public Link wrongConnectionState;
+    public Link autoAddState;
 
     public override Person secondPerson()
     {

@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Replica 
 {
-	public Dialog.Person person;
+    [HideInInspector]
+	public Dialog.Person person = Dialog.Person.FirstPerson;
 	public string text;
 }
