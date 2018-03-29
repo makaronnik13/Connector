@@ -48,6 +48,4 @@ public class StorryState : State {
 		comb.RemoveAt(i);
 		combinationLinks = comb.ToArray();
 	}
-
-	
 }
