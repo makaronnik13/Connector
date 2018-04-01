@@ -71,7 +71,7 @@ public class CallsController : Singleton<CallsController>
                     if (awaliableStates.Count > 0)
                     {
                         StorryState s = awaliableStates[UnityEngine.Random.Range(0, awaliableStates.Count - 1)];
-                        EmptyPanel.LaunchTalk(s);
+					EmptyPanel.Call(s);
                         RemoveState(s);
                     }
                 }
@@ -96,7 +96,7 @@ public class CallsController : Singleton<CallsController>
             if (UnityEngine.Random.value<statesPerDeltaTime)
             {
 
-                Debug.Log("!!!");
+				Debug.Log(gameObject);
 
                 if (EmptyPanel)
                 {
@@ -105,7 +105,7 @@ public class CallsController : Singleton<CallsController>
                     if (awaliableStates.Count > 0)
                     {
                         FillerState s = awaliableStates[UnityEngine.Random.Range(0, awaliableStates.Count - 1)];
-                        EmptyPanel.LaunchTalk(s);
+						EmptyPanel.Call(s);
                         RemoveState(s);
                     }
                 }

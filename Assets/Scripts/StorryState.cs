@@ -21,10 +21,11 @@ public class StorryState : State {
 
     public Link wrongConnectionState;
     public Link autoAddState;
+	public Link SkipState;
 
-    public override Person secondPerson()
+    public override List<Person> secondPersons()
     {
-        return combinationLinks[0].endPoint.person;
+		return combinationLinks.Select(cl=>cl.person).ToList();
     }
 
     public override Dialog StateDialog(int path)

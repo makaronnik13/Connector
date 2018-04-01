@@ -24,11 +24,11 @@ public class Wire : MonoBehaviour {
 		CallPanel callPanel2 = FindObjectsOfType<CallPanel> ().ToList ().Find (cp => cp.state && cp.state.person == end); 
 		if(callPanel)
 		{
-			callPanel.DropWire ();
+			callPanel.DropWireToHab ();
 		}
 		if(callPanel2)
 		{
-			callPanel2.DropWire ();
+			callPanel2.DropWireToHab ();
 		}
 
 		Destroy (gameObject);

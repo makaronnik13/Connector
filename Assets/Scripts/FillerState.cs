@@ -9,9 +9,9 @@ public class FillerState : State {
 	public Person aimPerson;
     public Dialog dialog;
 
-    public override Person secondPerson()
+    public override List<Person> secondPersons()
     {
-        return aimPerson;
+		return new List<Person>{aimPerson};
     }
 
     public override Dialog StateDialog(int path)

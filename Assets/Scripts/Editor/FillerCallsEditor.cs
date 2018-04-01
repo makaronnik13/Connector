@@ -109,7 +109,7 @@ public class FillerCallsEditor : EditorWindow {
 					EditorGUILayout.BeginVertical (GUILayout.Width(50));
 					fs.waitingTime = EditorGUILayout.FloatField ("waiting", fs.waitingTime);
 					fs.canBeDisconnectedAfter = EditorGUILayout.FloatField ("safe disconnect", fs.canBeDisconnectedAfter);
-					fs.badChance = EditorGUILayout.Slider ("warning chance", fs.badChance, 0, 1);
+					fs.WrongConnectionWarningChance = EditorGUILayout.Slider ("warning chance", fs.WrongConnectionWarningChance, 0, 1);
 					EditorGUILayout.EndVertical ();
 					EditorGUILayout.EndHorizontal ();
 

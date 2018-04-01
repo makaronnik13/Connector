@@ -17,7 +17,6 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 
 	public Wire Drop(RectTransform endTransform, Person endPerson)
     {
-
         //fake wrong number
         CallPanel callPanel = FindObjectsOfType<CallPanel>().First(cp => cp.state && (cp.state.person == startPerson || cp.state.person == endPerson));
         if (callPanel)
@@ -28,14 +27,29 @@ public class ConnectionLine : Singleton<ConnectionLine> {
                 p = endPerson;
             }
 
-            if (callPanel.state.secondPerson() != p)
-            {
-                //Disconnect
-                Debug.Log("fail (wrong person)");
-                callPanel.state = null;
-                callPanel.callPanelState = CallPanel.CallPanelState.Off;
-                return null;
-            }
+			if (!callPanel.state.secondPersons ().Contains(p)) {
+				//Disconnect
+				Phone.WarningType warningType = Phone.WarningType.WrongConnection;
+
+				if(endPerson == startPerson)
+				{
+					warningType = Phone.WarningType.SelfConnection;
+				}
+				else
+				{
+					if(endPerson.wrongConnectionState)
+					{
+						warningType = Phone.WarningType.ServiceWarning;
+					}
+				}
+
+				StartCoroutine (CauseConnectionFail (callPanel, warningType, endPerson.wrongConnectionState));
+			} else 
+			{
+				StartCoroutine (CauseConnectionEnd (callPanel, callPanel.state.TalkingTime));
+			}
+
+			callPanel.Talk ();
         }
 
         GameObject newWire = new GameObject();
@@ -62,8 +76,97 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 
         lr.positionCount = points.Count;
         lr.SetPositions(points.ToArray());
+
+		startPerson = null;
 		return newWire.GetComponent<Wire> ();
     }
+
+	private IEnumerator CauseConnectionFail(CallPanel callPanel, Phone.WarningType warningType, State wrongConnectionState = null)
+	{
+		float t = 0;
+		while(t<BalanceManager.Instance.balanceAsset.WrongTalkingTime)
+		{
+			t += Time.deltaTime;
+			yield return new WaitForEndOfFrame ();
+		}
+			
+		if(warningType == Phone.WarningType.ServiceWarning)
+		{
+			Phone.Instance.SendWarning (Phone.WarningType.ServiceWarning, wrongConnectionState);
+		}
+		if(warningType == Phone.WarningType.WrongConnection)
+		{
+			float f = UnityEngine.Random.Range (0, 1f);
+			if (callPanel.state) 
+			{
+				if (f < callPanel.state.WrongConnectionWarningChance) {
+					Phone.Instance.SendWarning (Phone.WarningType.WrongConnection);
+				}
+			}
+		}
+		if(warningType == Phone.WarningType.SelfConnection)
+		{
+			Phone.Instance.SendWarning (Phone.WarningType.SelfConnection);
+		}
+
+		if(callPanel.state.GetType()== typeof(StorryState))
+		{
+			if((callPanel.state as StorryState).wrongConnectionState.endPoint)
+			{
+				FindObjectOfType<DemoCallsController> ().AddState ((callPanel.state as StorryState).wrongConnectionState.endPoint);
+			}
+		}
+		if(callPanel.state.GetType()== typeof(StorryState))
+		{
+			if((callPanel.state as StorryState).autoAddState.endPoint)
+			{
+				FindObjectOfType<DemoCallsController> ().AddState ((callPanel.state as StorryState).autoAddState.endPoint);
+			}
+		}
+		callPanel.state = null;
+		callPanel.callPanelState = CallPanel.CallPanelState.Off;
+		callPanel.wire.Disconnect ();
+	}
+
+	private IEnumerator CauseConnectionEnd(CallPanel callPanel, float time)
+	{
+		float t = 0;
+		while(t<time)
+		{
+			if(!Phone.Instance.TalkingPhone)
+			{
+				t += Time.deltaTime;
+			}
+			yield return new WaitForEndOfFrame ();
+		}
+
+		if(callPanel.state.GetType()== typeof(StorryState))
+		{
+			foreach(CombinationLink cl in (callPanel.state as StorryState).combinationLinks)
+			{
+				if(cl.person == callPanel.wire.end && cl.endPoint)
+				{
+					Debug.Log ("!!!");
+					FindObjectOfType<DemoCallsController> ().AddState (cl.endPoint);
+				}
+			}
+		}
+		if(callPanel.state.GetType()== typeof(StorryState))
+		{
+			if((callPanel.state as StorryState).autoAddState.endPoint)
+			{
+				FindObjectOfType<DemoCallsController> ().AddState ((callPanel.state as StorryState).autoAddState.endPoint);
+			}
+		}
+
+		callPanel.state = null;
+		callPanel.callPanelState = CallPanel.CallPanelState.Off;
+		if(callPanel.wire)
+		{
+			callPanel.wire.Disconnect ();
+		}
+	}
+
 
     private RectTransform startTransform;
     private LineRenderer line;

@@ -11,6 +11,8 @@ public class Person : ScriptableObject {
     public Sprite PersonSprite;
     public string PersonName;
     public bool Service = false;
+	public StorryState wrongConnectionState;
+	public bool hideInBook = false;
 
     public string Surname
     {

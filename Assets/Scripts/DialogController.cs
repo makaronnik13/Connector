@@ -16,11 +16,11 @@ public class DialogController: Singleton<DialogController>{
 
     public CombinationLink defaultLink;
    
-	private Person firstPerson, secondPerson;
+	private Person firstPerson;
 
 	private Stack<Replica> replicasStack = new Stack<Replica>();
 
-	public PersonPanel firstPersonPanel, secondPersonPanel;
+	public PersonPanel firstPersonPanel;
 
     private void Start()
     {
@@ -45,8 +45,9 @@ public class DialogController: Singleton<DialogController>{
         replics.Reverse();
 
 		string initial = replics [0].text;
+
 		replics.RemoveAt (0);
-		firstPersonPanel.writer.Write (initial, replics.Select(r=>r.text).ToArray());
+		firstPersonPanel.writer.GetComponentInParent<ScrollViewPositioner>().Write (initial, replics.Select(r=>r.text).ToArray());
 
         PlayNextReplica ();
     }
@@ -55,7 +56,6 @@ public class DialogController: Singleton<DialogController>{
 	{
 		firstPersonPanel.writer.Reset ();
         firstPerson = state.person;
-        secondPerson = state.secondPerson();
         List<Replica> replics = new List<Replica>(state.StateDialog(pathId).replics);
 
         replics.Reverse();
@@ -64,7 +64,9 @@ public class DialogController: Singleton<DialogController>{
 
         string initial = replics[0].text;
         replics.RemoveAt(0);
-        firstPersonPanel.writer.Write(initial, replics.Select(r => r.text).ToArray());
+
+		firstPersonPanel.writer.GetComponentInParent<ScrollViewPositioner>().Write(initial, replics.Select(r => r.text).ToArray());
+        //firstPersonPanel.writer.Write(initial, replics.Select(r => r.text).ToArray());
         PlayNextReplica();
     }
 
@@ -80,27 +82,25 @@ public class DialogController: Singleton<DialogController>{
 	{
         firstPersonPanel.writer.charactersPerSecond = 1000;
     }
+		
 
-    private void HideDialog()
+	public void HideDialog()
     {
-        if (firstPerson != null || secondPerson != null)
-        {
             firstPersonPanel.Hide();
-            secondPersonPanel.Hide();
             firstPerson = null;
-            secondPerson = null;
             OnDialogFinished.Invoke(currentState);
             currentState = null;
-        }
     }
 
 	private void PlayNextReplica()
 	{
-        firstPersonPanel.writer.charactersPerSecond = 10;
+        firstPersonPanel.writer.charactersPerSecond = 20;
 
         if (replicasStack.Count==0 || firstPerson == null)
 		{
-			Invoke ("HideDialog", 1);
+			firstPerson = null;
+			OnDialogFinished.Invoke(currentState);
+			//Invoke ("HideDialog", 1);
             return;
 		}
 
@@ -109,10 +109,6 @@ public class DialogController: Singleton<DialogController>{
 		if(replica.person == Dialog.Person.FirstPerson)
 		{
 			firstPersonPanel.Show (firstPerson.PersonSprite, replica.text);
-		}
-		if(replica.person == Dialog.Person.SecondPerson)
-		{
-			secondPersonPanel.Show (secondPerson.PersonSprite, replica.text);
 		}
 	}
 

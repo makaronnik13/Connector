@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class AddresBook : MonoBehaviour {
 
-    List<Person> persons = new List<Person>();
-
+    private List<Person> persons = new List<Person>();
+	private List<Person> services = new List<Person>();
     public Transform page1, page2;
 
     public GameObject AddresPrefab;
@@ -16,7 +16,8 @@ public class AddresBook : MonoBehaviour {
 
     private void Start()
     {
-        persons = Resources.LoadAll<Person>("Persons").ToList();
+        persons = Resources.LoadAll<Person>("Persons/Simple").ToList();
+		services = (Resources.LoadAll<Person>("Persons/Special").ToList());
     }
 
     public void Open()
@@ -37,11 +38,20 @@ public class AddresBook : MonoBehaviour {
             Destroy(t.gameObject);
         }
 
-        List<Person> pagePersons = persons.FindAll(p => chars.Contains(p.Surname[0])).OrderBy(p=>p.Surname[0]).ToList();
+		List<Person> pagePersons;
 
-        Debug.Log(pagePersons.Count);
+		if (chars.Contains ('.')) 
+		{
+			pagePersons = services;
+		} 
+		else 
+		{
+			pagePersons = persons.FindAll(p => chars.Contains(p.Surname[0])).OrderBy(p=>p.Surname[0]).ToList();
+		}
+        
+		pagePersons.RemoveAll (pp=>pp.hideInBook);
 
-        int v = Mathf.Min(13, pagePersons.Count);
+        int v = Mathf.Min(7, pagePersons.Count);
 
         for (int i = 0; i<v;i++)
         {
@@ -50,9 +60,9 @@ public class AddresBook : MonoBehaviour {
             newAddres.GetComponent<Addres>().Init(pagePersons[i]);
         }
 
-        if (pagePersons.Count>13)
+        if (pagePersons.Count>7)
         {
-            for (int i = 13; i < pagePersons.Count; i++)
+            for (int i = 7; i < pagePersons.Count; i++)
             {
                 GameObject newAddres = Instantiate(AddresPrefab, page2);
                 newAddres.transform.localScale = Vector3.one;

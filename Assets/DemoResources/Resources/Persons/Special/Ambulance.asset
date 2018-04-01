@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cf28b3e4d697a241a78a3b30f652e45, type: 3}
+  m_Name: Ambulance
+  m_EditorClassIdentifier: 
+  PersonSprite: {fileID: 21300000, guid: 5c86ede5dd94ce44bb83e9b4321bc82a, type: 3}
+  PersonName: "\u0421\u043A\u043E\u0440\u0430\u044F \u043F\u043E\u043C\u043E\u0449\u044C"
+  Service: 1
+  wrongConnectionState: {fileID: 11400000, guid: c81278fb37d2647f4a545569c28bc497,
+    type: 2}
+  hideInBook: 1

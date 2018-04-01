@@ -12,8 +12,10 @@ public class Balance : ScriptableObject
     public DayPair[] days = new DayPair[0];
 
     public float charactersPerSecond = 4;
-    [System.Serializable]
 
+	public float WrongTalkingTime = 5;
+
+    [System.Serializable]
     public class DayPair
     {
         public int day = 1;

@@ -5,14 +5,20 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Addres : MonoBehaviour, IDragHandler {
-
+public class Addres : MonoBehaviour, IDragHandler
+{
     private Person person;
 
 	public void Init(Person p)
     {
         person = p;
-        GetComponentInChildren<Text>().text = p.Surname+" "+p.FirstName;
+		if (!p.Service) 
+		{
+			GetComponentInChildren<Text> ().text = p.Surname + " " + p.FirstName;
+		} else 
+		{
+			GetComponentInChildren<Text> ().text = p.PersonName;
+		}
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -27,4 +33,9 @@ public class Addres : MonoBehaviour, IDragHandler {
         paper.transform.localScale = Vector3.one;
         paper.GetComponent<PaperWithName>().Init(person);
     }
+
+	public void Click ()
+	{
+		FindObjectOfType<HabsParent> ().AddPerson (person);
+	}
 }

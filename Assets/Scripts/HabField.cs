@@ -7,6 +7,7 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
 {
     public Person person;
 	public Wire wire;
+	public bool ServiceHab = false;
 
     public void StartDragWire(RectTransform t)
     {
@@ -25,25 +26,24 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
 
     public void DropWire(RectTransform endTransform)
     {
-        if (person == null || ConnectionLine.Instance.startPerson == person)
+		if (wire != null || person == null)
         {
-            return;
+			return;
         }
 
 		CallPanel callPanel = FindObjectsOfType<CallPanel> ().ToList ().Find (cp => cp.state && cp.state.person == ConnectionLine.Instance.startPerson);  
+	
 		if (callPanel)
         {
 			wire = ConnectionLine.Instance.Drop(endTransform, person);
-			callPanel.DropWire ();
+			callPanel.DropWireToHab ();
 			callPanel.wire = wire;
         }
     }
 
     public void StartDragPaper()
     {
-
-		Debug.Log (person);
-		if (person == null || person.Service)
+		if (person == null || ServiceHab)
         {
             return;
         }
@@ -57,7 +57,7 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
 
     public void DropPaper()
     {
-        if (person && person.Service)
+		if (person && ServiceHab)
         {
             return;
         }
@@ -71,7 +71,7 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
 		PaperWithName currentPaper = GetComponentInChildren<PaperWithName> ();
 		if (currentPaper) {
 			if (paper.startField) {
-				currentPaper.transform.SetParent (paper.startField.GetComponentInChildren<Glass> ().transform);
+				currentPaper.transform.SetParent (paper.startField.GetComponentInChildren<Glass> ().transform.GetChild(0));
 				currentPaper.transform.localPosition = Vector3.zero;
 				paper.startField.person = currentPaper.person;
 			} else {
@@ -80,7 +80,7 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
 		}
 
         paper.Dragging = false;
-        paper.transform.SetParent(GetComponentInChildren<Glass>().transform);
+		paper.transform.SetParent(GetComponentInChildren<Glass>().transform.GetChild(0));
         paper.transform.localPosition = Vector3.zero;
         paper.CancelDestroy();
 

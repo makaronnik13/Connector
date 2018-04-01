@@ -44,59 +44,118 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
 		}
 	}
 
-    public State state;
+	private State _state;
+	public State state
+	{
+		get
+		{
+			return _state;
+		}
+		set
+		{
+			_state = value;
+		}
+	}
+
     public Image lamp;
+
+	[HideInInspector]
 	public Wire wire;
-    private float timer = 0;
+    //private float timer = 0;
 
 
-	public void DropWire()
+	public void Push()
+	{
+		if(Phone.Instance.TalkingPhone)
+		{
+			return;
+		}
+
+		if(callPanelState == CallPanelState.Waiting)
+		{
+			GetComponentInParent<DemoCallsController> ().Skip(); 
+		}
+
+		if(callPanelState == CallPanelState.Incoming)
+		{
+			GetComponentInParent<DemoCallsController> ().Listen (this);   
+		}
+	}
+
+	public void Call(State state)
+	{
+		this._state = state;
+		callPanelState = CallPanelState.Incoming;
+	}
+
+	public void Listen()
+	{
+		callPanelState = CallPanelState.Waiting;
+		DialogController.Instance.PlayMonolog (_state);
+	}
+
+	public void Skip()
+	{
+		if (_state) 
+		{
+			if (UnityEngine.Random.Range (0, 1f) < _state.DropWarningChance) {
+				Phone.Instance.SendWarning (Phone.WarningType.Drop);
+			}
+
+			if((_state as StorryState).autoAddState.endPoint!=null)
+			{
+				FindObjectOfType<DemoCallsController> ().AddState ((_state as StorryState).autoAddState.endPoint);
+			}
+
+			if((_state as StorryState).SkipState.endPoint!=null)
+			{
+				FindObjectOfType<DemoCallsController> ().AddState ((_state as StorryState).SkipState.endPoint);
+			}
+
+			_state = null;
+			callPanelState = CallPanelState.Off;
+			DialogController.Instance.HideDialog ();
+		}
+	}
+
+	public void Talk()
+	{
+		GetComponentInParent<DemoCallsController> ().Talk ();
+	}
+
+	public void DropWireToHab()
 	{
 		if(callPanelState == CallPanelState.Waiting)
 		{
 			callPanelState = CallPanelState.Talking;
+			DialogController.Instance.HideDialog ();
 		}
 		else if(callPanelState == CallPanelState.Talking)
 		{
 			callPanelState = CallPanelState.Off;
 			state = null;
 			wire = null;
-            if (state.canBeDisconnectedAfter<timer)
-            {
-                Debug.Log("fail (too early disconnect)");
-            }
-            StopCoroutine(TalkTimer());
-            timer = 0;
         }
-
 	}
 
     public void DropWire(RectTransform endTransform)
     {
 		if (state && callPanelState == CallPanelState.Waiting || callPanelState == CallPanelState.Talking)
         {
-            DialogController.Instance.OnDialogFinished -= MonologFinished;
-
             if (wire)
 			{
 				wire.Disconnect ();
 			}
 
-
+			Debug.Log ("drop from cp");
             wire = ConnectionLine.Instance.Drop(endTransform, state.person);
 			FindObjectsOfType<HabField> ().ToList ().Find (hf => hf.person == ConnectionLine.Instance.startPerson).wire = wire;
 			callPanelState = CallPanelState.Talking;
-            StartCoroutine(TalkTimer());
         }
     }
 
     public void StartDragWire(RectTransform tr)
     {
-		if(wire)
-		{
-			wire.Disconnect ();
-			wire = null;
-		}
 
 		if (state && callPanelState == CallPanelState.Waiting)
         {
@@ -105,16 +164,28 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
 
 		if(state && callPanelState == CallPanelState.Talking)
 		{
+			float f = UnityEngine.Random.Range (0, 1f);
+			if(f<state.DisconnectWarningChance)
+			{
+				Phone.Instance.SendWarning (Phone.WarningType.Disconnect);
+			}
+
 			state = null;
 			callPanelState = CallPanelState.Off;
 		}
+
+		if(wire)
+		{
+			wire.Disconnect ();
+			wire = null;
+		}
     }
 
+	/*
 	public void LaunchTalk(State state)
 	{
 		this.state = state;
 		callPanelState = CallPanelState.Incoming;
-        StartCoroutine(WaitTimer());
 	}
 
     private IEnumerator WaitTimer()
@@ -125,8 +196,6 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
             yield return new WaitForSeconds(0.1f);
             timer += 0.1f;
         }
-
-        Debug.Log("fail (waiting too long)");
         callPanelState = CallPanelState.Off;
         state = null;
     }
@@ -162,32 +231,41 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
         timer = 0;
     }
 
+	public void Listen()
+	{
+		Debug.Log (state);
+		DialogController.Instance.OnDialogFinished += MonologFinished;
+		DialogController.Instance.PlayMonolog (state);
+		GetComponentInChildren<Button> ().interactable = false;
+	}
+
     public void Push()
 	{
-		if(callPanelState == CallPanelState.Waiting || callPanelState == CallPanelState.Incoming)
+		if(callPanelState == CallPanelState.Incoming)
 		{
-            if (callPanelState == CallPanelState.Waiting)
-            {
-                StopCoroutine(WaitTimer());
-            }
-            else
-            {
-                DialogController.Instance.OnDialogFinished += MonologFinished;
-            }
-			DialogController.Instance.PlayMonolog (state);
+			GetComponentInParent<DemoCallsController> ().Listen (this);   
+		}
+
+		if(callPanelState == CallPanelState.Waiting)
+		{
+			Skip ();
 		}
 
 		if(callPanelState == CallPanelState.Talking)
 		{
-			wire.Listen (timer);
+			//Skip ();
+			//wire.Listen (timer);
 		}
 	}
 
-    void MonologFinished(State s1)
-    {
-        if (s1 == state)
-        {
-            callPanelState = CallPanelState.Waiting;
-        }
-    }
+	public void Skip()
+	{
+		if(callPanelState == CallPanelState.Waiting)
+		{
+			DialogController.Instance.HideDialog ();
+			callPanelState = CallPanelState.Off;
+			state = null;
+			timer = 0;
+		}
+	}*/
 }

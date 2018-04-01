@@ -22,7 +22,12 @@ public class PaperWithName : MonoBehaviour {
 		startField = startHab;
         Dragging = true;
         person = p;
-        GetComponentInChildren<Text>().text =  p.Surname[0]+". " + p.FirstName;
+		if (!person.Service) {
+			GetComponentInChildren<Text> ().text = p.Surname [0] + ". " + p.FirstName;
+		} else 
+		{
+			GetComponentInChildren<Text> ().text = p.PersonName;
+		}
     }
 
     private void Update()

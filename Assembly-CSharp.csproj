@@ -51,6 +51,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\DemoCallsController.cs" />
+     <Compile Include="Assets\HabsParent.cs" />
+     <Compile Include="Assets\Map.cs" />
+     <Compile Include="Assets\Phone.cs" />
      <Compile Include="Assets\Scripts\Addres.cs" />
      <Compile Include="Assets\Scripts\AddresBook.cs" />
      <Compile Include="Assets\Scripts\Balance.cs" />
@@ -81,6 +85,7 @@
      <Compile Include="Assets\Scripts\StorryState.cs" />
      <Compile Include="Assets\Scripts\TranslationDictionary.cs" />
      <Compile Include="Assets\Scripts\Wire.cs" />
+     <Compile Include="Assets\ScrollViewPositioner.cs" />
      <Compile Include="Assets\ThirdPartyAssets\CurvedLine\CurvedLinePoint.cs" />
      <Compile Include="Assets\ThirdPartyAssets\CurvedLine\CurvedLineRenderer.cs" />
      <Compile Include="Assets\ThirdPartyAssets\CurvedLine\LineSmoother.cs" />

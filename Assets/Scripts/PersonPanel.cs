@@ -41,6 +41,8 @@ public class PersonPanel : MonoBehaviour {
 	{
         img.sprite = defaultSprite;
         writer.Stop();
-        writer.guiTextComponent.text = "";
+		if (writer.guiTextComponent) {
+			writer.guiTextComponent.text = "";
+		}
 	}
 }

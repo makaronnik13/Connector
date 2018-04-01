@@ -13,17 +13,21 @@ public class State: ScriptableObject
     [HideInInspector]
     public int minute = 0;
     [HideInInspector]
-    public float waitingTime = 30;
+    public float waitingTime = 5;
     [HideInInspector]
     public float canBeDisconnectedAfter = 10000;
-    //[Range(0,1)]
-    [HideInInspector]
-    public float badChance = 1;
+    [Range(0,1)]
+    public float WrongConnectionWarningChance = 0;
+	[Range(0,1)]
+	public float DropWarningChance = 0;
+	[Range(0,1)]
+	public float DisconnectWarningChance = 1;
 
+	public float TalkingTime = 15;
 	public Dialog monolog;
 
 
-    public virtual Person secondPerson()
+    public virtual List<Person> secondPersons()
     {
         return null;
     }

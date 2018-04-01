@@ -13,28 +13,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   days:
   - day: 1
-    curve:
+    fillersRate:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: -0.00491333
-        value: 2.976471
+        time: -0.16708493
+        value: 3.453514
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       - serializedVersion: 2
-        time: 36.76795
-        value: 6.375287
-        inSlope: 0.023841858
-        outSlope: 0.023841858
+        time: 0.8983183
+        value: 17.630146
+        inSlope: 0.16450882
+        outSlope: 0.16450882
         tangentMode: 0
       - serializedVersion: 2
-        time: 60.97091
-        value: 3.9816976
-        inSlope: 0
-        outSlope: 0
+        time: 16.317307
+        value: 16.16178
+        inSlope: 0.08581389
+        outSlope: 0.08581389
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 26.181376
+        value: 14.340111
+        inSlope: -0.32155758
+        outSlope: -0.32155758
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 28.471762
+        value: 10.139965
+        inSlope: -0.09556697
+        outSlope: -0.09556697
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 32.296436
+        value: 14.837219
+        inSlope: -0.18119812
+        outSlope: -0.18119812
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 36.456173
+        value: 13.697084
+        inSlope: -0.038146973
+        outSlope: -0.038146973
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 55.40042
+        value: 10.211105
+        inSlope: -0.060920883
+        outSlope: -0.060920883
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
   charactersPerSecond: 4
+  WrongTalkingTime: 5
