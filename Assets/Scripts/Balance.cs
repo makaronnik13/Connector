@@ -11,7 +11,8 @@ public class Balance : ScriptableObject
 {
     public DayPair[] days = new DayPair[0];
 
-    public float charactersPerSecond = 4;
+	[HideInInspector]
+	public float charactersPerSecond = 4;
 
 	public float WrongTalkingTime = 5;
 
