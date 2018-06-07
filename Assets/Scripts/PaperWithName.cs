@@ -39,7 +39,7 @@ public class PaperWithName : MonoBehaviour {
 
             //RectTransformUtility.ScreenPointToLocalPointInRectangle(parentCanvas.transform as RectTransform, Input.mousePosition, parentCanvas.worldCamera, out pos);
             transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
-            transform.localScale = Vector3.one * 0.005f;
+          
             if (Input.GetMouseButtonUp(0))
             {
                 Invoke("DestroyPaper", 0.1f);
