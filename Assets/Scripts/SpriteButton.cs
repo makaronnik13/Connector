@@ -7,6 +7,9 @@ using UnityEngine.Events;
 public class SpriteButton : MonoBehaviour, ISpriteInputHandler
 {
     public UnityEvent OnClickCallback;
+    public UnityEvent OnHooverCallback;
+    public UnityEvent OnDropCallback;
+
     public Sprite hooveredSprite;
 
     [SerializeField]
@@ -53,39 +56,28 @@ public class SpriteButton : MonoBehaviour, ISpriteInputHandler
 
     public void OnDrop()
     {
-        
+        OnDropCallback.Invoke();
     }
 
     public void OnHover()
     {
-        sRenderer.sprite = hooveredSprite;
+        if (sRenderer)
+        {
+            sRenderer.sprite = hooveredSprite;
+        }
+        OnHooverCallback.Invoke();
     }
 
     public void OnUnhover()
     {
-        sRenderer.sprite = defaultSprite;
+        if (sRenderer)
+        {
+            sRenderer.sprite = defaultSprite;
+        }
     }
 
     public void OnClick()
     {
         OnClickCallback.Invoke();
-    }
-
-    private void OnEnable()
-    {
-
-        if (interactable)
-        {
-            InputController.Instance.AddListener(this);
-        }
-        
-    }
-
-    private void OnDisable()
-    {
-        if (InputController.Instance)
-        {
-            InputController.Instance.RemoveListener(this);
-        }
     }
 }

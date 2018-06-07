@@ -42,8 +42,66 @@ public class InputController : Singleton<InputController> {
     void Update()
     {
 
-        //Gets the world position of the mouse on the screen        
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+
+        if (hit.collider != null)
+        {
+            GameObject lastHitedObj = null;
+            if (hovered!=null)
+            {
+                lastHitedObj = ((Component)hovered).gameObject;
+            }
+
+            if (hit.collider.gameObject!=lastHitedObj)
+            {
+                if (hovered!=null)
+                {
+                    hovered.OnUnhover();
+                    hovered = null;
+                }
+
+                ISpriteInputHandler newHovered = hit.collider.GetComponent<ISpriteInputHandler>();
+               if (newHovered != null)
+                {
+                    hovered = newHovered;
+                   // Debug.Log(hovered);
+                    hovered.OnHover();
+                }
+            }
+            
+        }
+        else
+        {
+            if (hovered != null)
+            {
+                hovered.OnUnhover();
+                hovered = null;
+            }
+        }
+
+        if (hovered!=null)
+        {
+            if (Input.GetButtonDown("Fire1") && hovered != null)
+            {
+                hovered.OnClick();
+            }
+
+            if (Input.GetButtonUp("Fire1"))
+            {
+                hovered.OnDrop();
+            }
+
+            if (Input.GetButton("Fire1") && lastMousePosition != mousePosition)
+            {
+                hovered.OnDrag(mousePosition - lastMousePosition);
+            }
+        }
+
+        /*
+        //Gets the world position of the mouse on the screen        
+       
  
         List<ISpriteInputHandler> frameHovered = new List<ISpriteInputHandler>();
 
@@ -61,6 +119,7 @@ public class InputController : Singleton<InputController> {
         {
             if (hovered!=null)
             {
+                Debug.Log("u");
                 hovered.OnUnhover();
             }
             hovered = null;
@@ -77,7 +136,7 @@ public class InputController : Singleton<InputController> {
 
                 hovered = newHovered;
                 hovered.OnHover();
-               // Debug.Log(hovered);
+                //Debug.Log(hovered);
             }
            
         }
@@ -91,6 +150,7 @@ public class InputController : Singleton<InputController> {
             {
                 if (Input.GetButtonDown("Fire1") && hovered!=null)
                 {
+                    Debug.Log("click");
                     hovered.OnClick();
                 }
 
@@ -105,6 +165,8 @@ public class InputController : Singleton<InputController> {
                 }
             }
         }
+
+    */
 
         lastMousePosition = mousePosition;
     }

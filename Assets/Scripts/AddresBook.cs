@@ -23,7 +23,7 @@ public class AddresBook : MonoBehaviour {
 
     public void Open()
     {
-        GetComponent<Animator>().SetBool("Open", true);
+        GetComponent<Animator>().SetTrigger("Open");
 
         if (lastChars==null)
         {
@@ -65,19 +65,7 @@ public class AddresBook : MonoBehaviour {
 
     public void Close()
     {
-        GetComponent<Animator>().SetBool("Open", false);
-       
-    }
+        GetComponent<Animator>().SetTrigger("Close");
 
-    public void Switch()
-    {
-        if (GetComponent<Animator>().GetBool("Open"))
-        {
-            Close();
-        }
-        else
-        {
-            Open();
-        }
     }
 }

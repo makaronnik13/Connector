@@ -28,10 +28,7 @@ public class Tutorial : MonoBehaviour
     {
         DialogController.Instance.OnTypingFinished -= DialogFinished;
 
-        foreach (Collider2D collider in FindObjectsOfType<Collider2D>())
-        {
-            collider.enabled = false;
-        }
+        
 
         foreach (SpriteRenderer sr in FindObjectsOfType<SpriteRenderer>())
         {
@@ -42,7 +39,7 @@ public class Tutorial : MonoBehaviour
         {
             Collider2D collider = go.GetComponent<Collider2D>();
             SpriteRenderer sr = go.GetComponent<SpriteRenderer>();
-            SpriteButton sb = go.GetComponent<SpriteButton>();
+           
             if (sr)
             {
                 sr.color = new Color(1f, 1f, 1f, 1);
@@ -52,10 +49,7 @@ public class Tutorial : MonoBehaviour
             {
                 collider.enabled = true;
             }
-            if (sb)
-            {
-                sb.Interactable = true;
-            }
+           
         }
     }
 
@@ -64,10 +58,7 @@ public class Tutorial : MonoBehaviour
     {
         if (!finished)
         {
-            foreach (Collider2D collider in FindObjectsOfType<Collider2D>())
-            {
-                collider.enabled = true;
-            }
+           
 
             foreach (SpriteRenderer sr in FindObjectsOfType<SpriteRenderer>())
             {
@@ -81,10 +72,11 @@ public class Tutorial : MonoBehaviour
 
             foreach (GameObject go in showingItems[1].objects)
             {
-                SpriteButton sb = go.GetComponent<SpriteButton>();   
+                Collider2D sb = go.GetComponent<Collider2D>();
+                Debug.Log(sb);
                 if (sb)
                 {
-                    sb.Interactable = true;
+                    sb.enabled = true;
                 }
             }
 

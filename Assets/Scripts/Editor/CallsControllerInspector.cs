@@ -37,8 +37,8 @@ public class CallsControllerInspector : Editor
     
     public override void OnInspectorGUI()
     {
-        controller.DropButton = (Button)EditorGUILayout.ObjectField(controller.DropButton, typeof(Button), true);
-        controller.TakeButton = (Button)EditorGUILayout.ObjectField(controller.TakeButton, typeof(Button), true);
+        controller.DropButton = (Collider2D)EditorGUILayout.ObjectField("drop button", controller.DropButton, typeof(Collider2D), true);
+        controller.TakeButton = (Collider2D)EditorGUILayout.ObjectField("take button", controller.TakeButton, typeof(Collider2D), true);
 
         showStates = EditorGUILayout.Foldout(showStates, "States");
 

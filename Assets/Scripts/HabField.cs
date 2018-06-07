@@ -73,6 +73,7 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
 			if (paper.startField) {
 				currentPaper.transform.SetParent (paper.startField.GetComponentInChildren<Glass> ().transform.GetChild(0));
 				currentPaper.transform.localPosition = Vector3.zero;
+               
 				paper.startField.person = currentPaper.person;
 			} else {
 				Destroy (currentPaper.gameObject);
@@ -82,6 +83,7 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
         paper.Dragging = false;
 		paper.transform.SetParent(GetComponentInChildren<Glass>().transform.GetChild(0));
         paper.transform.localPosition = Vector3.zero;
+        paper.transform.localScale = Vector3.one;
         paper.CancelDestroy();
 
         person = paper.person;

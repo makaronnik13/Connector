@@ -8,7 +8,9 @@ public class DemoCallsController : MonoBehaviour {
 
 	private CallPanel listeningCallPanel = null;
 	public List<State> demoStates = new List<State>();
-	public Button DropButton, TakeButton;
+
+	public Collider2D DropButton, TakeButton;
+
 	private int playedStates = 0;
 	private List<CallPanel> callPanels;
 	private List<CallPanel> CallPanels
@@ -130,7 +132,11 @@ public class DemoCallsController : MonoBehaviour {
 
 	void Update()
 	{
-		DropButton.interactable = (listeningCallPanel != null);
-		TakeButton.interactable = (IncomingPanel != null && listeningCallPanel == null);
+		DropButton.enabled = (listeningCallPanel != null);
+
+        Debug.Log(IncomingPanel);
+        Debug.Log(listeningCallPanel);
+
+		TakeButton.enabled = (IncomingPanel != null && listeningCallPanel == null);
 	}
 }

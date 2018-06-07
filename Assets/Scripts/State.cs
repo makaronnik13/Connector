@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using Sirenix.OdinInspector;
+//using Sirenix.OdinInspector;
 
 [System.Serializable]
 public class State: ScriptableObject

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Sirenix.OdinInspector;
+//using Sirenix.OdinInspector;
 using System;
 
 public class PersonPanel : MonoBehaviour {

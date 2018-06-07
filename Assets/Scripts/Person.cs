@@ -1,4 +1,4 @@
-﻿using Sirenix.OdinInspector;
+﻿//using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "GameModel/Person")]
 public class Person : ScriptableObject {
 
-    [AssetsOnly, InlineEditor(InlineEditorModes.LargePreview)]
+    //[AssetsOnly, InlineEditor(InlineEditorModes.LargePreview)]
     public Sprite PersonSprite;
     public string PersonName;
     public bool Service = false;
