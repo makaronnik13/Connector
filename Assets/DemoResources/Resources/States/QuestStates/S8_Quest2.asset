@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -37,7 +37,13 @@ MonoBehaviour:
     person: {fileID: 11400000, guid: d668e956f816eb34ba6995bb7bbc33a0, type: 2}
     dialog:
       clip: {fileID: 0}
-      replics: []
+      replics:
+      - person: 0
+        text: 
+      - person: 0
+        text: 
+      - person: 0
+        text: 
   wrongConnectionState:
     endPoint: {fileID: 11400000, guid: 96906e1818a9cdb44999ad88ca14cb12, type: 2}
   autoAddState:

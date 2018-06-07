@@ -5,19 +5,51 @@ using UnityEngine.EventSystems;
 
 public interface IWireDraggReciewer
 {
-    void StartDragWire(RectTransform tr);
-    void DropWire(RectTransform endTransform);
+    void StartDragWire(Transform tr);
+    void DropWire(Transform endTransform);
 }
 
-public class Jack : MonoBehaviour, IDragHandler
+
+public class Jack : MonoBehaviour, ISpriteInputHandler
 {
 
-    public void OnDrag(PointerEventData eventData)
+    public bool Interactable;
+    public Transform hab;
+
+    void Start()
     {
-		if(Phone.Instance.TalkingPhone)
-		{
-			return;
-		}
-		GetComponent<IWireDraggReciewer>().StartDragWire(transform.GetChild(0).GetComponent<RectTransform>());
+        if (Interactable)
+        {
+            InputController.Instance.AddListener(this);
+        }
+    }
+
+    public void OnDrag(Vector2 delta)
+    {
+        if (Phone.Instance.TalkingPhone)
+        {
+            return;
+        }
+        GetComponent<IWireDraggReciewer>().StartDragWire(hab);
+    }
+
+    public void OnClick()
+    {
+       
+    }
+
+    public void OnDrop()
+    {
+       
+    }
+
+    public void OnHover()
+    {
+
+    }
+
+    public void OnUnhover()
+    {
+       
     }
 }

@@ -9,12 +9,12 @@ public class DialogController: Singleton<DialogController>{
 
     private State currentState;
     public Action<State> OnDialogFinished = (s) => { };
-
+    public Action OnTypingFinished = () => { };
 
     public float secondsForSymbol;
 	public float dellay = 1;
 
-    public CombinationLink defaultLink;
+   // public CombinationLink defaultLink;
    
 	private Person firstPerson;
 
@@ -25,6 +25,12 @@ public class DialogController: Singleton<DialogController>{
     private void Start()
     {
         firstPersonPanel.writer.OnComplete += SectionComplete;
+        GetComponentInChildren<Typewriter>().OnComplete += TypingComplete;
+    }
+
+    private void TypingComplete()
+    {
+        OnTypingFinished.Invoke();
     }
 
     private void SectionComplete()
@@ -47,7 +53,7 @@ public class DialogController: Singleton<DialogController>{
 		string initial = replics [0].text;
 
 		replics.RemoveAt (0);
-		firstPersonPanel.writer.GetComponentInParent<ScrollViewPositioner>().Write (initial, replics.Select(r=>r.text).ToArray());
+		firstPersonPanel.writer.GetComponentInChildren<Typewriter>().Write (initial, replics.Select(r=>r.text).ToArray());
 
         PlayNextReplica ();
     }
@@ -65,7 +71,7 @@ public class DialogController: Singleton<DialogController>{
         string initial = replics[0].text;
         replics.RemoveAt(0);
 
-		firstPersonPanel.writer.GetComponentInParent<ScrollViewPositioner>().Write(initial, replics.Select(r => r.text).ToArray());
+		firstPersonPanel.writer.GetComponentInChildren<Typewriter>().Write(initial, replics.Select(r => r.text).ToArray());
         //firstPersonPanel.writer.Write(initial, replics.Select(r => r.text).ToArray());
         PlayNextReplica();
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PaperWithName : MonoBehaviour {
 
@@ -23,10 +24,10 @@ public class PaperWithName : MonoBehaviour {
         Dragging = true;
         person = p;
 		if (!person.Service) {
-			GetComponentInChildren<Text> ().text = p.Surname [0] + ". " + p.FirstName;
+			GetComponentInChildren<TextMeshProUGUI> ().text = p.Surname [0] + ". " + p.FirstName;
 		} else 
 		{
-			GetComponentInChildren<Text> ().text = p.PersonName;
+			GetComponentInChildren<TextMeshProUGUI> ().text = p.PersonName;
 		}
     }
 
@@ -36,9 +37,9 @@ public class PaperWithName : MonoBehaviour {
         {
             Vector2 pos;
 
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(parentCanvas.transform as RectTransform, Input.mousePosition, parentCanvas.worldCamera, out pos);
-            transform.position = parentCanvas.transform.TransformPoint(pos);
-
+            //RectTransformUtility.ScreenPointToLocalPointInRectangle(parentCanvas.transform as RectTransform, Input.mousePosition, parentCanvas.worldCamera, out pos);
+            transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
+            transform.localScale = Vector3.one * 0.005f;
             if (Input.GetMouseButtonUp(0))
             {
                 Invoke("DestroyPaper", 0.1f);

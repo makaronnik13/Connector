@@ -39,7 +39,7 @@ public class SoundController : Singleton<SoundController> {
 		SetSound (PlayerPrefs.GetFloat("Sound"));
 		SetMusic (PlayerPrefs.GetFloat("Music"));
 		clips = new Queue<AudioClip> (backgroundClips);
-		//StartCoroutine (PlayMusic());
+		StartCoroutine (PlayMusic());
 	}
 
 	public void SetSound(float value)
@@ -61,7 +61,8 @@ public class SoundController : Singleton<SoundController> {
 
 	private IEnumerator PlayMusic()
 	{
-		if (currentClip == null) {
+		if (currentClip == null)
+        {
 			currentClip = clips.Dequeue();
 			sources [0].clip = currentClip;
 			sources [0].Play ();
@@ -82,7 +83,7 @@ public class SoundController : Singleton<SoundController> {
 			{
 				sources [0].clip = null;
 			}
-			new WaitForSeconds(0.1f);
+			yield return new WaitForSeconds(0.1f);
 		}
 		StartCoroutine (PlayMusic());
 		yield return null;

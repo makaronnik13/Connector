@@ -9,10 +9,11 @@ public class AddresBook : MonoBehaviour {
 
     private List<Person> persons = new List<Person>();
 	private List<Person> services = new List<Person>();
-    public Transform page1, page2;
+    public Transform page;
 
     public GameObject AddresPrefab;
 
+    private char[] lastChars; 
 
     private void Start()
     {
@@ -23,20 +24,22 @@ public class AddresBook : MonoBehaviour {
     public void Open()
     {
         GetComponent<Animator>().SetBool("Open", true);
-        
-        ShowPage(new char[3] {'А', 'Б', 'В'});
+
+        if (lastChars==null)
+        {
+            lastChars = new char[3] { 'А', 'Б', 'В' };
+        }
+        ShowPage(lastChars);
     }
 
     public void ShowPage(char[] chars)
     {
-        foreach (Transform t in page1.transform)
+        lastChars = chars;
+        foreach (Transform t in page.transform)
         {
             Destroy(t.gameObject);
         }
-        foreach (Transform t in page2.transform)
-        {
-            Destroy(t.gameObject);
-        }
+       
 
 		List<Person> pagePersons;
 
@@ -51,23 +54,12 @@ public class AddresBook : MonoBehaviour {
         
 		pagePersons.RemoveAll (pp=>pp.hideInBook);
 
-        int v = Mathf.Min(7, pagePersons.Count);
 
-        for (int i = 0; i<v;i++)
+        for (int i = 0; i< pagePersons.Count; i++)
         {
-            GameObject newAddres = Instantiate(AddresPrefab, page1);
+            GameObject newAddres = Instantiate(AddresPrefab, page);
             newAddres.transform.localScale = Vector3.one;
             newAddres.GetComponent<Addres>().Init(pagePersons[i]);
-        }
-
-        if (pagePersons.Count>7)
-        {
-            for (int i = 7; i < pagePersons.Count; i++)
-            {
-                GameObject newAddres = Instantiate(AddresPrefab, page2);
-                newAddres.transform.localScale = Vector3.one;
-                newAddres.GetComponent<Addres>().Init(pagePersons[i]);
-            }
         }
     }
 

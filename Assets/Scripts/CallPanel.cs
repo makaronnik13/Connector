@@ -57,7 +57,7 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
 		}
 	}
 
-    public Image lamp;
+    public SpriteRenderer lamp;
 
 	[HideInInspector]
 	public Wire wire;
@@ -138,7 +138,7 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
         }
 	}
 
-    public void DropWire(RectTransform endTransform)
+    public void DropWire(Transform endTransform)
     {
 		if (state && callPanelState == CallPanelState.Waiting || callPanelState == CallPanelState.Talking)
         {
@@ -154,7 +154,7 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
         }
     }
 
-    public void StartDragWire(RectTransform tr)
+    public void StartDragWire(Transform tr)
     {
 
 		if (state && callPanelState == CallPanelState.Waiting)

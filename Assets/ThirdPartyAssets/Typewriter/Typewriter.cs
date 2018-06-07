@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 /// <summary>
 /// <para>
@@ -28,7 +29,7 @@ public class Typewriter : MonoBehaviour {
     public string initialText;
     public string[] additionalTextSections;
     public int textWidth = 60;
-    public Text guiTextComponent;
+    public TextMeshProUGUI guiTextComponent;
     public TextMesh textMesh;
 
 	// These two options are mutually exclusive, if the script waits for external
@@ -81,7 +82,7 @@ public class Typewriter : MonoBehaviour {
 	// Starts the text writing to the assigned GUIText;
 	public void Write() {
 		if(null == guiTextComponent && null == textMesh) {
-			guiTextComponent = GetComponent<Text>();
+			guiTextComponent = GetComponent<TextMeshProUGUI>();
 			if(null == guiTextComponent) {
 				textMesh = GetComponent<TextMesh>();
 				if(null == textMesh) {

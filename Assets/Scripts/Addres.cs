@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class Addres : MonoBehaviour, IDragHandler
 {
@@ -14,10 +15,10 @@ public class Addres : MonoBehaviour, IDragHandler
         person = p;
 		if (!p.Service) 
 		{
-			GetComponentInChildren<Text> ().text = p.Surname + " " + p.FirstName;
+			GetComponent<TextMeshProUGUI> ().text = p.Surname + " " + p.FirstName;
 		} else 
 		{
-			GetComponentInChildren<Text> ().text = p.PersonName;
+			GetComponentInChildren<TextMeshProUGUI> ().text = p.PersonName;
 		}
     }
 
@@ -29,8 +30,7 @@ public class Addres : MonoBehaviour, IDragHandler
         }
 
         GameObject paper = Instantiate(Resources.Load("Prefabs/PaperWithName") as GameObject);
-        paper.transform.SetParent(GameObject.FindGameObjectWithTag("GameCanvas").transform);
-        paper.transform.localScale = Vector3.one;
+        paper.transform.localScale = Vector3.one * 0.05f; ;
         paper.GetComponent<PaperWithName>().Init(person);
     }
 

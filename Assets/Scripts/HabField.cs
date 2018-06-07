@@ -9,7 +9,7 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
 	public Wire wire;
 	public bool ServiceHab = false;
 
-    public void StartDragWire(RectTransform t)
+    public void StartDragWire(Transform t)
     {
 		if(wire)
 		{
@@ -24,7 +24,7 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
         ConnectionLine.Instance.SetStart(t, person);
     }
 
-    public void DropWire(RectTransform endTransform)
+    public void DropWire(Transform endTransform)
     {
 		if (wire != null || person == null)
         {

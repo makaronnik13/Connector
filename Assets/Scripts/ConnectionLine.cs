@@ -15,7 +15,7 @@ public class ConnectionLine : Singleton<ConnectionLine> {
     private Material material;
     private List<Vector3> points = new List<Vector3>();
 
-	public Wire Drop(RectTransform endTransform, Person endPerson)
+	public Wire Drop(Transform endTransform, Person endPerson)
     {
         //fake wrong number
         CallPanel callPanel = FindObjectsOfType<CallPanel>().First(cp => cp.state && (cp.state.person == startPerson || cp.state.person == endPerson));
@@ -168,7 +168,7 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 	}
 
 
-    private RectTransform startTransform;
+    private Transform startTransform;
     private LineRenderer line;
     private LineRenderer Line
     {
@@ -223,7 +223,7 @@ public class ConnectionLine : Singleton<ConnectionLine> {
         startTransform = null;
         Line.enabled = false;
     }
-    public void SetStart(RectTransform start, Person person)
+    public void SetStart(Transform start, Person person)
     {
         if(start == startTransform)
         {
