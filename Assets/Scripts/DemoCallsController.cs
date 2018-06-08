@@ -4,9 +4,9 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
 
-public class DemoCallsController : MonoBehaviour {
+public class DemoCallsController : Singleton<DemoCallsController> {
 
-	private CallPanel listeningCallPanel = null;
+	public CallPanel listeningCallPanel = null;
 	public List<State> demoStates = new List<State>();
 
 	public Collider2D DropButton, TakeButton;
@@ -98,6 +98,7 @@ public class DemoCallsController : MonoBehaviour {
 		{
 			listeningCallPanel.Skip ();
 			listeningCallPanel = null;
+            ConnectionLine.Instance.Hide();
 		}
 	}
 
@@ -128,14 +129,15 @@ public class DemoCallsController : MonoBehaviour {
 		{
 			incomingPanel.Push ();
 		}
-	}
+
+        ConnectionLine.Instance.SetStart(incomingPanel.hab, incomingPanel.state.person);
+
+    }
 
 	void Update()
 	{
 		DropButton.enabled = (listeningCallPanel != null);
 
-        Debug.Log(IncomingPanel);
-        Debug.Log(listeningCallPanel);
 
 		TakeButton.enabled = (IncomingPanel != null && listeningCallPanel == null);
 	}

@@ -9,7 +9,9 @@ public class PersonPanel : MonoBehaviour {
 
     private Sprite defaultSprite;
 
-	public Sprite spriteTest;
+    public Image backgroundImage;
+
+    public Sprite spriteTest;
 	public string textTest;
 	private Animator animator;
 	private Animator Animator
@@ -35,6 +37,7 @@ public class PersonPanel : MonoBehaviour {
     public void Show(Sprite sprite, string text)
 	{
 		img.sprite = sprite;
+        backgroundImage.enabled = true;
 	}
 
 	public void Hide()
@@ -44,5 +47,6 @@ public class PersonPanel : MonoBehaviour {
 		if (writer.guiTextComponent) {
 			writer.guiTextComponent.text = "";
 		}
+        backgroundImage.enabled = false;
 	}
 }

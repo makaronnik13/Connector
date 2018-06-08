@@ -46,7 +46,14 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 				StartCoroutine (CauseConnectionFail (callPanel, warningType, endPerson.wrongConnectionState));
 			} else 
 			{
-				StartCoroutine (CauseConnectionEnd (callPanel, callPanel.state.TalkingTime));
+                if (callPanel.state.GetType() == typeof(StorryState))
+                {
+                    if ((callPanel.state as StorryState).autoAddState.endPoint)
+                    {
+                        FindObjectOfType<DemoCallsController>().AddState((callPanel.state as StorryState).autoAddState.endPoint);
+                    }
+                }
+                StartCoroutine (CauseConnectionEnd (callPanel, callPanel.state.TalkingTime));
 			}
 
 			callPanel.Talk ();
@@ -109,6 +116,7 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 			Phone.Instance.SendWarning (Phone.WarningType.SelfConnection);
 		}
 
+
 		if(callPanel.state.GetType()== typeof(StorryState))
 		{
 			if((callPanel.state as StorryState).wrongConnectionState.endPoint)
@@ -140,24 +148,23 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 			yield return new WaitForEndOfFrame ();
 		}
 
+        if (!callPanel.state)
+        {
+            yield return null;
+        }
+
 		if(callPanel.state.GetType()== typeof(StorryState))
 		{
 			foreach(CombinationLink cl in (callPanel.state as StorryState).combinationLinks)
 			{
 				if(cl.person == callPanel.wire.end && cl.endPoint)
 				{
-					Debug.Log ("!!!");
 					FindObjectOfType<DemoCallsController> ().AddState (cl.endPoint);
 				}
 			}
 		}
-		if(callPanel.state.GetType()== typeof(StorryState))
-		{
-			if((callPanel.state as StorryState).autoAddState.endPoint)
-			{
-				FindObjectOfType<DemoCallsController> ().AddState ((callPanel.state as StorryState).autoAddState.endPoint);
-			}
-		}
+
+	
 
 		callPanel.state = null;
 		callPanel.callPanelState = CallPanel.CallPanelState.Off;
@@ -206,11 +213,9 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 
             Line.SetPositions(points.ToArray());
         }
-        if (Input.GetMouseButtonUp(0))
-        {
-			Invoke("Hide", 0.1f);
-        }
+        
     }
+
     private void Start()
     {
         material = GetComponent<LineRenderer>().material;
@@ -222,7 +227,9 @@ public class ConnectionLine : Singleton<ConnectionLine> {
     {
         startTransform = null;
         Line.enabled = false;
+
     }
+
     public void SetStart(Transform start, Person person)
     {
         if(start == startTransform)

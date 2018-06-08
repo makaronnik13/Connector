@@ -60,7 +60,7 @@ public class StorryStateInspector : Editor {
 
     public override void OnInspectorGUI()
     {
-        state.person = (Person)EditorGUILayout.ObjectField("Person",state.person, typeof(StorryState), false);
+        state.person = (Person)EditorGUILayout.ObjectField("Person",state.person, typeof(Person), false);
         state.TalkingTime = EditorGUILayout.FloatField("DialogTime", state.TalkingTime);
 
         showLables = EditorGUILayout.Foldout(showLables, "Warning chances");

@@ -58,6 +58,7 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
 	}
 
     public SpriteRenderer lamp;
+    public Transform hab;
 
 	[HideInInspector]
 	public Wire wire;
@@ -149,7 +150,7 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
 
 			Debug.Log ("drop from cp");
             wire = ConnectionLine.Instance.Drop(endTransform, state.person);
-			FindObjectsOfType<HabField> ().ToList ().Find (hf => hf.person == ConnectionLine.Instance.startPerson).wire = wire;
+			FindObjectsOfType<HabField> ().ToList ().Find (hf => hf.Person == ConnectionLine.Instance.startPerson).wire = wire;
 			callPanelState = CallPanelState.Talking;
         }
     }

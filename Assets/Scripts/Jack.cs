@@ -26,16 +26,25 @@ public class Jack : MonoBehaviour, ISpriteInputHandler
 
     public void OnDrag(Vector2 delta)
     {
+        /*
         if (Phone.Instance.TalkingPhone)
         {
             return;
         }
         GetComponent<IWireDraggReciewer>().StartDragWire(hab);
+        */
     }
 
     public void OnClick()
     {
-       
+        if (!DemoCallsController.Instance.listeningCallPanel)
+        {
+            return;
+        }
+        else
+        {
+            GetComponent<IWireDraggReciewer>().DropWire(transform.GetChild(0));
+        }
     }
 
     public void OnDrop()
@@ -45,7 +54,11 @@ public class Jack : MonoBehaviour, ISpriteInputHandler
 
     public void OnHover()
     {
-
+        if (!DemoCallsController.Instance.listeningCallPanel)
+        {
+            return;
+        }
+        ConnectionLine.Instance.SetStart(DemoCallsController.Instance.listeningCallPanel.hab, DemoCallsController.Instance.listeningCallPanel.state.person);
     }
 
     public void OnUnhover()

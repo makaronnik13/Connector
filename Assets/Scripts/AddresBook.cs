@@ -66,6 +66,6 @@ public class AddresBook : MonoBehaviour {
     public void Close()
     {
         GetComponent<Animator>().SetTrigger("Close");
-
+        FindObjectOfType<CameraController>().SetCameraView(0);
     }
 }

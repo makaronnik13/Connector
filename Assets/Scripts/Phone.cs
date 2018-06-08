@@ -52,8 +52,7 @@ public class Phone : Singleton<Phone>
 		talking = true;
 		GetComponent<Animator> ().SetBool ("Ringing", true);
 		GetComponent<AudioSource> ().Play ();
-		GetComponent<Button> ().interactable = true;
-		GetComponent<Button> ().onClick.AddListener (TakePhone);
+        GetComponent<Collider2D>().enabled = true;
 	}
 
 	public void TakePhone()
@@ -62,11 +61,10 @@ public class Phone : Singleton<Phone>
 		TalkingPhone = true;
 		GetComponent<Animator> ().SetBool ("Ringing", false);
 		GetComponent<AudioSource> ().Stop ();
-		GetComponent<Button> ().onClick.RemoveListener (TakePhone);
-		//GetComponent<Button> ().onClick.AddListener (HangPhone);
 		DialogController.Instance.OnDialogFinished += HangPhone;
 		DialogController.Instance.PlayMonolog (statesQueue.Dequeue());
-	}
+        GetComponent<Collider2D>().enabled = false;
+    }
 
 	private void HangPhone()
 	{
@@ -75,7 +73,6 @@ public class Phone : Singleton<Phone>
 
 	public void HangPhone(State state)
 	{
-		GetComponent<Button> ().onClick.RemoveListener (HangPhone);
 		DialogController.Instance.OnDialogFinished -= HangPhone;
 		TalkingPhone = false;
 		talking = false;

@@ -5,9 +5,35 @@ using UnityEngine;
 
 public class HabField : MonoBehaviour, IWireDraggReciewer
 {
-    public Person person;
+    public Person InitialPerson;
+
+    private Person person;
+    public Person Person
+    {
+        get
+        {
+            return person;
+        }
+        set
+        {
+            if (wire)
+            {
+                wire.Disconnect();
+                wire = null;
+            }
+            person = value;
+            
+        }
+    }
+
 	public Wire wire;
 	public bool ServiceHab = false;
+
+
+    void Start()
+    {
+        Person = InitialPerson;    
+    }
 
     public void StartDragWire(Transform t)
     {
@@ -16,48 +42,58 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
 			wire.Disconnect ();
 			wire = null;
 		}
-        if (person == null)
+        if (Person == null)
         {
             return;
         }
 
-        ConnectionLine.Instance.SetStart(t, person);
+        ConnectionLine.Instance.SetStart(t, Person);
     }
 
     public void DropWire(Transform endTransform)
     {
-		if (wire != null || person == null)
+		if (Person == null)
         {
 			return;
+        }
+
+        if (wire != null)
+        {
+            wire.Disconnect();
+            wire = null;
         }
 
 		CallPanel callPanel = FindObjectsOfType<CallPanel> ().ToList ().Find (cp => cp.state && cp.state.person == ConnectionLine.Instance.startPerson);  
 	
 		if (callPanel)
         {
-			wire = ConnectionLine.Instance.Drop(endTransform, person);
+			wire = ConnectionLine.Instance.Drop(endTransform, Person);
 			callPanel.DropWireToHab ();
 			callPanel.wire = wire;
         }
+
+        ConnectionLine.Instance.Hide();
     }
 
     public void StartDragPaper()
     {
-		if (person == null || ServiceHab)
+		if (Person == null || ServiceHab)
         {
             return;
         }
 
 		GameObject paper = GetComponentInChildren<PaperWithName>().gameObject;
-		paper.transform.SetParent(GameObject.FindGameObjectWithTag("GameCanvas").transform);
-		paper.transform.localScale = Vector3.one;
-		paper.GetComponent<PaperWithName>().Init(person, this);
-		person = null;
+		paper.transform.SetParent(null);
+		paper.transform.localScale = Vector3.one*0.01f;
+		paper.GetComponent<PaperWithName>().Init(Person, this);
+		Person = null;
+
+        
     }
 
     public void DropPaper()
     {
-		if (person && ServiceHab)
+		if (Person && ServiceHab)
         {
             return;
         }
@@ -74,7 +110,7 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
 				currentPaper.transform.SetParent (paper.startField.GetComponentInChildren<Glass> ().transform.GetChild(0));
 				currentPaper.transform.localPosition = Vector3.zero;
                
-				paper.startField.person = currentPaper.person;
+				paper.startField.Person = currentPaper.person;
 			} else {
 				Destroy (currentPaper.gameObject);
 			}
@@ -86,6 +122,6 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
         paper.transform.localScale = Vector3.one;
         paper.CancelDestroy();
 
-        person = paper.person;
+        Person = paper.person;
     }
 }

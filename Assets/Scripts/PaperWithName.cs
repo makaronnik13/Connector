@@ -10,11 +10,16 @@ public class PaperWithName : MonoBehaviour {
     public bool Dragging;
 	public HabField startField;
 
-    private Canvas parentCanvas
+    private Canvas paperCanvas;
+    private Canvas PaperCanvas
     {
         get
         {
-            return GetComponentInParent<Canvas>();
+            if (paperCanvas == null)
+            {
+                paperCanvas = GetComponent<Canvas>();
+            }
+            return paperCanvas;
         }
     }
 
@@ -44,6 +49,14 @@ public class PaperWithName : MonoBehaviour {
             {
                 Invoke("DestroyPaper", 0.1f);
             }
+        }
+        if (transform.parent==null)
+        {
+            PaperCanvas.sortingOrder = 400;
+        }
+        else
+        {
+            PaperCanvas.sortingOrder = 3;
         }
     }
 

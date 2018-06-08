@@ -10,7 +10,7 @@ public class HabsParent : MonoBehaviour {
 		{
 			foreach(HabField hf in GetComponentsInChildren<HabField>())
 			{
-				if(hf.person == null)
+				if(hf.Person == null)
 				{
 					return hf;
 				}
@@ -34,9 +34,9 @@ public class HabsParent : MonoBehaviour {
 		paper.Dragging = false;
 		paper.transform.SetParent(EmptyHab.transform.GetComponentInChildren<Glass>().transform.GetChild(0));
 		paper.transform.localPosition = Vector3.zero;
-		paper.transform.localScale = Vector3.one*0.8f;
+		paper.transform.localScale = Vector3.one*0.9f;
 		paper.CancelDestroy();
-		EmptyHab.person = paper.person;
+		EmptyHab.Person = paper.person;
 
 		return true;
 	}

@@ -4,12 +4,14 @@ using UnityEngine;
 //using Sirenix.OdinInspector;
 using System;
 using System.Linq;
+using UnityEngine.UI;
 
 public class DialogController: Singleton<DialogController>{
 
     private State currentState;
     public Action<State> OnDialogFinished = (s) => { };
     public Action OnTypingFinished = () => { };
+  
 
     public float secondsForSymbol;
 	public float dellay = 1;
@@ -54,6 +56,8 @@ public class DialogController: Singleton<DialogController>{
 
 		replics.RemoveAt (0);
 		firstPersonPanel.writer.GetComponentInChildren<Typewriter>().Write (initial, replics.Select(r=>r.text).ToArray());
+
+        firstPersonPanel.Show(null, initial);
 
         PlayNextReplica ();
     }

@@ -8,7 +8,11 @@ public class SpriteButton : MonoBehaviour, ISpriteInputHandler
 {
     public UnityEvent OnClickCallback;
     public UnityEvent OnHooverCallback;
+    public UnityEvent OnUnHooverCallback;
     public UnityEvent OnDropCallback;
+    public UnityEvent OnStartDraggingCallback;
+
+    private bool dragging;
 
     public Sprite hooveredSprite;
 
@@ -51,7 +55,16 @@ public class SpriteButton : MonoBehaviour, ISpriteInputHandler
 
     public void OnDrag(Vector2 delta)
     {
-        
+        if (!dragging)
+        {
+            OnStartDraggingCallback.Invoke();
+            dragging = true;
+        }
+    }
+
+    void OnMouseUp()
+    {
+        dragging = false;
     }
 
     public void OnDrop()
@@ -74,10 +87,12 @@ public class SpriteButton : MonoBehaviour, ISpriteInputHandler
         {
             sRenderer.sprite = defaultSprite;
         }
+       OnUnHooverCallback.Invoke();
     }
 
     public void OnClick()
     {
         OnClickCallback.Invoke();
     }
+
 }
