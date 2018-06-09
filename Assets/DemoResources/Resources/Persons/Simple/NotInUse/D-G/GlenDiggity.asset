@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: GlenDiggity
   m_EditorClassIdentifier: 
   PersonSprite: {fileID: 0}
-  PersonName: 
+  PersonName: "\u0413\u043B\u0435\u043D\u043D \u0414\u0438\u0433\u0433\u0438\u0442\u0438"
   Service: 0
   wrongConnectionState: {fileID: 0}
   hideInBook: 0

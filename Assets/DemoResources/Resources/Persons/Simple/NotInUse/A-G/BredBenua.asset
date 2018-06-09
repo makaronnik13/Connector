@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: BredBenua
   m_EditorClassIdentifier: 
   PersonSprite: {fileID: 0}
-  PersonName: 
+  PersonName: "\u0411\u0440\u044D\u0434 \u0411\u0435\u043D\u0443\u0430"
   Service: 0
   wrongConnectionState: {fileID: 0}
   hideInBook: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: GermanEricsson
   m_EditorClassIdentifier: 
   PersonSprite: {fileID: 0}
-  PersonName: 
+  PersonName: "\u0413\u0435\u0440\u043C\u0430\u043D \u042D\u0440\u0438\u043A\u0441\u043E\u043D"
   Service: 0
   wrongConnectionState: {fileID: 0}
   hideInBook: 0

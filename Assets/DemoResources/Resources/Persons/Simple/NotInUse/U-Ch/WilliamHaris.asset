@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: WilliamHaris
   m_EditorClassIdentifier: 
   PersonSprite: {fileID: 0}
-  PersonName: 
+  PersonName: "\u0423\u0438\u043B\u044C\u044F\u043C \u0425\u0430\u0440\u0440\u0438\u0441"
   Service: 0
   wrongConnectionState: {fileID: 0}
   hideInBook: 0

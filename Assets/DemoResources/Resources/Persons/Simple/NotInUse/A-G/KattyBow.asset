@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: KattyBow
   m_EditorClassIdentifier: 
   PersonSprite: {fileID: 0}
-  PersonName: 
+  PersonName: "\u041A\u044D\u0442\u0442\u0438 \u0411\u043E\u0443"
   Service: 0
   wrongConnectionState: {fileID: 0}
   hideInBook: 0

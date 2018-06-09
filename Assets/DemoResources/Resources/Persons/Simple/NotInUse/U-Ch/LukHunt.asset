@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: LukHunt
   m_EditorClassIdentifier: 
   PersonSprite: {fileID: 0}
-  PersonName: 
+  PersonName: "\u041B\u044E\u043A \u0425\u0430\u043D\u0442"
   Service: 0
   wrongConnectionState: {fileID: 0}
   hideInBook: 0
