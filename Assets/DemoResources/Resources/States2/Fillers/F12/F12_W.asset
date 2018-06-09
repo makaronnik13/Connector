@@ -16,10 +16,10 @@ MonoBehaviour:
   minute: 0
   waitingTime: 5
   canBeDisconnectedAfter: 10000
-  WrongConnectionWarningChance: 0
-  DropWarningChance: 0
-  DisconnectWarningChance: 1
-  TalkingTime: 15
+  WrongConnectionWarningChance: 0.3
+  DropWarningChance: 0.3
+  DisconnectWarningChance: 0.3
+  TalkingTime: 25
   monolog:
     clip: {fileID: 0}
     replics:

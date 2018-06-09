@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f496d3ebc07be44f4b5e0a47ce226765, type: 3}
   m_Name: Ending
   m_EditorClassIdentifier: 
-  person: {fileID: 0}
+  person: {fileID: 11400000, guid: a38f27c3a32c1724e9e79546363ecbcc, type: 2}
   day: 1
   minute: 0
   waitingTime: 5

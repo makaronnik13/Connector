@@ -18,7 +18,8 @@ MonoBehaviour:
   canBeDisconnectedAfter: 10000
   WrongConnectionWarningChance: 0
   DropWarningChance: 0
-  DisconnectWarningChance: 1
+  DisconnectWarningChance: 0
+  TalkingTime: 1
   monolog:
     clip: {fileID: 0}
     replics:
@@ -35,4 +36,6 @@ MonoBehaviour:
   wrongConnectionState:
     endPoint: {fileID: 0}
   autoAddState:
+    endPoint: {fileID: 0}
+  SkipState:
     endPoint: {fileID: 0}

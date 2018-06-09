@@ -16,16 +16,16 @@ MonoBehaviour:
   minute: 0
   waitingTime: 5
   canBeDisconnectedAfter: 10000
-  WrongConnectionWarningChance: 0
-  DropWarningChance: 0
-  DisconnectWarningChance: 1
-  TalkingTime: 15
+  WrongConnectionWarningChance: 0.3
+  DropWarningChance: 0.3
+  DisconnectWarningChance: 0.3
+  TalkingTime: 10
   monolog:
     clip: {fileID: 0}
     replics:
     - person: 0
       text: "\u0410\u043B\u043B\u043E! \u042F \u0436\u0435 \u0433\u043E\u0432\u043E\u0440\u044E,
-        \u043C\u043D\u0435 \t\u0441\u0440\u043E\u0447\u043D\u043E \u043D\u0443\u0436\u043D\u043E
+        \u043C\u043D\u0435 \u0441\u0440\u043E\u0447\u043D\u043E \u043D\u0443\u0436\u043D\u043E
         \u0432\u044B\u0437\u0432\u0430\u0442\u044C \u0441\u043A\u043E\u0440\u0443\u044E,
         \u0447\u0442\u043E \u0412\u044B \u0434\u0435\u043B\u0430\u0435\u0442\u0435?"
   X: 0

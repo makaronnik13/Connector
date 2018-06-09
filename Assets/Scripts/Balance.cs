@@ -22,4 +22,11 @@ public class Balance : ScriptableObject
         public AnimationCurve fillersRate;
     }
 
+    [Range(0.1f, 3f)]
+    public float TalkingTimeMultiplyer;
+
+    public float GetTalkingTime(float talkingTime)
+    {
+        return TalkingTimeMultiplyer* talkingTime;
+    }
 }

@@ -90,5 +90,7 @@ public class StorryStateInspector : Editor {
         state.autoAddState.endPoint = (StorryState)EditorGUILayout.ObjectField("Auto", state.autoAddState.endPoint, typeof(StorryState), false);
         state.wrongConnectionState.endPoint = (StorryState)EditorGUILayout.ObjectField("Wrong", state.wrongConnectionState.endPoint, typeof(StorryState), false);
         state.SkipState.endPoint = (StorryState)EditorGUILayout.ObjectField("Skip", state.SkipState.endPoint, typeof(StorryState), false);
+
+        EditorUtility.SetDirty(state);
     }
 }

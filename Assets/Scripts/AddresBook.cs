@@ -34,6 +34,7 @@ public class AddresBook : MonoBehaviour {
 
     public void ShowPage(char[] chars)
     {
+        SoundController.Instance.PlaySound(5);
         lastChars = chars;
         foreach (Transform t in page.transform)
         {

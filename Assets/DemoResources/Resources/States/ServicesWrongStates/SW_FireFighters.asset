@@ -16,7 +16,10 @@ MonoBehaviour:
   minute: 0
   waitingTime: 30
   canBeDisconnectedAfter: 10000
-  badChance: 1
+  WrongConnectionWarningChance: 0
+  DropWarningChance: 0
+  DisconnectWarningChance: 0
+  TalkingTime: 1
   monolog:
     clip: {fileID: 0}
     replics:
@@ -30,8 +33,9 @@ MonoBehaviour:
         \u0410 \u043F\u043E\u0441\u043B\u0435 \u044D\u0442\u043E\u0433\u043E \u043E\u043D\u0438
         \u0443\u0437\u043D\u0430\u044E\u0442, \u0447\u0442\u043E \u0441 \u043D\u0430\u043C\u0438
         \u0441\u0432\u044F\u0437\u0430\u043B\u0438\u0441\u044C \u043F\u043E \u043E\u0448\u0438\u0431\u043A\u0435
-        \u0441 \u0412\u0430\u0448\u0435\u0439 \u0441\u0442\u043E\u0440\u043E\u043D\u044B.
-        \u0412\u044B \u043E\u0442\u0432\u043B\u0435\u043A\u0430\u0435\u0442\u0435
+        \u0441 \u0412\u0430\u0448\u0435\u0439 \u0441\u0442\u043E\u0440\u043E\u043D\u044B."
+    - person: 0
+      text: "\u0412\u044B \u043E\u0442\u0432\u043B\u0435\u043A\u0430\u0435\u0442\u0435
         \u043F\u043E\u0436\u0430\u0440\u043D\u044B\u0445 \u043E\u0442 \u0440\u0430\u0431\u043E\u0442\u044B,\u043F\u0440\u043E\u0441\u0438\u043C
         \u043D\u0435 \u043E\u0442\u0432\u043B\u0435\u043A\u0430\u0442\u044C \u043D\u0430\u0441
         \u043B\u043E\u0436\u043D\u044B\u043C\u0438 \u0432\u044B\u0437\u043E\u0432\u0430\u043C\u0438. "
@@ -41,4 +45,6 @@ MonoBehaviour:
   wrongConnectionState:
     endPoint: {fileID: 0}
   autoAddState:
+    endPoint: {fileID: 0}
+  SkipState:
     endPoint: {fileID: 0}

@@ -16,6 +16,8 @@ public class State: ScriptableObject
     public float waitingTime = 5;
     [HideInInspector]
     public float canBeDisconnectedAfter = 10000;
+
+
     [Range(0,1)]
     public float WrongConnectionWarningChance = 0;
 	[Range(0,1)]

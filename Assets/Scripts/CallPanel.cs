@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 using System;
 
-public class CallPanel : MonoBehaviour, IWireDraggReciewer
+public class CallPanel : MonoBehaviour
 {
 
     public enum CallPanelState
@@ -62,7 +62,6 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
 
 	[HideInInspector]
 	public Wire wire;
-    //private float timer = 0;
 
 
 	public void Push()
@@ -97,9 +96,13 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
 
 	public void Skip()
 	{
+        Debug.Log(_state);
+
 		if (_state) 
 		{
-			if (UnityEngine.Random.Range (0, 1f) < _state.DropWarningChance) {
+            float randV = UnityEngine.Random.Range(0, 1f);
+            Debug.Log(randV+"/"+_state.DropWarningChance);
+            if (randV < _state.DropWarningChance) {
 				Phone.Instance.SendWarning (Phone.WarningType.Drop);
 			}
 
@@ -139,22 +142,6 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
         }
 	}
 
-    public void DropWire(Transform endTransform)
-    {
-        /*
-		if (state && callPanelState == CallPanelState.Waiting || callPanelState == CallPanelState.Talking)
-        {
-            if (wire)
-			{
-				wire.Disconnect ();
-			}
-
-			Debug.Log ("drop from cp");
-            wire = ConnectionLine.Instance.Drop(endTransform, state.person);
-			FindObjectsOfType<HabField> ().ToList ().Find (hf => hf.Person == ConnectionLine.Instance.startPerson).wire = wire;
-			callPanelState = CallPanelState.Talking;
-        }*/
-    }
 
     public void StartDragWire(Transform tr)
     {
@@ -182,92 +169,4 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
 			wire = null;
 		}
     }
-
-	/*
-	public void LaunchTalk(State state)
-	{
-		this.state = state;
-		callPanelState = CallPanelState.Incoming;
-	}
-
-    private IEnumerator WaitTimer()
-    {
-        timer = 0;
-        while (timer<state.waitingTime)
-        {
-            yield return new WaitForSeconds(0.1f);
-            timer += 0.1f;
-        }
-        callPanelState = CallPanelState.Off;
-        state = null;
-    }
-
-    private IEnumerator TalkTimer()
-    {
-        timer = 0;
-
-        //replace 0 with path
-        float ch = 0;
-        foreach (Replica r in state.StateDialog(0).replics)
-        {
-            ch += r.text.Length;
-        }
-        
-
-        while (timer<Mathf.Max(state.StateDialog(0).clip.length, ch/BalanceManager.Instance.balanceAsset.charactersPerSecond))
-        {
-            yield return new WaitForSeconds(0.1f);
-            timer += 0.1f;
-        }
-
-        Wire wire = FindObjectsOfType<Wire>().FirstOrDefault(w => w.start == state.person && w.end == state.secondPerson());
-        if (wire)
-        {
-            Destroy(wire.gameObject);
-        }
-
-        Debug.Log("DialogFinished");
-        callPanelState = CallPanelState.Off;
-        state = null;
-        StopCoroutine(TalkTimer());
-        timer = 0;
-    }
-
-	public void Listen()
-	{
-		Debug.Log (state);
-		DialogController.Instance.OnDialogFinished += MonologFinished;
-		DialogController.Instance.PlayMonolog (state);
-		GetComponentInChildren<Button> ().interactable = false;
-	}
-
-    public void Push()
-	{
-		if(callPanelState == CallPanelState.Incoming)
-		{
-			GetComponentInParent<DemoCallsController> ().Listen (this);   
-		}
-
-		if(callPanelState == CallPanelState.Waiting)
-		{
-			Skip ();
-		}
-
-		if(callPanelState == CallPanelState.Talking)
-		{
-			//Skip ();
-			//wire.Listen (timer);
-		}
-	}
-
-	public void Skip()
-	{
-		if(callPanelState == CallPanelState.Waiting)
-		{
-			DialogController.Instance.HideDialog ();
-			callPanelState = CallPanelState.Off;
-			state = null;
-			timer = 0;
-		}
-	}*/
 }

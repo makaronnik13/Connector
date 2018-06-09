@@ -81,6 +81,8 @@ public class Phone : Singleton<Phone>
 
 	public void SendWarning(WarningType warningType, State state = null)
 	{
+        Debug.Log(warningType);
+
 		switch(warningType)
 		{
 		case WarningType.SelfConnection:

@@ -12,7 +12,21 @@ public class SpriteButton : MonoBehaviour, ISpriteInputHandler
     public UnityEvent OnDropCallback;
     public UnityEvent OnStartDraggingCallback;
 
+    private Collider2D _collider2d;
+    private Collider2D collider2d
+    {
+        get
+        {
+            if (!_collider2d)
+            {
+                _collider2d = GetComponent<Collider2D>();
+            }
+            return _collider2d;
+        }
+    }
+
     private bool dragging;
+    private bool hovered = false;
 
     public Sprite hooveredSprite;
 
@@ -40,6 +54,7 @@ public class SpriteButton : MonoBehaviour, ISpriteInputHandler
 
     private SpriteRenderer sRenderer;
     private Sprite defaultSprite;
+    public Sprite disabledSprite;
 
     void Start()
     {
@@ -50,7 +65,25 @@ public class SpriteButton : MonoBehaviour, ISpriteInputHandler
         {
             InputController.Instance.AddListener(this);
         }
-      
+    }
+
+    void Update()
+    {
+        if (!collider2d.enabled && disabledSprite)
+        {
+            sRenderer.sprite = disabledSprite;
+        }
+        else
+        {
+            if (hovered)
+            {
+                sRenderer.sprite = hooveredSprite;
+            }
+            else
+            {
+                sRenderer.sprite = defaultSprite;
+            }
+        }
     }
 
     public void OnDrag(Vector2 delta)
@@ -74,6 +107,7 @@ public class SpriteButton : MonoBehaviour, ISpriteInputHandler
 
     public void OnHover()
     {
+        hovered = true;
         if (sRenderer)
         {
             sRenderer.sprite = hooveredSprite;
@@ -83,6 +117,7 @@ public class SpriteButton : MonoBehaviour, ISpriteInputHandler
 
     public void OnUnhover()
     {
+        hovered = false;
         if (sRenderer)
         {
             sRenderer.sprite = defaultSprite;

@@ -94,11 +94,14 @@ public class DemoCallsController : Singleton<DemoCallsController> {
 
 	public void Skip()
 	{
-		if(listeningCallPanel)
+        Debug.Log("skip");
+        if (listeningCallPanel)
 		{
-			listeningCallPanel.Skip ();
+            Debug.Log("skip sucsess");
+            listeningCallPanel.Skip ();
 			listeningCallPanel = null;
             ConnectionLine.Instance.Hide();
+            SoundController.Instance.PlaySound(2);
 		}
 	}
 
@@ -109,7 +112,6 @@ public class DemoCallsController : Singleton<DemoCallsController> {
 
 	public void AddState(State state)
 	{
-		Debug.Log ("add state "+state.name);
 		demoStates.Insert (playedStates+Random.Range(1,3), state);
 	}
 
@@ -124,13 +126,18 @@ public class DemoCallsController : Singleton<DemoCallsController> {
 
 	public void TakeCall()
 	{
-		CallPanel incomingPanel = IncomingPanel;
-		if(incomingPanel)
-		{
-			incomingPanel.Push ();
-		}
 
-        ConnectionLine.Instance.SetStart(incomingPanel.hab, incomingPanel.state.person);
+		CallPanel incomingPanel = IncomingPanel;
+        Debug.Log("take call");
+        if (incomingPanel)
+		{
+            Debug.Log("take call sucsess");
+            incomingPanel.Push ();
+            SoundController.Instance.PlaySound(1);
+            ConnectionLine.Instance.SetStart(incomingPanel.hab, incomingPanel.state.person);
+        }
+
+        
     }
 
 	void Update()
@@ -138,6 +145,15 @@ public class DemoCallsController : Singleton<DemoCallsController> {
 		DropButton.enabled = (listeningCallPanel != null || Tutorial.Instance.DropEnabled);
 
 
-		TakeButton.enabled = (IncomingPanel != null && listeningCallPanel == null);
-	}
+		TakeButton.enabled = (IncomingPanel != null && listeningCallPanel == null && !Phone.Instance.TalkingPhone);
+
+        if (EmptyPanel)
+        {
+            WarningLamp.Instance.SetState(WarningLamp.WarningLampState.defaultLamp);
+        }
+        else
+        {
+            WarningLamp.Instance.SetState(WarningLamp.WarningLampState.warningLamp);
+        }
+    }
 }

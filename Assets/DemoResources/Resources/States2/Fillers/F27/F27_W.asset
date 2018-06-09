@@ -16,8 +16,8 @@ MonoBehaviour:
   minute: 0
   waitingTime: 5
   canBeDisconnectedAfter: 10000
-  WrongConnectionWarningChance: 0
-  DropWarningChance: 0
+  WrongConnectionWarningChance: 1
+  DropWarningChance: 1
   DisconnectWarningChance: 1
   TalkingTime: 200
   monolog:

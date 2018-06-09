@@ -19,7 +19,7 @@ MonoBehaviour:
   WrongConnectionWarningChance: 0
   DropWarningChance: 0
   DisconnectWarningChance: 0
-  TalkingTime: 15
+  TalkingTime: 25
   monolog:
     clip: {fileID: 0}
     replics:

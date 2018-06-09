@@ -23,44 +23,44 @@ MonoBehaviour:
         outSlope: 0
         tangentMode: 0
       - serializedVersion: 2
-        time: 0.8983183
-        value: 17.630146
+        time: 2.0573988
+        value: 9.638538
         inSlope: 0.16450882
         outSlope: 0.16450882
         tangentMode: 0
       - serializedVersion: 2
-        time: 16.317307
-        value: 16.16178
+        time: 14.430145
+        value: 12.142073
         inSlope: 0.08581389
         outSlope: 0.08581389
         tangentMode: 0
       - serializedVersion: 2
-        time: 26.181376
-        value: 14.340111
+        time: 25.847788
+        value: 10.917824
         inSlope: -0.32155758
         outSlope: -0.32155758
         tangentMode: 0
       - serializedVersion: 2
-        time: 28.471762
-        value: 10.139965
+        time: 28.80535
+        value: 6.5860558
         inSlope: -0.09556697
         outSlope: -0.09556697
         tangentMode: 0
       - serializedVersion: 2
-        time: 32.296436
-        value: 14.837219
+        time: 32.7412
+        value: 10.230297
         inSlope: -0.18119812
         outSlope: -0.18119812
         tangentMode: 0
       - serializedVersion: 2
-        time: 36.456173
-        value: 13.697084
+        time: 37.234524
+        value: 10.66968
         inSlope: -0.038146973
         outSlope: -0.038146973
         tangentMode: 0
       - serializedVersion: 2
-        time: 55.40042
-        value: 10.211105
+        time: 58.513824
+        value: 6.1306915
         inSlope: -0.060920883
         outSlope: -0.060920883
         tangentMode: 0
@@ -69,3 +69,4 @@ MonoBehaviour:
       m_RotationOrder: 0
   charactersPerSecond: 4
   WrongTalkingTime: 5
+  TalkingTimeMultiplyer: 1

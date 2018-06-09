@@ -5,9 +5,10 @@ using System.Linq;
 
 public class SoundController : Singleton<SoundController> {
 
-	private List<AudioSource> sources = new List<AudioSource> (); 
+	private List<AudioSource> sources = new List<AudioSource> ();
 
-	public AudioClip[] backgroundClips;
+    public AudioClip[] specialClips;
+    public AudioClip[] backgroundClips;
 	private Queue<AudioClip> clips;
 	private AudioClip currentClip;
 
@@ -53,6 +54,12 @@ public class SoundController : Singleton<SoundController> {
 		sources [0].volume = value;
 		PlayerPrefs.SetFloat ("Music", value);
 	}
+
+    public void PlaySound(int i)
+    {
+        Debug.Log("play sound "+i);
+        PlaySound(specialClips[i]);
+    }
 
 	public void PlaySound(AudioClip clip)
 	{

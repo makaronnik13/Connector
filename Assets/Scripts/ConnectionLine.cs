@@ -19,6 +19,8 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 
 	public Wire Drop(Transform endTransform, Person endPerson)
     {
+        SoundController.Instance.PlaySound(0);
+
         //fake wrong number
         CallPanel callPanel = FindObjectsOfType<CallPanel>().First(cp => cp.state && (cp.state.person == startPerson || cp.state.person == endPerson));
         if (callPanel)
@@ -43,22 +45,19 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 					{
 						warningType = Phone.WarningType.ServiceWarning;
 					}
-				}
-
-                
+				}           
 
                 StartCoroutine (CauseConnectionFail (callPanel, warningType, endPerson.wrongConnectionState));
 			} else 
 			{
                 
-                StartCoroutine (CauseConnectionEnd (callPanel, callPanel.state.TalkingTime));
+                StartCoroutine (CauseConnectionEnd (callPanel, BalanceManager.Instance.balanceAsset.GetTalkingTime(callPanel.state.TalkingTime)));
 			}
 
 			callPanel.Talk ();
         }
 
         GameObject newWire = new GameObject();
-
 
         //send pathId for story state
         newWire.AddComponent<Wire>().Init(startPerson, endPerson);
@@ -89,7 +88,7 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 	private IEnumerator CauseConnectionFail(CallPanel callPanel, Phone.WarningType warningType, State wrongConnectionState = null)
 	{
 		float t = 0;
-		while(t<BalanceManager.Instance.balanceAsset.WrongTalkingTime)
+		while(t< BalanceManager.Instance.balanceAsset.GetTalkingTime(BalanceManager.Instance.balanceAsset.WrongTalkingTime))
 		{
 			t += Time.deltaTime;
 			yield return new WaitForEndOfFrame ();

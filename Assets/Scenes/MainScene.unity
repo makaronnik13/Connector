@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 8
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -39,7 +39,6 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
-  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -55,10 +54,11 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
-    m_AtlasSize: 1024
+    m_TextureWidth: 1024
+    m_TextureHeight: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -204,6 +204,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &4514846
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -217,7 +218,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -319,7 +319,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -389,6 +388,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 21300000, guid: 0f705682f78717845b2ceeac4e7188c3, type: 3}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!61 &13621119
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -526,7 +526,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -656,6 +655,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &61331992
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -669,7 +669,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -823,6 +822,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 21300000, guid: dcd26c9d30e8b0141b6159e471436c5e, type: 3}
   interactable: 0
+  disabledSprite: {fileID: 0}
 --- !u!212 &71957281
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -836,7 +836,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -910,7 +909,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -1170,7 +1168,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &160767832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1422,7 +1419,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -1580,6 +1576,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &200193261
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1593,7 +1590,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -1692,7 +1688,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -1969,7 +1964,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -2130,6 +2124,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 21300000, guid: 705dfc1e2b781624e84a258b093f5806, type: 3}
   interactable: 0
+  disabledSprite: {fileID: 0}
 --- !u!212 &259627409
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2143,7 +2138,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -2217,7 +2211,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -2421,6 +2414,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &331723280
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2434,7 +2428,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -2546,7 +2539,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -2763,6 +2755,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 21300000, guid: dbedc29153031524296908408551a181, type: 3}
   interactable: 0
+  disabledSprite: {fileID: 0}
 --- !u!212 &371734702
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2776,7 +2769,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -3167,6 +3159,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04fd2e480ec954a6aa6aee04b4b46005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  specialClips:
+  - {fileID: 8300000, guid: 013451104726e7b42b361a086de363b0, type: 3}
+  - {fileID: 8300000, guid: 675b39d4d4a7b7f45926616c600c4892, type: 3}
+  - {fileID: 8300000, guid: 382d3cb13211f6048813d2e4a074501e, type: 3}
+  - {fileID: 8300000, guid: 4b8802dc059f2e642af8cec0728e5b2b, type: 3}
+  - {fileID: 8300000, guid: e8c68e90358ad2f40aaf0a0928de1dad, type: 3}
+  - {fileID: 8300000, guid: b52d06594b57fce4b9e215b94918fde7, type: 3}
   backgroundClips:
   - {fileID: 8300000, guid: 332467ce30430a04bb1f323ff601a70f, type: 3}
   - {fileID: 8300000, guid: 33e670bb8470ac542b8bcf11b2e3ecb5, type: 3}
@@ -3199,69 +3198,54 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 3
+    - serializedVersion: 2
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
+    - serializedVersion: 2
       time: 1
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 3
+    - serializedVersion: 2
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 3
+    - serializedVersion: 2
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 3
+    - serializedVersion: 2
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
@@ -3294,69 +3278,54 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 3
+    - serializedVersion: 2
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
+    - serializedVersion: 2
       time: 1
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 3
+    - serializedVersion: 2
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 3
+    - serializedVersion: 2
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 3
+    - serializedVersion: 2
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
@@ -3638,7 +3607,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -3755,9 +3723,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 23324ba787d9a534288ac5fe0cc97c00, type: 2}
   - {fileID: 11400000, guid: 70024cae73f2ff5459f138fa3ed3fe6f, type: 2}
   - {fileID: 11400000, guid: ffdc0251543fe134fbfe41c6fd485366, type: 2}
+  - {fileID: 11400000, guid: f129c129bfc18402095ba9fb89202ed3, type: 2}
   - {fileID: 11400000, guid: 3ee5322828b52d840996bc3ee51d73a5, type: 2}
+  - {fileID: 11400000, guid: 04fd435a326cc424195fb393bcd6afb9, type: 2}
   - {fileID: 11400000, guid: a185e249d50d7d543a946252d73d612d, type: 2}
   - {fileID: 11400000, guid: 8ea365ea7dd4fa44789f389dacb1cd3d, type: 2}
+  - {fileID: 11400000, guid: c6a8f5ab605cb46089c6f534cbf942e2, type: 2}
   - {fileID: 11400000, guid: 0b7880b6a6a69884d9ba28886269bd13, type: 2}
   - {fileID: 11400000, guid: 8bddc2181c9f04549a42ea3060556bb8, type: 2}
   - {fileID: 11400000, guid: c805e0550eea4ed4097f8bfae2daf50d, type: 2}
@@ -3978,6 +3949,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &534068163
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3991,7 +3963,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -4125,7 +4096,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -4248,6 +4218,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &564809596
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4261,7 +4232,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -4852,6 +4822,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 21300000, guid: 6483f0a5942ba6d4db49344eaaf020c8, type: 3}
   interactable: 0
+  disabledSprite: {fileID: 0}
 --- !u!212 &607186906
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4865,7 +4836,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -4995,6 +4965,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &615136899
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5008,7 +4979,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -5136,7 +5106,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -5513,7 +5482,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -5768,6 +5736,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 21300000, guid: 9bfaa0f175bbd674785370f9b28a154d, type: 3}
   interactable: 0
+  disabledSprite: {fileID: 0}
 --- !u!212 &649510538
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5781,7 +5750,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -5893,7 +5861,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -6079,7 +6046,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &707765025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6290,6 +6256,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 460836765}
+        m_MethodName: PlaySound
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnHooverCallback:
@@ -6314,6 +6291,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 21300000, guid: dcef5e0e32636bc4a84df82e7e92d404, type: 3}
   interactable: 0
+  disabledSprite: {fileID: 0}
 --- !u!212 &711143905
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6327,7 +6305,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -6371,11 +6348,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   warnings:
-  - {fileID: 11400000, guid: 77bc3d6d05a7e4205840d1711fb6c7d4, type: 2}
   - {fileID: 11400000, guid: e3072640d7b4143af9055c996f3e2766, type: 2}
+  - {fileID: 11400000, guid: 06cbaf06aed7b49508deb1a989b884ab, type: 2}
   - {fileID: 11400000, guid: eadd8b0cbbd084fb8ad97edfef4cf77b, type: 2}
   - {fileID: 11400000, guid: d11d059960bee4cf7b0ba616414e2b36, type: 2}
-  - {fileID: 11400000, guid: 06cbaf06aed7b49508deb1a989b884ab, type: 2}
+  - {fileID: 11400000, guid: 77bc3d6d05a7e4205840d1711fb6c7d4, type: 2}
   TalkingPhone: 0
 --- !u!95 &711143907
 Animator:
@@ -6394,7 +6371,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!82 &711143908
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6424,69 +6400,54 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 3
+    - serializedVersion: 2
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
+    - serializedVersion: 2
       time: 1
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 3
+    - serializedVersion: 2
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 3
+    - serializedVersion: 2
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 3
+    - serializedVersion: 2
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
@@ -6532,7 +6493,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -6611,7 +6571,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -7001,6 +6960,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &847115421
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7014,7 +6974,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -7157,6 +7116,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 460836765}
+        m_MethodName: PlaySound
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   key: 27
@@ -7173,7 +7143,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -7365,6 +7334,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &904266276
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7378,7 +7348,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -7550,6 +7519,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 460836765}
+        m_MethodName: PlaySound
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnHooverCallback:
@@ -7585,6 +7565,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &911111791
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7598,7 +7579,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -7683,7 +7663,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -8108,7 +8087,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -8231,7 +8209,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -8379,7 +8356,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -8654,7 +8630,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -8883,7 +8858,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -8911,6 +8885,91 @@ SpriteRenderer:
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.55, y: 0.6}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!1 &1130260189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1130260190}
+  - component: {fileID: 1130260192}
+  - component: {fileID: 1130260191}
+  m_Layer: 5
+  m_Name: Lamp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1130260190
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1130260189}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.055, y: 2.52, z: 0}
+  m_LocalScale: {x: 2.5330405, y: 2.5330405, z: 2.5330405}
+  m_Children: []
+  m_Father: {fileID: 1608423079}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1130260191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1130260189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e605585e99f84b045a5d1f23952b881b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &1130260192
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1130260189}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 0a92f2c835b135048aa197b5d1febbcd, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.4, y: 0.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -9013,6 +9072,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &1136890318
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9026,7 +9086,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -9278,7 +9337,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -9926,6 +9984,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &1333170389
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9939,7 +9998,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -10107,7 +10165,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -10231,6 +10288,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &1349403996
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10244,7 +10302,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -10404,6 +10461,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &1352406475
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10417,7 +10475,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -10753,6 +10810,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 460836765}
+        m_MethodName: PlaySound
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnHooverCallback:
@@ -10777,6 +10845,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 21300000, guid: 768a660b58c89e04c87d0f95eb92203a, type: 3}
   interactable: 0
+  disabledSprite: {fileID: 0}
 --- !u!212 &1378546072
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10790,7 +10859,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -10839,7 +10907,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1389648792
 GameObject:
   m_ObjectHideFlags: 0
@@ -10882,7 +10949,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -11005,6 +11071,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &1407992928
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11018,7 +11085,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -11281,6 +11347,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &1455277527
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11294,7 +11361,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -11488,7 +11554,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -11731,7 +11796,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -11805,7 +11869,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -11917,6 +11980,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 21300000, guid: 248806afa71825245a74822f6cef223f, type: 3}
   interactable: 1
+  disabledSprite: {fileID: 21300000, guid: 3d5b33b4d9d3f2c48a9b6b1154b6149a, type: 3}
 --- !u!212 &1539119086
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11930,7 +11994,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -12131,6 +12194,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 21300000, guid: 7da94b1ef46b9d440ba31cefa8c0282e, type: 3}
   interactable: 0
+  disabledSprite: {fileID: 0}
 --- !u!212 &1580399540
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12144,7 +12208,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -12253,7 +12316,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.02, y: 0.44, z: 0}
   m_LocalScale: {x: 1.2017368, y: 1.2017368, z: 1.2017368}
-  m_Children: []
+  m_Children:
+  - {fileID: 1130260190}
   m_Father: {fileID: 572914219}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12270,7 +12334,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -12373,6 +12436,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 21300000, guid: 7a7d3d89a1f8958479ee99e4c90ba454, type: 3}
   interactable: 0
+  disabledSprite: {fileID: 0}
 --- !u!61 &1608423083
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12508,7 +12572,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -12805,6 +12868,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 21300000, guid: ff8168e969d102447944f4da5edb249d, type: 3}
   interactable: 0
+  disabledSprite: {fileID: 0}
 --- !u!212 &1650803717
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12818,7 +12882,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -12930,6 +12993,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 21300000, guid: 8ca767d23b46ad642befb67eba1d02ef, type: 3}
   interactable: 1
+  disabledSprite: {fileID: 21300000, guid: 85d39b6f0ad0f3848a53036a80669bcb, type: 3}
 --- !u!212 &1679256899
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12943,7 +13007,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -13042,7 +13105,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -13207,6 +13269,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &1717048249
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13220,7 +13283,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -13319,7 +13381,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -13459,6 +13520,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 21300000, guid: 5736e2a20f8f69d41949c6ec85506bdf, type: 3}
   interactable: 0
+  disabledSprite: {fileID: 0}
 --- !u!212 &1732689712
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13472,7 +13534,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -13656,7 +13717,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -13812,7 +13872,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -14165,7 +14224,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -14779,7 +14837,6 @@ LineRenderer:
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: befa676f7cc536e4797439c9845a56c5, type: 2}
   m_StaticBatchInfo:
@@ -14812,15 +14869,12 @@ LineRenderer:
     widthCurve:
       serializedVersion: 2
       m_Curve:
-      - serializedVersion: 3
+      - serializedVersion: 2
         time: 0
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -14975,7 +15029,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -15245,6 +15298,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 21300000, guid: 7b24f249b43f76e4bad2ac42af482b54, type: 3}
   interactable: 0
+  disabledSprite: {fileID: 0}
 --- !u!212 &1869242425
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15258,7 +15312,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -15400,7 +15453,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -15479,7 +15531,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -15655,6 +15706,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &1901591226
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15668,7 +15720,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -15950,7 +16001,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -16141,6 +16191,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 21300000, guid: 813951c8118baa442a181088dde6a9d1, type: 3}
   interactable: 0
+  disabledSprite: {fileID: 0}
 --- !u!212 &1925834390
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16154,7 +16205,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -16203,7 +16253,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1925834392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16377,6 +16426,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &1974197712
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16390,7 +16440,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -16689,6 +16738,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &2012356119
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16702,7 +16752,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -17065,6 +17114,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 0}
   interactable: 1
+  disabledSprite: {fileID: 0}
 --- !u!212 &2127097266
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17078,7 +17128,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -17256,7 +17305,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2146340262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17328,6 +17376,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   hooveredSprite: {fileID: 21300000, guid: dbedc29153031524296908408551a181, type: 3}
   interactable: 0
+  disabledSprite: {fileID: 0}
 --- !u!212 &2146340264
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17341,7 +17390,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
