@@ -31,6 +31,13 @@ public class ConnectionLine : Singleton<ConnectionLine> {
                 p = endPerson;
             }
 
+            Debug.Log(p.PersonName);
+            Debug.Log("___");
+            foreach (Person per in callPanel.state.secondPersons())
+            {
+                Debug.Log(per.PersonName);
+            }
+            
 			if (!callPanel.state.secondPersons ().Contains(p)) {
 				//Disconnect
 				Phone.WarningType warningType = Phone.WarningType.WrongConnection;

@@ -29,7 +29,7 @@ public class PaperWithName : MonoBehaviour {
         Dragging = true;
         person = p;
 		if (!person.Service) {
-			GetComponentInChildren<TextMeshProUGUI> ().text = p.Surname [0] + ". " + p.FirstName;
+			GetComponentInChildren<TextMeshProUGUI> ().text = p.Surname  + " " + p.FirstName[0];
 		} else 
 		{
 			GetComponentInChildren<TextMeshProUGUI> ().text = p.PersonName;

@@ -57,7 +57,6 @@ public class SoundController : Singleton<SoundController> {
 
     public void PlaySound(int i)
     {
-        Debug.Log("play sound "+i);
         PlaySound(specialClips[i]);
     }
 
