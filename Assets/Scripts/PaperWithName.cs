@@ -56,7 +56,8 @@ public class PaperWithName : MonoBehaviour {
         }
         else
         {
-            PaperCanvas.sortingOrder = 3;
+            PaperCanvas.sortingOrder = 2;
+            transform.localRotation = Quaternion.identity;
         }
     }
 

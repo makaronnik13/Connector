@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f496d3ebc07be44f4b5e0a47ce226765, type: 3}
   m_Name: F37_W
   m_EditorClassIdentifier: 
-  person: {fileID: 0}
+  person: {fileID: 11400000, guid: a38f27c3a32c1724e9e79546363ecbcc, type: 2}
   day: 1
   minute: 0
   waitingTime: 5
@@ -32,7 +32,12 @@ MonoBehaviour:
         \u0413\u041B\u0410\u0421 \u0422\u041E\u0420\u0410 \u041E\u0414\u0418\u041D\u0421\u041E\u041D\u0410!"
   X: 0
   Y: 0
-  combinationLinks: []
+  combinationLinks:
+  - endPoint: {fileID: 0}
+    person: {fileID: 11400000, guid: 474220dbcd9d4f24f945de6e65d3850b, type: 2}
+    dialog:
+      clip: {fileID: 0}
+      replics: []
   wrongConnectionState:
     endPoint: {fileID: 0}
   autoAddState:

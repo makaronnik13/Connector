@@ -22,7 +22,6 @@ public class HabsParent : MonoBehaviour {
 
 	public bool AddPerson(Person person)
 	{
-        Debug.Log(person.FirstName);
 		if(!EmptyHab)
 		{
 			return false;

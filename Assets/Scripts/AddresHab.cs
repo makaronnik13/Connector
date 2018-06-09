@@ -7,17 +7,17 @@ public class AddresHab : MonoBehaviour
     public Transform habtransform;
    public void Connect()
     {
-        Debug.Log("click");
         if (!DemoCallsController.Instance.listeningCallPanel)
         {
             return;
         }
         else
         {
-            Debug.Log("drop");
             GetComponentInParent<IWireDraggReciewer>().DropWire(habtransform);
         }
     }
+
+
 
     public void Hover()
     {

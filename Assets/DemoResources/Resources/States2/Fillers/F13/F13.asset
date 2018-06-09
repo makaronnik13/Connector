@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f496d3ebc07be44f4b5e0a47ce226765, type: 3}
   m_Name: F13
   m_EditorClassIdentifier: 
-  person: {fileID: 0}
+  person: {fileID: 11400000, guid: 8da16a796767c21469788c18092677b5, type: 2}
   day: 1
   minute: 0
   waitingTime: 5
@@ -22,7 +22,71 @@ MonoBehaviour:
   TalkingTime: 15
   monolog:
     clip: {fileID: 0}
-    replics: []
+    replics:
+    - person: 0
+      text: "\u0414\u0435\u043B\u044C\u0442\u0430\u043F\u043B\u0430\u043D\u2026"
+    - person: 0
+      text: "\u041B\u0435\u0442\u0430\u0442\u044C \u043D\u0430 \u0434\u0435\u043B\u044C\u0442\u0430\u043F\u043B\u0430\u043D\u0435\u2026"
+    - person: 0
+      text: "\u041F\u0430\u0440\u0438\u0442\u044C\u2026"
+    - person: 0
+      text: "\u041D\u0430\u0434 \u043B\u0435\u0441\u0430\u043C\u0438 \u0438 \u0445\u043E\u043B\u043C\u0430\u043C\u0438..."
+    - person: 0
+      text: "\u041D\u0430 \u0434\u0435\u043B\u044C\u0442\u0430\u043F\u043B\u0430\u043D\u0435\u2026"
+    - person: 0
+      text: "\u0412\u044B\u0441\u043E\u043A\u043E..."
+    - person: 0
+      text: "\u0414\u0435\u043B\u044C\u0442\u0430\u043F\u043B\u0430\u043D\u2026"
+    - person: 0
+      text: "\u041B\u0435\u0442\u0430\u0442\u044C \u043D\u0430 \u0434\u0435\u043B\u044C\u0442\u0430\u043F\u043B\u0430\u043D\u0435\u2026"
+    - person: 0
+      text: "\u041F\u0430\u0440\u0438\u0442\u044C\u2026"
+    - person: 0
+      text: "\u041D\u0430\u0434 \u043B\u0435\u0441\u0430\u043C\u0438 \u0438 \u0445\u043E\u043B\u043C\u0430\u043C\u0438..."
+    - person: 0
+      text: "\u041D\u0430 \u0434\u0435\u043B\u044C\u0442\u0430\u043F\u043B\u0430\u043D\u0435\u2026"
+    - person: 0
+      text: "\u0412\u044B\u0441\u043E\u043A\u043E..."
+    - person: 0
+      text: "\u0414\u0435\u043B\u044C\u0442\u0430\u043F\u043B\u0430\u043D\u2026"
+    - person: 0
+      text: "\u041B\u0435\u0442\u0430\u0442\u044C \u043D\u0430 \u0434\u0435\u043B\u044C\u0442\u0430\u043F\u043B\u0430\u043D\u0435\u2026"
+    - person: 0
+      text: "\u041F\u0430\u0440\u0438\u0442\u044C\u2026"
+    - person: 0
+      text: "\u041D\u0430\u0434 \u043B\u0435\u0441\u0430\u043C\u0438 \u0438 \u0445\u043E\u043B\u043C\u0430\u043C\u0438..."
+    - person: 0
+      text: "\u041D\u0430 \u0434\u0435\u043B\u044C\u0442\u0430\u043F\u043B\u0430\u043D\u0435\u2026"
+    - person: 0
+      text: "\u041D\u0430\u0434 \u043B\u0435\u0441\u0430\u043C\u0438 \u0438 \u0445\u043E\u043B\u043C\u0430\u043C\u0438..."
+    - person: 0
+      text: "\u0412\u044B\u0441\u043E\u043A\u043E..."
+    - person: 0
+      text: "\u041F\u0430\u0440\u0438\u0442\u044C\u2026"
+    - person: 0
+      text: "\u0414\u0435\u043B\u044C\u0442\u0430\u043F\u043B\u0430\u043D\u2026"
+    - person: 0
+      text: "\u041D\u0430 \u0434\u0435\u043B\u044C\u0442\u0430\u043F\u043B\u0430\u043D\u0435\u2026"
+    - person: 0
+      text: "\u041F\u0430\u0440\u0438\u0442\u044C\u2026"
+    - person: 0
+      text: "\u0412\u044B\u0441\u043E\u043A\u043E..."
+    - person: 0
+      text: "\u041D\u0430\u0434 \u043B\u0435\u0441\u0430\u043C\u0438 \u0438 \u0445\u043E\u043B\u043C\u0430\u043C\u0438..."
+    - person: 0
+      text: "\u0414\u0435\u043B\u044C\u0442\u0430\u043F\u043B\u0430\u043D\u2026"
+    - person: 0
+      text: "\u0412\u044B\u0441\u043E\u043A\u043E..."
+    - person: 0
+      text: "\u041F\u0430\u0440\u0438\u0442\u044C\u2026"
+    - person: 0
+      text: "\u041D\u0430 \u0434\u0435\u043B\u044C\u0442\u0430\u043F\u043B\u0430\u043D\u0435\u2026"
+    - person: 0
+      text: "\u0412\u044B\u0441\u043E\u043A\u043E..."
+    - person: 0
+      text: "\u0412\u044B\u0441\u043E\u043A\u043E..."
+    - person: 0
+      text: "\u041B\u0435\u0442\u0430\u0442\u044C \u043D\u0430 \u0434\u0435\u043B\u044C\u0442\u0430\u043F\u043B\u0430\u043D\u0435\u2026"
   X: 0
   Y: 0
   combinationLinks: []

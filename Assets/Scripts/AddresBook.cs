@@ -27,7 +27,7 @@ public class AddresBook : MonoBehaviour {
 
         if (lastChars==null)
         {
-            lastChars = new char[3] { 'А', 'Б', 'В' };
+            lastChars = new char[4] { 'А', 'Б', 'В', 'Г'};
         }
         ShowPage(lastChars);
     }
@@ -49,9 +49,11 @@ public class AddresBook : MonoBehaviour {
 		} 
 		else 
 		{
+
 			pagePersons = persons.FindAll(p => chars.Contains(p.Surname[0])).OrderBy(p=>p.Surname[0]).ToList();
 		}
         
+
 		pagePersons.RemoveAll (pp=>pp.hideInBook);
 
 

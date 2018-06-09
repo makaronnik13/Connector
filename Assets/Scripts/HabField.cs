@@ -71,7 +71,6 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
 			callPanel.DropWireToHab ();
 			callPanel.wire = wire;
         }
-
         ConnectionLine.Instance.Hide();
     }
 
@@ -84,7 +83,8 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
 
 		GameObject paper = GetComponentInChildren<PaperWithName>().gameObject;
 		paper.transform.SetParent(null);
-		paper.transform.localScale = Vector3.one*0.01f;
+		paper.transform.localScale = Vector3.one*0.015f;
+        paper.transform.localRotation = Quaternion.identity;
 		paper.GetComponent<PaperWithName>().Init(Person, this);
 		Person = null;
 

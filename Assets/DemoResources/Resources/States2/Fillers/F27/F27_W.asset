@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f496d3ebc07be44f4b5e0a47ce226765, type: 3}
   m_Name: F27_W
   m_EditorClassIdentifier: 
-  person: {fileID: 0}
+  person: {fileID: 11400000, guid: 18e1f2f0ab72126488d81979a38fa74f, type: 2}
   day: 1
   minute: 0
   waitingTime: 5
@@ -19,13 +19,24 @@ MonoBehaviour:
   WrongConnectionWarningChance: 0
   DropWarningChance: 0
   DisconnectWarningChance: 1
-  TalkingTime: 15
+  TalkingTime: 200
   monolog:
     clip: {fileID: 0}
-    replics: []
+    replics:
+    - person: 0
+      text: "\u041E\u041F\u0415\u0420\u0410\u0422\u041E\u0420, \u0412\u042B \u0427\u0422\u041E
+        \u0421 \u042D\u0422\u0418\u041C \u041A\u041E\u0411\u0415\u041B\u0415\u041C
+        \u0414\u0416\u0418\u041C\u041C\u0418 \u0417\u0410\u041E\u0414\u041D\u041E,
+        \u0410?! \u0421\u041E\u0415\u0414\u0418\u041D\u0418\u0422\u0415 \u041C\u0415\u041D\u042F
+        \u0421 \u041F\u041E\u0416\u0410\u0420\u041D\u042B\u041C\u0418, \u0411\u042B\u0421\u0422\u0420\u041E!"
   X: 0
   Y: 0
-  combinationLinks: []
+  combinationLinks:
+  - endPoint: {fileID: 0}
+    person: {fileID: 11400000, guid: 3c5de36a99036674daf28fc332b17ce2, type: 2}
+    dialog:
+      clip: {fileID: 0}
+      replics: []
   wrongConnectionState:
     endPoint: {fileID: 0}
   autoAddState:

@@ -131,12 +131,11 @@ public class DemoCallsController : Singleton<DemoCallsController> {
 		}
 
         ConnectionLine.Instance.SetStart(incomingPanel.hab, incomingPanel.state.person);
-
     }
 
 	void Update()
 	{
-		DropButton.enabled = (listeningCallPanel != null);
+		DropButton.enabled = (listeningCallPanel != null || Tutorial.Instance.DropEnabled);
 
 
 		TakeButton.enabled = (IncomingPanel != null && listeningCallPanel == null);

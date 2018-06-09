@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tutorial : MonoBehaviour
+public class Tutorial : Singleton<Tutorial>
 {
 
     public DemoCallsController callsController;
@@ -11,6 +11,7 @@ public class Tutorial : MonoBehaviour
     public ShowingItems[] showingItems;
 
     private bool finished = false;
+    public bool DropEnabled = false;
 
     [System.Serializable]
     public struct ShowingItems
@@ -27,8 +28,8 @@ public class Tutorial : MonoBehaviour
     private void DialogFinished()
     {
         DialogController.Instance.OnTypingFinished -= DialogFinished;
+        DialogController.Instance.OnTypingFinished += DialogFinished2;
 
-        
 
         foreach (SpriteRenderer sr in FindObjectsOfType<SpriteRenderer>())
         {
@@ -53,13 +54,37 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    private void DialogFinished2()
+    {
+        DialogController.Instance.OnTypingFinished -= DialogFinished2;
+
+        /*
+        DropEnabled = true;
+        foreach (GameObject go in showingItems[2].objects)
+        {
+            Collider2D collider = go.GetComponent<Collider2D>();
+            SpriteRenderer sr = go.GetComponent<SpriteRenderer>();
+
+            if (sr)
+            {
+                sr.color = new Color(1f, 1f, 1f, 1);
+            }
+
+            if (collider)
+            {
+                collider.enabled = true;
+            }
+
+        }
+        */
+    }
 
     public void CloseManual()
     {
         if (!finished)
         {
-           
-
+            DialogFinished2();
+            DropEnabled = false;
             foreach (SpriteRenderer sr in FindObjectsOfType<SpriteRenderer>())
             {
                 sr.color = new Color(1f, 1f, 1f, 1);

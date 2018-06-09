@@ -12,6 +12,8 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 
     public Person startPerson;
 
+    public GameObject Jack;
+
     private Material material;
     private List<Vector3> points = new List<Vector3>();
 
@@ -43,16 +45,12 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 					}
 				}
 
-				StartCoroutine (CauseConnectionFail (callPanel, warningType, endPerson.wrongConnectionState));
+                
+
+                StartCoroutine (CauseConnectionFail (callPanel, warningType, endPerson.wrongConnectionState));
 			} else 
 			{
-                if (callPanel.state.GetType() == typeof(StorryState))
-                {
-                    if ((callPanel.state as StorryState).autoAddState.endPoint)
-                    {
-                        FindObjectOfType<DemoCallsController>().AddState((callPanel.state as StorryState).autoAddState.endPoint);
-                    }
-                }
+                
                 StartCoroutine (CauseConnectionEnd (callPanel, callPanel.state.TalkingTime));
 			}
 
@@ -117,56 +115,73 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 		}
 
 
-		if(callPanel.state.GetType()== typeof(StorryState))
-		{
-			if((callPanel.state as StorryState).wrongConnectionState.endPoint)
-			{
-				FindObjectOfType<DemoCallsController> ().AddState ((callPanel.state as StorryState).wrongConnectionState.endPoint);
-			}
-		}
-		if(callPanel.state.GetType()== typeof(StorryState))
-		{
-			if((callPanel.state as StorryState).autoAddState.endPoint)
-			{
-				FindObjectOfType<DemoCallsController> ().AddState ((callPanel.state as StorryState).autoAddState.endPoint);
-			}
-		}
-		callPanel.state = null;
-		callPanel.callPanelState = CallPanel.CallPanelState.Off;
-		callPanel.wire.Disconnect ();
-	}
-
-	private IEnumerator CauseConnectionEnd(CallPanel callPanel, float time)
-	{
-		float t = 0;
-		while(t<time)
-		{
-			if(!Phone.Instance.TalkingPhone)
-			{
-				t += Time.deltaTime;
-			}
-			yield return new WaitForEndOfFrame ();
-		}
-
-        if (!callPanel.state)
+        if (callPanel.state)
         {
-            yield return null;
+
+            if (callPanel.state.GetType() == typeof(StorryState))
+            {
+                if ((callPanel.state as StorryState).wrongConnectionState.endPoint)
+                {
+                    FindObjectOfType<DemoCallsController>().AddState((callPanel.state as StorryState).wrongConnectionState.endPoint);
+                }
+            }
+            if (callPanel.state.GetType() == typeof(StorryState))
+            {
+                if ((callPanel.state as StorryState).autoAddState.endPoint)
+                {
+                    FindObjectOfType<DemoCallsController>().AddState((callPanel.state as StorryState).autoAddState.endPoint);
+                }
+            }
         }
 
-		if(callPanel.state.GetType()== typeof(StorryState))
-		{
-			foreach(CombinationLink cl in (callPanel.state as StorryState).combinationLinks)
-			{
-				if(cl.person == callPanel.wire.end && cl.endPoint)
-				{
-					FindObjectOfType<DemoCallsController> ().AddState (cl.endPoint);
-				}
-			}
-		}
+            callPanel.state = null;
+		callPanel.callPanelState = CallPanel.CallPanelState.Off;
+        if (callPanel.wire)
+        {
+            callPanel.wire.Disconnect();
+        }
+		
+	}
 
-	
+    private IEnumerator CauseConnectionEnd(CallPanel callPanel, float time)
+    {
+        float t = 0;
+        while (t < time)
+        {
+            if (!Phone.Instance.TalkingPhone)
+            {
+                t += Time.deltaTime;
+            }
+            yield return new WaitForEndOfFrame();
+        }
 
-		callPanel.state = null;
+
+        if(callPanel.state)
+        { 
+        if (callPanel.state.GetType() == typeof(StorryState))
+        {
+            if ((callPanel.state as StorryState).autoAddState.endPoint)
+            {
+                FindObjectOfType<DemoCallsController>().AddState((callPanel.state as StorryState).autoAddState.endPoint);
+            }
+        }
+
+        if (callPanel.state.GetType() == typeof(StorryState))
+        {
+            foreach (CombinationLink cl in (callPanel.state as StorryState).combinationLinks)
+            {
+                    if (callPanel.wire)
+                    {
+                        if (cl.person == callPanel.wire.end && cl.endPoint)
+                        {
+                            FindObjectOfType<DemoCallsController>().AddState(cl.endPoint);
+                        }
+                    }
+            }
+        }
+    }
+
+        callPanel.state = null;
 		callPanel.callPanelState = CallPanel.CallPanelState.Off;
 		if(callPanel.wire)
 		{
@@ -193,7 +208,7 @@ public class ConnectionLine : Singleton<ConnectionLine> {
     #region Lifecycle
     private void Update()
     {
-
+        Jack.SetActive(Line.enabled);
         if (Line.enabled)
         {
             Vector3 start = new Vector3(startTransform.position.x, startTransform.position.y, -5);
@@ -212,7 +227,17 @@ public class ConnectionLine : Singleton<ConnectionLine> {
             Line.positionCount = points.Count;
 
             Line.SetPositions(points.ToArray());
+
+            Jack.transform.position = points[points.Count-1];
+            float div = (points[points.Count - 1].x - points[points.Count - 2].x) / (points[points.Count - 1].y - points[points.Count - 2].y);
+            float angle = Mathf.Atan(div) * Mathf.Rad2Deg;
+            if (points[points.Count - 1].y < points[points.Count - 2].y)
+            {
+                angle = angle-180;
+            }
+            Jack.transform.localRotation = Quaternion.Euler(0,0,360-angle);
         }
+        
         
     }
 
