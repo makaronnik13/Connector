@@ -98,7 +98,6 @@ public class Tutorial : Singleton<Tutorial>
             foreach (GameObject go in showingItems[1].objects)
             {
                 Collider2D sb = go.GetComponent<Collider2D>();
-                Debug.Log(sb);
                 if (sb)
                 {
                     sb.enabled = true;

@@ -37,6 +37,7 @@ public class Jack : MonoBehaviour, ISpriteInputHandler
 
     public void OnClick()
     {
+        Debug.Log("jack on click");
         if (!DemoCallsController.Instance.listeningCallPanel)
         {
             return;

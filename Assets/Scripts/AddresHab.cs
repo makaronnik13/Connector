@@ -7,6 +7,7 @@ public class AddresHab : MonoBehaviour
     public Transform habtransform;
    public void Connect()
     {
+        Debug.Log("Addres hub connect");
         if (!DemoCallsController.Instance.listeningCallPanel)
         {
             return;

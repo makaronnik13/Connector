@@ -141,6 +141,7 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
 
     public void DropWire(Transform endTransform)
     {
+        /*
 		if (state && callPanelState == CallPanelState.Waiting || callPanelState == CallPanelState.Talking)
         {
             if (wire)
@@ -152,7 +153,7 @@ public class CallPanel : MonoBehaviour, IWireDraggReciewer
             wire = ConnectionLine.Instance.Drop(endTransform, state.person);
 			FindObjectsOfType<HabField> ().ToList ().Find (hf => hf.Person == ConnectionLine.Instance.startPerson).wire = wire;
 			callPanelState = CallPanelState.Talking;
-        }
+        }*/
     }
 
     public void StartDragWire(Transform tr)

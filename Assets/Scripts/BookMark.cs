@@ -10,7 +10,7 @@ public class BookMark : MonoBehaviour {
 	
 	public void ShowPage()
     {
-        Debug.Log(gameObject);
+       // Debug.Log(gameObject);
         GetComponentInParent<AddresBook>().ShowPage(chars);
     }
 }

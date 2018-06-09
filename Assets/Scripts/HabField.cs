@@ -67,6 +67,7 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
 	
 		if (callPanel)
         {
+            Debug.Log("drop from hab field");
 			wire = ConnectionLine.Instance.Drop(endTransform, Person);
 			callPanel.DropWireToHab ();
 			callPanel.wire = wire;
