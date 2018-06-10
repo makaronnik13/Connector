@@ -30,7 +30,7 @@ public class Addres : MonoBehaviour, IDragHandler
         }
 
         GameObject paper = Instantiate(Resources.Load("Prefabs/PaperWithName") as GameObject);
-        paper.transform.localScale = Vector3.one * 0.02f; ;
+        paper.transform.localScale = Vector3.one * 0.015f; ;
         paper.GetComponent<PaperWithName>().Init(person);
     }
 

@@ -73,7 +73,6 @@ public class SoundController : Singleton<SoundController> {
 
             if (currentClip == null)
             {
-                Debug.Log("play");
                 sources[0].volume = 0;
                 StartCoroutine(FadeIn(sources[0], 2));
                 currentClip = clips.Dequeue();
@@ -112,7 +111,6 @@ public class SoundController : Singleton<SoundController> {
 
         while (audioSource.volume < 1)
         {
-            Debug.Log(audioSource.volume);
             audioSource.volume +=  Time.deltaTime / FadeTime;
 
             yield return null;
