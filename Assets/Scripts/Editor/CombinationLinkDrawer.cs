@@ -21,13 +21,14 @@ public class CombinationLinkDrawer : PropertyDrawer
 
         // Calculate rects
         var amountRect = new Rect(position.x, position.y, position.width , position.height);
-        var unitRect = new Rect(position.x , position.y+EditorGUIUtility.singleLineHeight+3, position.width, position.height*5);
+        var aimRect = new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight + 3, position.width, position.height);
+        var unitRect = new Rect(position.x , position.y+EditorGUIUtility.singleLineHeight*2+3, position.width, position.height*5);
 
 
         // Draw fields - passs GUIContent.none to each so they are drawn without labels
         EditorGUI.PropertyField(amountRect, property.FindPropertyRelative("person"), GUIContent.none);
+        EditorGUI.PropertyField(aimRect, property.FindPropertyRelative("endPoint"), GUIContent.none);
         EditorGUI.PropertyField(unitRect, property.FindPropertyRelative("dialog"), GUIContent.none);
-
 
         // Set indent back to what it was
         EditorGUI.indentLevel = indent;

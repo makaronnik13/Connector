@@ -30,13 +30,6 @@ public class ConnectionLine : Singleton<ConnectionLine> {
             {
                 p = endPerson;
             }
-
-            Debug.Log(p.PersonName);
-            Debug.Log("___");
-            foreach (Person per in callPanel.state.secondPersons())
-            {
-                Debug.Log(per.PersonName);
-            }
             
 			if (!callPanel.state.secondPersons ().Contains(p)) {
 				//Disconnect
@@ -75,8 +68,8 @@ public class ConnectionLine : Singleton<ConnectionLine> {
         lr.useWorldSpace = true;
         lr.SetWidth(GetComponent<LineRenderer>().startWidth, GetComponent<LineRenderer>().endWidth);
 
-        Vector3 start = new Vector3(startTransform.position.x, startTransform.position.y, -5);
-        Vector3 end = new Vector3(endTransform.position.x, endTransform.position.y, -5);
+        Vector3 start = new Vector3(startTransform.position.x, startTransform.position.y, -0.3f);
+        Vector3 end = new Vector3(endTransform.position.x, endTransform.position.y, -0.3f);
         points.Clear();
         for (int i = 0; i < 10; i++)
         {
@@ -87,7 +80,7 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 
         lr.positionCount = points.Count;
         lr.SetPositions(points.ToArray());
-
+        lr.numCapVertices = 8;
 		startPerson = null;
 		return newWire.GetComponent<Wire> ();
     }

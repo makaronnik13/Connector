@@ -10,7 +10,7 @@ public class Tutorial : Singleton<Tutorial>
     public StorryState tutorialState;
     public ShowingItems[] showingItems;
 
-    private bool finished = false;
+    public bool finished = false;
     public bool DropEnabled = false;
 
     [System.Serializable]

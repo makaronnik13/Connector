@@ -11,6 +11,7 @@ public class SoundController : Singleton<SoundController> {
     public AudioClip[] backgroundClips;
 	private Queue<AudioClip> clips;
 	private AudioClip currentClip;
+    public float InOutTime = 1;
 
 	public float SoundVolume
 	{
@@ -67,31 +68,54 @@ public class SoundController : Singleton<SoundController> {
 
 	private IEnumerator PlayMusic()
 	{
-		if (currentClip == null)
+        while (true)
         {
-			currentClip = clips.Dequeue();
-			sources [0].clip = currentClip;
-			sources [0].Play ();
-			clips.Enqueue (currentClip);
-			sources [0].volume = 0;
-		}
 
-		while (sources [0].clip!=null) {
-			if(sources[0].time<6)
-			{
-				sources [0].volume = Mathf.Lerp(sources [0].volume, PlayerPrefs.GetFloat ("Music")*1, Time.deltaTime*5);
-			}
-			if(sources[0].time>sources[0].clip.length-6)
-			{
-				sources [0].volume = Mathf.Lerp(sources [0].volume, 0, Time.deltaTime*5);
-			}
-			if(sources[0].time>=sources[0].clip.length)
-			{
-				sources [0].clip = null;
-			}
-			yield return new WaitForSeconds(0.1f);
-		}
-		StartCoroutine (PlayMusic());
-		yield return null;
+            if (currentClip == null)
+            {
+                Debug.Log("play");
+                sources[0].volume = 0;
+                StartCoroutine(FadeIn(sources[0], 2));
+                currentClip = clips.Dequeue();
+                sources[0].clip = currentClip;
+                sources[0].Play();
+                clips.Enqueue(currentClip);
+            }
+
+            if (sources[0].time == sources[0].clip.length-InOutTime)
+            {
+                StartCoroutine(FadeOut(sources[0],2));
+            }
+            if (sources[0].time >= sources[0].clip.length)
+            {
+                currentClip = null;
+            }
+            yield return null;
+        }
 	}
+
+    public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -=  Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+    }
+
+    public static IEnumerator FadeIn(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume < 1)
+        {
+            Debug.Log(audioSource.volume);
+            audioSource.volume +=  Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+    }
 }

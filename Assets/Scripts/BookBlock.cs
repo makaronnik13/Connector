@@ -17,8 +17,7 @@ public class BookBlock : MonoBehaviour {
 
         if (close)
         {
-            FindObjectOfType<AddresBook>().Close();
-
+            FindObjectOfType<AddresBook>().CloseBook();
         }
     }
 }

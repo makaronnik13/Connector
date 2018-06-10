@@ -12,6 +12,10 @@ public class WarningLamp : Singleton<WarningLamp> {
 
 	public void SetState(WarningLampState state)
     {
+        if (!Tutorial.Instance.finished)
+        {
+            return;
+        }
         switch (state)
         {
             case WarningLampState.defaultLamp:

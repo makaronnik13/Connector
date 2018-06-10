@@ -89,7 +89,22 @@ MonoBehaviour:
       text: "\u041B\u0435\u0442\u0430\u0442\u044C \u043D\u0430 \u0434\u0435\u043B\u044C\u0442\u0430\u043F\u043B\u0430\u043D\u0435\u2026"
   X: 0
   Y: 0
-  combinationLinks: []
+  combinationLinks:
+  - endPoint: {fileID: 0}
+    person: {fileID: 11400000, guid: fb822c28acb9ebd4fb1bba3cac630dde, type: 2}
+    dialog:
+      clip: {fileID: 0}
+      replics: []
+  - endPoint: {fileID: 0}
+    person: {fileID: 11400000, guid: 5758f533d99e463448fc8311c8aea7e5, type: 2}
+    dialog:
+      clip: {fileID: 0}
+      replics: []
+  - endPoint: {fileID: 0}
+    person: {fileID: 11400000, guid: 6f087ea7f0dcb8c449a0644d23563dc0, type: 2}
+    dialog:
+      clip: {fileID: 0}
+      replics: []
   wrongConnectionState:
     endPoint: {fileID: 0}
   autoAddState:

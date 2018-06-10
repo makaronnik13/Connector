@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class AddresBook : MonoBehaviour {
 
+    public Collider2D bookPageCollider, bookBlockCollider;
+    public GameObject BookCanvas;
     private List<Person> persons = new List<Person>();
 	private List<Person> services = new List<Person>();
     public Transform page;
@@ -21,16 +23,6 @@ public class AddresBook : MonoBehaviour {
 		services = (Resources.LoadAll<Person>("Persons/Special").ToList());
     }
 
-    public void Open()
-    {
-        GetComponent<Animator>().SetTrigger("Open");
-
-        if (lastChars==null)
-        {
-            lastChars = new char[4] { 'А', 'Б', 'В', 'Г'};
-        }
-        ShowPage(lastChars);
-    }
 
     public void ShowPage(char[] chars)
     {
@@ -66,9 +58,41 @@ public class AddresBook : MonoBehaviour {
         }
     }
 
-    public void Close()
+
+
+    public void OpenBook()
+    {
+        SoundController.Instance.PlaySound(5);
+        GetComponent<Collider2D>().enabled = false;
+        CameraController.Instance.SetCameraView(3);
+        GetComponent<Animator>().SetTrigger("Open");
+        if (lastChars == null)
+        {
+            lastChars = new char[4] { 'А', 'Б', 'В', 'Г' };
+        }
+        ShowPage(lastChars);
+    }
+
+    public void CloseBook()
     {
         GetComponent<Animator>().SetTrigger("Close");
-        FindObjectOfType<CameraController>().SetCameraView(0);
+        CameraController.Instance.SetCameraView(0);
+        SoundController.Instance.PlaySound(5);
+        BookCanvas.SetActive(false);
+        bookBlockCollider.enabled = false;
+        bookPageCollider.enabled = false;
+
+    }
+
+    public void CloseBookFinished()
+    {
+        GetComponent<Collider2D>().enabled = true;
+    }
+
+    public void OpenBookFinished()
+    {
+        bookBlockCollider.enabled = true;
+        bookPageCollider.enabled = true;
+       
     }
 }

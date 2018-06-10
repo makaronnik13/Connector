@@ -54,7 +54,7 @@ public class StorryStateInspector : Editor {
 
         combinations.elementHeightCallback = (int i) =>
         {
-            return (5+state.combinationLinks[i].dialog.replics.Count) * EditorGUIUtility.singleLineHeight;
+            return (6+state.combinationLinks[i].dialog.replics.Count) * EditorGUIUtility.singleLineHeight;
         };
     }
 

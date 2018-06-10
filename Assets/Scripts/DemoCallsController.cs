@@ -94,7 +94,6 @@ public class DemoCallsController : Singleton<DemoCallsController> {
 
 	public void Skip()
 	{
-        Debug.Log("skip");
         if (listeningCallPanel)
 		{
             Debug.Log("skip sucsess");
@@ -128,10 +127,8 @@ public class DemoCallsController : Singleton<DemoCallsController> {
 	{
 
 		CallPanel incomingPanel = IncomingPanel;
-        Debug.Log("take call");
         if (incomingPanel)
 		{
-            Debug.Log("take call sucsess");
             incomingPanel.Push ();
             SoundController.Instance.PlaySound(1);
             ConnectionLine.Instance.SetStart(incomingPanel.hab, incomingPanel.state.person);

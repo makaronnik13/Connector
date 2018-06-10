@@ -28,7 +28,22 @@ MonoBehaviour:
         \u0432 \u0442\u0440\u0443\u0431\u043A\u0435*"
   X: 0
   Y: 0
-  combinationLinks: []
+  combinationLinks:
+  - endPoint: {fileID: 0}
+    person: {fileID: 11400000, guid: fb822c28acb9ebd4fb1bba3cac630dde, type: 2}
+    dialog:
+      clip: {fileID: 0}
+      replics: []
+  - endPoint: {fileID: 0}
+    person: {fileID: 11400000, guid: 6f087ea7f0dcb8c449a0644d23563dc0, type: 2}
+    dialog:
+      clip: {fileID: 0}
+      replics: []
+  - endPoint: {fileID: 0}
+    person: {fileID: 11400000, guid: 5758f533d99e463448fc8311c8aea7e5, type: 2}
+    dialog:
+      clip: {fileID: 0}
+      replics: []
   wrongConnectionState:
     endPoint: {fileID: 0}
   autoAddState:

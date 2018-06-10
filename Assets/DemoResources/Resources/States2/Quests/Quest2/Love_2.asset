@@ -36,7 +36,7 @@ MonoBehaviour:
   X: 0
   Y: 0
   combinationLinks:
-  - endPoint: {fileID: 11400000, guid: 23adc002e4ed049f8bedb7c9e237b4c1, type: 2}
+  - endPoint: {fileID: 11400000, guid: 2ecb7831d713e4b1ab1383a241338cec, type: 2}
     person: {fileID: 11400000, guid: fb822c28acb9ebd4fb1bba3cac630dde, type: 2}
     dialog:
       clip: {fileID: 0}
