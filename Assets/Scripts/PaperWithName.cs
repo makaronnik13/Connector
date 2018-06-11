@@ -40,7 +40,6 @@ public class PaperWithName : MonoBehaviour {
     {
         if (Dragging)
         {
-            Vector2 pos;
 
             //RectTransformUtility.ScreenPointToLocalPointInRectangle(parentCanvas.transform as RectTransform, Input.mousePosition, parentCanvas.worldCamera, out pos);
             transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));

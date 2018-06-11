@@ -78,6 +78,8 @@ public class ConnectionLine : Singleton<ConnectionLine> {
         points.Add(end);
         points = LineSmoother.SmoothLine(points.ToArray(), 0.3f).ToList();
 
+
+
         lr.positionCount = points.Count;
         lr.SetPositions(points.ToArray());
         lr.numCapVertices = 8;
@@ -215,19 +217,24 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 
             points.Clear();
 
-            for (int i = 0; i<10;i++)
+			int blocks = Mathf.Clamp(Mathf.RoundToInt(Vector3.Distance (start, end)), 2, 100);
+			for (int i = 0; i<blocks;i++)
             {
-                points.Add(new Vector3(Mathf.Lerp(start.x, end.x, (i+.0f)/10), Mathf.Lerp(start.y, end.y, (float)Math.Pow((double)((i + .0f) / 10),(double)2f)), start.z));
+				points.Add(new Vector3(Mathf.Lerp(start.x, end.x, (i+.0f)/blocks), Mathf.Lerp(start.y, end.y, (float)Math.Pow((double)((i + .0f) / blocks),(double)2f)), start.z));
             }
 
             points.Add(end);
 
             points = LineSmoother.SmoothLine(points.ToArray(), 0.3f).ToList();
+
+			points.RemoveRange (points.Count-1, 1);
+
             Line.positionCount = points.Count;
 
             Line.SetPositions(points.ToArray());
 
             Jack.transform.position = points[points.Count-1];
+
             float div = (points[points.Count - 1].x - points[points.Count - 2].x) / (points[points.Count - 1].y - points[points.Count - 2].y);
             float angle = Mathf.Atan(div) * Mathf.Rad2Deg;
             if (points[points.Count - 1].y < points[points.Count - 2].y)

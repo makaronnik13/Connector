@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HabsParent : MonoBehaviour {
+public class HabsParent : Singleton<HabsParent> {
 
 	HabField EmptyHab
 	{
@@ -20,9 +20,22 @@ public class HabsParent : MonoBehaviour {
 		}
 	}
 
+	public bool HavePerson(Person person)
+	{
+		foreach(HabField hf in GetComponentsInChildren<HabField>())
+		{
+			if(hf.Person == person)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+
 	public bool AddPerson(Person person)
 	{
-		if(!EmptyHab)
+		if(!EmptyHab || HavePerson(person))
 		{
 			return false;
 		}

@@ -9,6 +9,8 @@ public class DemoCallsController : Singleton<DemoCallsController> {
 	public CallPanel listeningCallPanel = null;
 	public List<State> demoStates = new List<State>();
 
+	public bool Calling;
+
 	public Collider2D DropButton, TakeButton;
 
 	private int playedStates = 0;
@@ -39,16 +41,29 @@ public class DemoCallsController : Singleton<DemoCallsController> {
 		}
 	}
 
-	private CallPanel IncomingPanel
+	private bool HaveCalls
 	{
 		get
 		{
 			foreach(CallPanel cp in CallPanels)
 			{
-				if(cp.callPanelState == CallPanel.CallPanelState.Incoming)
+				if(cp.callPanelState == CallPanel.CallPanelState.Incoming || cp.callPanelState == CallPanel.CallPanelState.Waiting)
 				{
-					return cp;
+					return true;
 				}
+			}
+			return false;
+		}
+	}
+
+	private CallPanel IncomingPanel
+	{
+		get
+		{
+			List<CallPanel> panels = CallPanels.OrderByDescending (c=>c.waitingTime).Where(cp=>cp.callPanelState == CallPanel.CallPanelState.Incoming).ToList();
+			if(panels.Count>0)
+			{
+				return panels.First();
 			}
 			return null;
 		}
@@ -56,6 +71,7 @@ public class DemoCallsController : Singleton<DemoCallsController> {
 
 	public void StartCalls()
 	{
+		Calling = true;
 		StartCoroutine(GenerateNewState(BalanceManager.Instance.GetRate(0, playedStates)));
 	}
 
@@ -81,7 +97,11 @@ public class DemoCallsController : Singleton<DemoCallsController> {
 			StorryState s = demoStates[playedStates] as StorryState;
 			EmptyPanel.Call(s);
 			playedStates++;
-			StartCoroutine(GenerateNewState(BalanceManager.Instance.GetRate(0, playedStates)));
+			if(!s.EndingCall)
+			{
+				StartCoroutine(GenerateNewState(BalanceManager.Instance.GetRate(0, playedStates)));
+				Calling = false;
+			}
 		}
 	}
 		
@@ -96,7 +116,6 @@ public class DemoCallsController : Singleton<DemoCallsController> {
 	{
         if (listeningCallPanel)
 		{
-            Debug.Log("skip sucsess");
             listeningCallPanel.Skip ();
 			listeningCallPanel = null;
             ConnectionLine.Instance.Hide();
@@ -111,7 +130,9 @@ public class DemoCallsController : Singleton<DemoCallsController> {
 
 	public void AddState(State state)
 	{
-		demoStates.Insert (playedStates+Random.Range(1,3), state);
+		int position = playedStates + Random.Range (1, 3);
+		position = Mathf.Clamp (position, 0, demoStates.Count-1);
+		demoStates.Insert (position, state);
 	}
 
 	public void Pause()
@@ -146,7 +167,13 @@ public class DemoCallsController : Singleton<DemoCallsController> {
 
         if (EmptyPanel)
         {
-            WarningLamp.Instance.SetState(WarningLamp.WarningLampState.defaultLamp);
+			if (HaveCalls) {
+				WarningLamp.Instance.SetState(WarningLamp.WarningLampState.yellowLamp);
+			} else 
+			{
+				WarningLamp.Instance.SetState(WarningLamp.WarningLampState.defaultLamp);	
+			}
+            
         }
         else
         {

@@ -23,6 +23,8 @@ public class StorryState : State {
     public Link autoAddState;
 	public Link SkipState;
 
+	public bool EndingCall = false;
+
     public override List<Person> secondPersons()
     {
 		return combinationLinks.Select(cl=>cl.person).ToList();

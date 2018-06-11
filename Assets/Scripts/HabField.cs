@@ -59,8 +59,7 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
 
         if (wire != null)
         {
-            wire.Disconnect();
-            wire = null;
+			return;
         }
 
 		CallPanel callPanel = FindObjectsOfType<CallPanel> ().ToList ().Find (cp => cp.state && cp.state.person == ConnectionLine.Instance.startPerson);  
@@ -76,7 +75,7 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
 
     public void StartDragPaper()
     {
-		if (Person == null || ServiceHab)
+		if (Person == null || ServiceHab || wire)
         {
             return;
         }
@@ -103,6 +102,13 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
         {
             return;
         }
+
+
+		if(HabsParent.Instance.HavePerson(paper.person))
+		{
+			return;
+		}
+
 
 		PaperWithName currentPaper = GetComponentInChildren<PaperWithName> ();
 		if (currentPaper) {

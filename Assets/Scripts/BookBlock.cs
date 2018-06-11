@@ -6,6 +6,7 @@ public class BookBlock : MonoBehaviour {
 
 	public void HooverOff()
     {
+		/*
         bool close = false;
         foreach (PaperWithName addres in FindObjectsOfType<PaperWithName>())
         {
@@ -18,6 +19,6 @@ public class BookBlock : MonoBehaviour {
         if (close)
         {
             FindObjectOfType<AddresBook>().CloseBook();
-        }
+        }*/
     }
 }

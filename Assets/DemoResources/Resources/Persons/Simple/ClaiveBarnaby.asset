@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: ClaiveBarnaby
   m_EditorClassIdentifier: 
   PersonSprite: {fileID: 0}
-  PersonName: "\u041A\u043B\u044D\u0439\u0432 \u0411\u0430\u0440\u043D\u0435\u0431\u0438"
+  PersonName: "\u041A\u043B\u0430\u0439\u0432 \u0411\u0430\u0440\u043D\u0435\u0431\u0438"
   Service: 0
   wrongConnectionState: {fileID: 0}
   hideInBook: 0

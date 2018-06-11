@@ -5,16 +5,19 @@ using UnityEngine;
 using System;
 using System.Linq;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogController: Singleton<DialogController>{
 
     private State currentState;
     public Action<State> OnDialogFinished = (s) => { };
     public Action OnTypingFinished = () => { };
-  
-
+	private int listsCounter = 0;
+	private int currentList = 0;
     public float secondsForSymbol;
 	public float dellay = 1;
+	private bool scrollInUse = false;
+	private bool horizontalInUse = false;
 
    // public CombinationLink defaultLink;
    
@@ -32,6 +35,10 @@ public class DialogController: Singleton<DialogController>{
 
     private void TypingComplete()
     {
+		listsCounter++;
+		currentList++;
+		currentList = Mathf.Clamp (currentList, 0 , currentState.monolog.replics.Count-1);
+		Debug.Log (currentList);
         OnTypingFinished.Invoke();
     }
 
@@ -42,6 +49,8 @@ public class DialogController: Singleton<DialogController>{
 
     public void PlayMonolog(State firstPersonState)
 	{
+		listsCounter = 0;
+		currentList = 0;
         currentState = firstPersonState;
 		firstPersonPanel.writer.Reset ();
 
@@ -64,6 +73,8 @@ public class DialogController: Singleton<DialogController>{
 
 	public void PlayDialog(State state, float time, int pathId = 0)
 	{
+		listsCounter = 0;
+		currentList = 0;
 		firstPersonPanel.writer.Reset ();
         firstPerson = state.person;
         List<Replica> replics = new List<Replica>(state.StateDialog(pathId).replics);
@@ -82,17 +93,22 @@ public class DialogController: Singleton<DialogController>{
 
 	void Update()
 	{
+		/*
 		if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
 		{
 			Skip ();   
-		}
+		}*/
+
+		MoveWheel (Input.GetAxisRaw("Mouse ScrollWheel"));
+		MoveKeys (Input.GetAxisRaw("Horizontal"));
 	}
 
+	/*
 	public void Skip()
 	{
         firstPersonPanel.writer.charactersPerSecond = 1000;
     }
-		
+	*/	
 
 	public void HideDialog()
     {
@@ -122,4 +138,70 @@ public class DialogController: Singleton<DialogController>{
 		}
 	}
 
+	private void MoveKeys(float i)
+	{
+		if(i != 0)
+		{
+			if(horizontalInUse == false)
+			{
+				int v = 1;
+				if(i<0)
+				{
+					v = -1;
+				}
+				MoveReplic (v);
+
+				horizontalInUse = true;
+			}
+		}
+		if(i == 0)
+		{
+			horizontalInUse = false;
+		} 
+	}
+
+	private void MoveWheel(float i)
+	{
+		if(i != 0)
+		{
+			if(scrollInUse == false)
+			{
+				int v = 1;
+				if(i<0)
+				{
+					v = -1;
+				}
+				MoveReplic (v);
+
+				scrollInUse = true;
+			}
+		}
+		if(i == 0)
+		{
+			scrollInUse = false;
+		} 
+	}
+
+	private void MoveReplic(int v)
+	{
+		if(!currentState)
+		{
+			return;
+		}
+		if (listsCounter == currentState.monolog.replics.Count) 
+		{
+			
+			if(v>0 && currentList<currentState.monolog.replics.Count-1)
+			{
+				currentList++;
+				GetComponentInChildren<TextMeshProUGUI> ().text = currentState.monolog.replics [currentList].text;
+			}
+
+			if(v<0 && currentList>0)
+			{
+				currentList--;
+				GetComponentInChildren<TextMeshProUGUI> ().text = currentState.monolog.replics [currentList].text;
+			}
+		}
+	}
 }

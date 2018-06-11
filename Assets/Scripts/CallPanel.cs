@@ -7,6 +7,7 @@ using System;
 
 public class CallPanel : MonoBehaviour
 {
+	public float waitingTime;
 
     public enum CallPanelState
     {
@@ -63,6 +64,13 @@ public class CallPanel : MonoBehaviour
 	[HideInInspector]
 	public Wire wire;
 
+	void Update()
+	{
+		if(callPanelState == CallPanelState.Incoming)
+		{
+			waitingTime += Time.deltaTime;
+		}
+	}
 
 	public void Push()
 	{
@@ -84,8 +92,10 @@ public class CallPanel : MonoBehaviour
 
 	public void Call(State state)
 	{
+		SoundController.Instance.PlaySound (6);
 		this._state = state;
 		callPanelState = CallPanelState.Incoming;
+		waitingTime = 0;
 	}
 
 	public void Listen()
@@ -96,12 +106,9 @@ public class CallPanel : MonoBehaviour
 
 	public void Skip()
 	{
-        Debug.Log(_state);
-
 		if (_state) 
 		{
             float randV = UnityEngine.Random.Range(0, 1f);
-            Debug.Log(randV+"/"+_state.DropWarningChance);
             if (randV < _state.DropWarningChance) {
 				Phone.Instance.SendWarning (Phone.WarningType.Drop);
 			}

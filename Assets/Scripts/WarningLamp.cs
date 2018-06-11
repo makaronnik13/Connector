@@ -7,6 +7,7 @@ public class WarningLamp : Singleton<WarningLamp> {
     public enum WarningLampState
     {
         defaultLamp,
+		yellowLamp,
         warningLamp
     }
 
@@ -24,6 +25,9 @@ public class WarningLamp : Singleton<WarningLamp> {
             case WarningLampState.warningLamp:
                 GetComponent<SpriteRenderer>().color = Color.red;
                 break;
+			case WarningLampState.yellowLamp:
+				GetComponent<SpriteRenderer>().color = Color.yellow;
+				break;
         }
     }
 }

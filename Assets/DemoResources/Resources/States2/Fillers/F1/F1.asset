@@ -34,6 +34,14 @@ MonoBehaviour:
         \u043E\u0431\u0440\u0430\u0442\u0438\u0442\u0435\u0441\u044C \u043A \u0438\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u0438
         \u043D\u0430 \u0441\u0442\u043E\u043B\u0435. \u041D\u0430 \u044D\u0442\u043E\u043C
         \u0432\u0441\u0435."
+    - person: 0
+      text: 1
+    - person: 0
+      text: 2
+    - person: 0
+      text: 3
+    - person: 0
+      text: 4
   X: 0
   Y: 0
   combinationLinks: []
@@ -43,3 +51,4 @@ MonoBehaviour:
     endPoint: {fileID: 0}
   SkipState:
     endPoint: {fileID: 0}
+  EndingCall: 0
