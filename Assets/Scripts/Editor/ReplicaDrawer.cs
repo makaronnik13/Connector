@@ -21,12 +21,12 @@ public class ReplicaDrawer : PropertyDrawer
         EditorGUI.indentLevel = 0;
 
         // Calculate rects
-        var amountRect = new Rect(position.x, position.y, position.width/2-2, position.height);
-        var unitRect = new Rect(position.x + position.width / 2 + 2, position.y, position.width / 2 - 3, position.height);
+   //     var amountRect = new Rect(position.x, position.y, position.width/2-2, position.height);
+        var unitRect = new Rect(position.x , position.y, position.width , position.height);
        
 
         // Draw fields - passs GUIContent.none to each so they are drawn without labels
-        EditorGUI.PropertyField(amountRect, property.FindPropertyRelative("person"), GUIContent.none);
+      //  EditorGUI.PropertyField(amountRect, property.FindPropertyRelative("person"), GUIContent.none);
         EditorGUI.PropertyField(unitRect, property.FindPropertyRelative("text"), GUIContent.none);
    
 

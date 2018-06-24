@@ -35,7 +35,7 @@ public class StorryStateInspector : Editor {
 
         monologReplics.elementHeightCallback = (int i) =>
         {
-            return (state.monolog.replics.Count) * EditorGUIUtility.singleLineHeight;
+            return 3+(state.monolog.replics.Count) * EditorGUIUtility.singleLineHeight;
         };
 
 
@@ -60,13 +60,13 @@ public class StorryStateInspector : Editor {
 
         combinations.elementHeightCallback = (int i) =>
         {
-            return (6+state.combinationLinks[i].dialog.replics.Count*2) * EditorGUIUtility.singleLineHeight;
+            return (1.8f) * EditorGUIUtility.singleLineHeight;
         };
     }
 
     public override void OnInspectorGUI()
     {
-        state.person = (Person)EditorGUILayout.ObjectField("Person",state.person, typeof(Person), false);
+       // state.person = (Person)EditorGUILayout.ObjectField("Person",state.person, typeof(Person), false);
         state.TalkingTime = EditorGUILayout.FloatField("DialogTime", state.TalkingTime);
 
         showLables = EditorGUILayout.Foldout(showLables, "Warning chances");
@@ -79,7 +79,7 @@ public class StorryStateInspector : Editor {
 
         EditorGUILayout.LabelField("");
         EditorGUILayout.LabelField("Monolog", EditorStyles.boldLabel);
-        state.monolog.clip = (AudioClip)EditorGUILayout.ObjectField("AudioClip", state.monolog.clip, typeof(AudioClip), false);
+        //state.monolog.clip = (AudioClip)EditorGUILayout.ObjectField("AudioClip", state.monolog.clip, typeof(AudioClip), false);
 
         serializedObject.Update();
         monologReplics.DoLayoutList();

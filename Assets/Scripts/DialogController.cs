@@ -136,7 +136,7 @@ public class DialogController: Singleton<DialogController>{
 
 		if(replica.person == Dialog.Person.FirstPerson)
 		{
-			firstPersonPanel.Show (firstPerson.PersonSprite, replica.text);
+			firstPersonPanel.Show (null, replica.text);
 		}
 	}
 

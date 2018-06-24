@@ -38,6 +38,11 @@ MonoBehaviour:
     dialog:
       clip: {fileID: 0}
       replics: []
+  - endPoint: {fileID: 11400000, guid: fe486e167208de5468fd17529998d928, type: 2}
+    person: {fileID: 11400000, guid: d668e956f816eb34ba6995bb7bbc33a0, type: 2}
+    dialog:
+      clip: {fileID: 0}
+      replics: []
   wrongConnectionState:
     endPoint: {fileID: 11400000, guid: d8a52015e887641f785551360d2d95d2, type: 2}
   autoAddState:

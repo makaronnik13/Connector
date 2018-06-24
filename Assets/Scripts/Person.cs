@@ -8,11 +8,14 @@ using UnityEngine;
 public class Person : ScriptableObject {
 
     //[AssetsOnly, InlineEditor(InlineEditorModes.LargePreview)]
-    public Sprite PersonSprite;
+    //public Sprite PersonSprite;
     public string PersonName;
+   
+
     public bool Service = false;
-	public StorryState wrongConnectionState;
-	public bool hideInBook = false;
+    public bool hideInBook = false;
+
+    public StorryState wrongConnectionState;
 
     public string Surname
     {

@@ -92,7 +92,7 @@ public class FillerCallsEditor : EditorWindow {
 					EditorGUILayout.BeginVertical (GUILayout.Width(100));
 
 					if (fs.person) {
-						GUILayout.Label (fs.person.PersonSprite.texture, GUILayout.Width (100), GUILayout.Height (100));
+						//GUILayout.Label (fs.person.PersonSprite.texture, GUILayout.Width (100), GUILayout.Height (100));
 					}
 					FillerStates.ElementAt (FillerStates.IndexOf (fs)).person = EditorGUILayout.ObjectField (fs.person, typeof(Person), false, GUILayout.Width (100)) as Person;
 				
@@ -100,7 +100,7 @@ public class FillerCallsEditor : EditorWindow {
 
 					EditorGUILayout.BeginVertical (GUILayout.Width(100));
 					if (fs.aimPerson) {
-						GUILayout.Label (fs.aimPerson.PersonSprite.texture, GUILayout.Width (100), GUILayout.Height (100));
+						//GUILayout.Label (fs.aimPerson.PersonSprite.texture, GUILayout.Width (100), GUILayout.Height (100));
 					}
 					FillerStates.ElementAt (FillerStates.IndexOf (fs)).aimPerson = EditorGUILayout.ObjectField (fs.aimPerson, typeof(Person), false, GUILayout.Width (100)) as Person;
 				

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-[CreateAssetMenu(menuName = "GameModel/FillerState")]
+//[CreateAssetMenu(menuName = "GameModel/FillerState")]
 public class FillerState : State {
 
 	public Person aimPerson;

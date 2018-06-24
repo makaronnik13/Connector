@@ -328,10 +328,12 @@ public class CombinationsEditor : EditorWindow
         GUILayout.BeginVertical();
 
         Texture2D texture = new Texture2D(1, 1);
+        /*
         if (state.Key.person && state.Key.person.PersonSprite)
         {
             texture = state.Key.person.PersonSprite.texture;
         }
+        */
         GUILayout.Label(texture, GUILayout.Height(100));
 
         GUILayout.EndVertical();
