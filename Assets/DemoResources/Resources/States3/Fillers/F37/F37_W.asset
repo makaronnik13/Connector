@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f496d3ebc07be44f4b5e0a47ce226765, type: 3}
+  m_Name: F37_W
+  m_EditorClassIdentifier: 
+  person: {fileID: 11400000, guid: a38f27c3a32c1724e9e79546363ecbcc, type: 2}
+  day: 1
+  minute: 0
+  waitingTime: 5
+  canBeDisconnectedAfter: 10000
+  WrongConnectionWarningChance: 0
+  DropWarningChance: 0
+  DisconnectWarningChance: 0
+  TalkingTime: 10
+  monolog:
+    clip: {fileID: 0}
+    replics:
+    - person: 0
+      text: "\u0422\u0420\u0423\u0411\u041A\u0410! \u041F\u041E\u0412\u0418\u041D\u0423\u0419\u0421\u042F
+        \u041C\u041D\u0415, \u041A\u0423\u0421\u041E\u041A \u041F\u041B\u0410\u0421\u0422\u0418\u041A\u0410,
+        \u0418\u041D\u0410\u0427\u0415 \u041F\u041E\u0417\u041D\u0410\u0415\u0428\u042C
+        \u0412\u0421\u042E \u041C\u041E\u0429\u042C \u041E\u0414\u041D\u041E\u0413\u041B\u0410\u0417\u041E\u0413\u041E
+        \u0421\u0422\u0410\u0420\u0418\u041A\u0410! \u041C\u041D\u0415 \u041D\u0423\u0416\u0415\u041D
+        \u0413\u041B\u0410\u0421 \u0422\u041E\u0420\u0410 \u041E\u0414\u0418\u041D\u0421\u041E\u041D\u0410!"
+  X: 0
+  Y: 0
+  combinationLinks:
+  - endPoint: {fileID: 0}
+    person: {fileID: 11400000, guid: 474220dbcd9d4f24f945de6e65d3850b, type: 2}
+    dialog:
+      clip: {fileID: 0}
+      replics: []
+  wrongConnectionState:
+    endPoint: {fileID: 0}
+  autoAddState:
+    endPoint: {fileID: 0}
+  SkipState:
+    endPoint: {fileID: 0}

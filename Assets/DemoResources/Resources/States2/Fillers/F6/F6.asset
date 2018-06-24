@@ -47,3 +47,4 @@ MonoBehaviour:
     endPoint: {fileID: 0}
   SkipState:
     endPoint: {fileID: 11400000, guid: 95bd5c0ce1f8afb4fb77f3fde24f551d, type: 2}
+  EndingCall: 0

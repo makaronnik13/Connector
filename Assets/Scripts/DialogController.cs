@@ -37,8 +37,10 @@ public class DialogController: Singleton<DialogController>{
     {
 		listsCounter++;
 		currentList++;
-		currentList = Mathf.Clamp (currentList, 0 , currentState.monolog.replics.Count-1);
-		Debug.Log (currentList);
+        if (currentState)
+        {
+            currentList = Mathf.Clamp(currentList, 0, currentState.monolog.replics.Count - 1);
+        }
         OnTypingFinished.Invoke();
     }
 

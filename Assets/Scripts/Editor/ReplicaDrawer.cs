@@ -35,4 +35,10 @@ public class ReplicaDrawer : PropertyDrawer
 
         EditorGUI.EndProperty();
     }
+
+    /*
+    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+    {
+        return 32f;
+    }*/
 }

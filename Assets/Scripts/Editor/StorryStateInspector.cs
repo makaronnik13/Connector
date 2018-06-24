@@ -33,6 +33,12 @@ public class StorryStateInspector : Editor {
             EditorGUI.LabelField(rect, "Replics");
         };
 
+        monologReplics.elementHeightCallback = (int i) =>
+        {
+            return (state.monolog.replics.Count) * EditorGUIUtility.singleLineHeight;
+        };
+
+
         combinations = new ReorderableList(serializedObject,
                serializedObject.FindProperty("combinationLinks"),
                true, true, true, true);
@@ -54,7 +60,7 @@ public class StorryStateInspector : Editor {
 
         combinations.elementHeightCallback = (int i) =>
         {
-            return (6+state.combinationLinks[i].dialog.replics.Count) * EditorGUIUtility.singleLineHeight;
+            return (6+state.combinationLinks[i].dialog.replics.Count*2) * EditorGUIUtility.singleLineHeight;
         };
     }
 
