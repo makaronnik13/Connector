@@ -258,12 +258,12 @@ public class ConnectionLine : Singleton<ConnectionLine> {
     {
         startTransform = null;
         Line.enabled = false;
-
     }
 
     public void SetStart(Transform start, Person person)
     {
-        if(start == startTransform)
+
+        if (start == startTransform)
         {
             return;
         }

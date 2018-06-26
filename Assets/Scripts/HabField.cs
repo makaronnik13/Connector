@@ -59,7 +59,7 @@ public class HabField : MonoBehaviour, IWireDraggReciewer
 
         if (wire != null)
         {
-			return;
+            wire.Disconnect();
         }
 
 		CallPanel callPanel = FindObjectsOfType<CallPanel> ().ToList ().Find (cp => cp.state && cp.state.person == ConnectionLine.Instance.startPerson);  

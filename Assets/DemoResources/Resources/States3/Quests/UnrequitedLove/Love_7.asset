@@ -38,7 +38,7 @@ MonoBehaviour:
   wrongConnectionState:
     endPoint: {fileID: 0}
   autoAddState:
-    endPoint: {fileID: 11400000, guid: dd5f52d602d8d45e98ad55bb39213925, type: 2}
+    endPoint: {fileID: 11400000, guid: 9fde1f302d4ad7f4fbef024fa852a784, type: 2}
   SkipState:
     endPoint: {fileID: 0}
   EndingCall: 0

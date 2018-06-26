@@ -31,12 +31,12 @@ MonoBehaviour:
   X: 0
   Y: 0
   combinationLinks:
-  - endPoint: {fileID: 11400000, guid: 2ecb7831d713e4b1ab1383a241338cec, type: 2}
+  - endPoint: {fileID: 11400000, guid: a3f0628c31aaab94d839fce54ebb9b03, type: 2}
     person: {fileID: 11400000, guid: fb822c28acb9ebd4fb1bba3cac630dde, type: 2}
     dialog:
       clip: {fileID: 0}
       replics: []
-  - endPoint: {fileID: 11400000, guid: 993a46d038fd4bd4881a5c16ea7037d5, type: 2}
+  - endPoint: {fileID: 11400000, guid: bf8a877f34e6e424d865cd62affecbda, type: 2}
     person: {fileID: 11400000, guid: d668e956f816eb34ba6995bb7bbc33a0, type: 2}
     dialog:
       clip: {fileID: 0}

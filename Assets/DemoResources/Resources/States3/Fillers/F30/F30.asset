@@ -37,9 +37,9 @@ MonoBehaviour:
       clip: {fileID: 0}
       replics: []
   wrongConnectionState:
-    endPoint: {fileID: 11400000, guid: 4049934d4baff7641a414e1be1e69cda, type: 2}
+    endPoint: {fileID: 11400000, guid: bcfbcefc2bb94fb4da2296c6f2c2c17a, type: 2}
   autoAddState:
     endPoint: {fileID: 0}
   SkipState:
-    endPoint: {fileID: 11400000, guid: 4049934d4baff7641a414e1be1e69cda, type: 2}
+    endPoint: {fileID: 11400000, guid: bcfbcefc2bb94fb4da2296c6f2c2c17a, type: 2}
   EndingCall: 0

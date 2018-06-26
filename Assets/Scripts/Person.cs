@@ -17,13 +17,14 @@ public class Person : ScriptableObject {
 
     public StorryState wrongConnectionState;
 
-    public string Surname
+    public string FirstName
     {
         get
             {
             try
             {
-                return PersonName.Split(new char[] { ' ' })[1];
+                int lastDotIndex = PersonName.IndexOf(' ');
+                return PersonName.Substring(0, lastDotIndex);
             }
             catch
             {
@@ -32,13 +33,14 @@ public class Person : ScriptableObject {
         }
     }
 
-    public string FirstName
+    public string Surname
     {
         get
         {
             try
             {
-                return PersonName.Split(new char[] { ' ' })[0];
+                int lastDotIndex = PersonName.IndexOf(' ');
+                return PersonName.Substring(lastDotIndex + 1);
             }
             catch
             {

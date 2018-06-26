@@ -33,21 +33,26 @@ MonoBehaviour:
         \u043C\u0435\u043D\u044F \u0441\u043B\u0443\u0448\u0430\u0442\u044C \u043D\u0435
         \u0431\u0443\u0434\u0443\u0442."
     - person: 0
-      text: " \u0421\u043E\u0435\u0434\u0438\u043D\u0438\u0442\u0435 \u0441 \u0411\u0435\u043D\u043D\u0438
+      text: "\u0421\u043E\u0435\u0434\u0438\u043D\u0438\u0442\u0435 \u0441 \u0411\u0435\u043D\u043D\u0438
         \u041A\u0438\u043D\u0433\u043E\u043C, \u043E\u043D \u0432\u0440\u043E\u0434\u0435
         \u043C\u0435\u043D\u044F \u0438\u0441\u043A\u0430\u043B."
   X: 0
   Y: 0
   combinationLinks:
-  - endPoint: {fileID: 0}
+  - endPoint: {fileID: 11400000, guid: c232faa38bb3a8740ab0054c7e397851, type: 2}
     person: {fileID: 11400000, guid: 3141d71c3a0b66d48a2cd86d453cfdc8, type: 2}
     dialog:
       clip: {fileID: 0}
       replics: []
+  - endPoint: {fileID: 0}
+    person: {fileID: 11400000, guid: 184e414e49978644c8165291aeee687e, type: 2}
+    dialog:
+      clip: {fileID: 0}
+      replics: []
   wrongConnectionState:
-    endPoint: {fileID: 11400000, guid: 939e7afadae43be4ba56edbce4267a1c, type: 2}
+    endPoint: {fileID: 11400000, guid: 07f8d4f3280c13f4eb79ba24c3398c63, type: 2}
   autoAddState:
     endPoint: {fileID: 0}
   SkipState:
-    endPoint: {fileID: 11400000, guid: 939e7afadae43be4ba56edbce4267a1c, type: 2}
+    endPoint: {fileID: 11400000, guid: 07f8d4f3280c13f4eb79ba24c3398c63, type: 2}
   EndingCall: 0

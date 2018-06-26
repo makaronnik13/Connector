@@ -7,7 +7,7 @@ public class PanelBlock : MonoBehaviour {
 
 	public void ShowLine()
     {
-        if (!DemoCallsController.Instance.listeningCallPanel)
+        if (!DemoCallsController.Instance.listeningCallPanel || Phone.Instance.TalkingPhone)
         {
             return;
         }

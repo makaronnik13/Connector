@@ -21,7 +21,7 @@ public class AddresHab : MonoBehaviour
 
     public void Hover()
     {
-        if (!DemoCallsController.Instance.listeningCallPanel)
+        if (!DemoCallsController.Instance.listeningCallPanel || Phone.Instance.TalkingPhone)
         {
             return;
         }
