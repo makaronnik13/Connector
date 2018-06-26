@@ -123,7 +123,12 @@ public class CallPanel : MonoBehaviour
 				FindObjectOfType<DemoCallsController> ().AddState ((_state as StorryState).SkipState.endPoint);
 			}
 
-			_state = null;
+            if ((_state as StorryState).wrongConnectionNews != null)
+            {
+                NewsPaper.Instance.SetNews((_state as StorryState).wrongConnectionNews);
+            }
+
+            _state = null;
 			callPanelState = CallPanelState.Off;
 			DialogController.Instance.HideDialog ();
 		}

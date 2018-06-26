@@ -13,9 +13,15 @@ public class AddresBook : MonoBehaviour {
 	private List<Person> services = new List<Person>();
     public Transform page;
 
+    //public Image ServicesMark, AbonentsMark;
+    
+
+    public GameObject bookmarks;
+
     public GameObject AddresPrefab;
 
-    private char[] lastChars; 
+    private char[] lastChars;
+    private char[] lastAlfChars;
 
     private void Start()
     {
@@ -27,7 +33,13 @@ public class AddresBook : MonoBehaviour {
     public void ShowPage(char[] chars)
     {
         SoundController.Instance.PlaySound(5);
+
         lastChars = chars;
+
+        if (!chars.Contains('.'))
+        {
+            lastAlfChars = chars;
+        }
         foreach (Transform t in page.transform)
         {
             Destroy(t.gameObject);
@@ -93,6 +105,17 @@ public class AddresBook : MonoBehaviour {
     {
         bookBlockCollider.enabled = true;
         bookPageCollider.enabled = true;
-       
+    }
+
+    public void ShowServices()
+    {
+        ShowPage(new char[] { '.' });
+        bookmarks.SetActive(false);
+    }
+
+    public void ShowAbonents()
+    {
+        bookmarks.SetActive(true);
+        ShowPage(lastAlfChars);
     }
 }

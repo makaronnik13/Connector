@@ -8,4 +8,5 @@ public class CombinationLink :Link
     public Person person;
     [HideInInspector]
     public Dialog dialog;
+    public NewsVariant connectionNews;
 }

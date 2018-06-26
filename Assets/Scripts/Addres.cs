@@ -15,7 +15,7 @@ public class Addres : MonoBehaviour, IDragHandler
         person = p;
 		if (!p.Service) 
 		{
-			GetComponent<TextMeshProUGUI> ().text = p.Surname + " " + p.FirstName;
+			GetComponentInChildren<TextMeshProUGUI> ().text = p.Surname + " " + p.FirstName;
 		} else 
 		{
 			GetComponentInChildren<TextMeshProUGUI> ().text = p.PersonName;
@@ -38,4 +38,14 @@ public class Addres : MonoBehaviour, IDragHandler
 	{
 		FindObjectOfType<HabsParent> ().AddPerson (person);
 	}
+
+    public void OnHover()
+    {
+        GetComponentInChildren<Image>().enabled = true;
+    }
+
+    public void OnUnHover()
+    {
+        GetComponentInChildren<Image>().enabled = false;
+    }
 }

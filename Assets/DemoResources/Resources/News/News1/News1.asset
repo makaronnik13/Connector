@@ -11,5 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1fb6dd3190d4b5681923fb0ac3b635, type: 3}
   m_Name: News1
   m_EditorClassIdentifier: 
-  Variants: []
-  defaultVariant: {fileID: 0}
+  Variants:
+  - {fileID: 11400000, guid: cc3166ac70ccd440a9edd64a62fb3c26, type: 2}
+  defaultVariant: {fileID: 11400000, guid: f5c73b1cc50bd48afaa9bc3ead77834b, type: 2}

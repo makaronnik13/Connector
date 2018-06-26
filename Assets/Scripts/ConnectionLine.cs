@@ -133,6 +133,13 @@ public class ConnectionLine : Singleton<ConnectionLine> {
                     FindObjectOfType<DemoCallsController>().AddState((callPanel.state as StorryState).autoAddState.endPoint);
                 }
             }
+            if (callPanel.state.GetType() == typeof(StorryState))
+            {
+                if ((callPanel.state as StorryState).wrongConnectionNews)
+                {
+                    NewsPaper.Instance.SetNews((callPanel.state as StorryState).wrongConnectionNews);
+                }
+            }
         }
 
             callPanel.state = null;
@@ -180,7 +187,20 @@ public class ConnectionLine : Singleton<ConnectionLine> {
                     }
             }
         }
-    }
+            if (callPanel.state.GetType() == typeof(StorryState))
+            {
+                foreach (CombinationLink cl in (callPanel.state as StorryState).combinationLinks)
+                {
+                    if (callPanel.wire)
+                    {
+                        if (cl.person == callPanel.wire.end && cl.connectionNews)
+                        {
+                            NewsPaper.Instance.SetNews(cl.connectionNews);
+                        }
+                    }
+                }
+            }
+        }
 
         callPanel.state = null;
 		callPanel.callPanelState = CallPanel.CallPanelState.Off;

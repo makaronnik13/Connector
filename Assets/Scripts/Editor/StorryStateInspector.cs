@@ -60,7 +60,7 @@ public class StorryStateInspector : Editor {
 
         combinations.elementHeightCallback = (int i) =>
         {
-            return (1.8f) * EditorGUIUtility.singleLineHeight;
+            return (2.5f) * EditorGUIUtility.singleLineHeight;
         };
     }
 
@@ -97,6 +97,7 @@ public class StorryStateInspector : Editor {
         state.wrongConnectionState.endPoint = (StorryState)EditorGUILayout.ObjectField("Wrong", state.wrongConnectionState.endPoint, typeof(StorryState), false);
         state.SkipState.endPoint = (StorryState)EditorGUILayout.ObjectField("Skip", state.SkipState.endPoint, typeof(StorryState), false);
 
+        state.wrongConnectionNews = (NewsVariant)EditorGUILayout.ObjectField("Wrong news", state.wrongConnectionNews, typeof(NewsVariant), false);
 		state.EndingCall = EditorGUILayout.Toggle ("EndingCall", state.EndingCall);
 
         EditorUtility.SetDirty(state);

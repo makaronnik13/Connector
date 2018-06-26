@@ -12,7 +12,8 @@ public class CameraController : Singleton<CameraController> {
         Map,
         Manual,
         Panel,
-        Window
+        Window,
+        News
     }
 
     private void Start()
@@ -31,6 +32,7 @@ public class CameraController : Singleton<CameraController> {
         animator.SetBool("Map", false);
         animator.SetBool("Panel", false);
         animator.SetBool("Window",false);
+        animator.SetBool("News", false);
 
         switch (view)
         {
@@ -47,6 +49,9 @@ public class CameraController : Singleton<CameraController> {
                 break;
             case CameraView.Window:
                 animator.SetBool("Window", true);
+                break;
+            case CameraView.News:
+                animator.SetBool("News", true);
                 break;
         }
     }
