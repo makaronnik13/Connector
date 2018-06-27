@@ -49,10 +49,13 @@ MonoBehaviour:
     dialog:
       clip: {fileID: 0}
       replics: []
+    connectionNews: {fileID: 11400000, guid: a1c123e7893267c418804c95af1bcd5c, type: 2}
   wrongConnectionState:
     endPoint: {fileID: 0}
   autoAddState:
     endPoint: {fileID: 0}
   SkipState:
     endPoint: {fileID: 0}
+  wrongConnectionNews: {fileID: 11400000, guid: a1c123e7893267c418804c95af1bcd5c,
+    type: 2}
   EndingCall: 0

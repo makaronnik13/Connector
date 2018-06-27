@@ -7,5 +7,7 @@ using UnityEngine;
 public class NewsVariant : ScriptableObject
 {
 	public Sprite img;
-	public string text;
+    public string title;
+    public string text;
+   
 }

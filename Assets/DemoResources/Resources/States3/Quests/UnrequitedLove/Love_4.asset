@@ -51,4 +51,5 @@ MonoBehaviour:
     endPoint: {fileID: 11400000, guid: ebbbb5da34fe70d4aa87381ff5ead088, type: 2}
   SkipState:
     endPoint: {fileID: 0}
+  wrongConnectionNews: {fileID: 0}
   EndingCall: 0

@@ -8,6 +8,7 @@ public class NewsPaper : Singleton<NewsPaper> {
 
     private NewsVariant lastNews;
     public TextMeshProUGUI NewsText;
+    public TextMeshProUGUI NewsTitle;
     public Image NewsImage;
     public Animator NewNewsAnimator;
 
@@ -24,6 +25,7 @@ public class NewsPaper : Singleton<NewsPaper> {
     {
         Debug.Log("show");
         NewsText.text = lastNews.text;
+        NewsTitle.text = lastNews.title;
         NewsImage.sprite = lastNews.img;
         SoundController.Instance.PlaySound(8);
         GetComponent<Animator>().SetTrigger("Open");
