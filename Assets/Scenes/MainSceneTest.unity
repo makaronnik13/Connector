@@ -4480,12 +4480,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bb1fbff4586f43649b926c744f646cf4, type: 2}
   - {fileID: 11400000, guid: cfc405d91a227e84795d4ee6b32e8eb9, type: 2}
   - {fileID: 11400000, guid: ceb459d6a151dbe40b6e0870fc3b06e2, type: 2}
-  - {fileID: 11400000, guid: 2da5babc0e5ac9141aa389ad3e94ddeb, type: 2}
-  - {fileID: 11400000, guid: 8118904a61f1b9f49a09b8eec2784fdf, type: 2}
   - {fileID: 11400000, guid: 087fd341c4d31d34eb737d80102ffffc, type: 2}
-  - {fileID: 11400000, guid: a36aa4abd3085c8469a1c02972d107ad, type: 2}
   - {fileID: 11400000, guid: 2c51668e9340111469e4a154b530dd37, type: 2}
-  - {fileID: 11400000, guid: 07a167fc24cc00049bcaf95d2e974ace, type: 2}
   - {fileID: 11400000, guid: 8e9c6922efdff1948a41108642e4fbae, type: 2}
   - {fileID: 11400000, guid: b36e80317d3095545ab3211dcde75f8c, type: 2}
   - {fileID: 11400000, guid: 65d5d7d19e70df54cab14acba9882c5d, type: 2}
@@ -15457,11 +15453,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
