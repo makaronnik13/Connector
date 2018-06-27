@@ -27,6 +27,7 @@ public class NewsPaper : Singleton<NewsPaper> {
         NewsText.text = lastNews.text;
         NewsTitle.text = lastNews.title;
         NewsImage.sprite = lastNews.img;
+        NewsImage.gameObject.SetActive(lastNews.img!=null);
         SoundController.Instance.PlaySound(8);
         GetComponent<Animator>().SetTrigger("Open");
         CameraController.Instance.SetCameraView(5);

@@ -1,74 +1,107 @@
 ﻿using UnityEngine;
 
-/// <summary>
-/// Be aware this will not prevent a non singleton constructor
-///   such as `T myT = new T();`
-/// To prevent that, add `protected T () {}` to your singleton class.
-/// 
-/// As a note, this is made as MonoBehaviour because we need Coroutines.
-/// </summary>
-public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
+public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
-	private static T _instance;
+    private static T instance;
 
-	private static object _lock = new object();
+    /// <summary>
+    /// Returns the Singleton instance of the classes type.
+    /// If no instance is found, then we search for an instance
+    /// in the scene.
+    /// If more than one instance is found, we throw an error and
+    /// no instance is returned.
+    /// </summary>
+    public static T Instance
+    {
+        get
+        {
+            if (!IsInitialized && searchForInstance)
+            {
+                searchForInstance = false;
+                T[] objects = FindObjectsOfType<T>();
+                if (objects.Length == 1)
+                {
+                    instance = objects[0];
+                    //DontDestroyOnLoad(instance.gameObject.GetParentRoot());
+                }
+                else if (objects.Length > 1)
+                {
+                    Debug.LogErrorFormat("Expected exactly 1 {0} but found {1}.", typeof(T).Name, objects.Length);
+                }
+            }
+            return instance;
+        }
+    }
 
-	public static T Instance
-	{
-		get
-		{
-			if (applicationIsQuitting) {
-				Debug.LogWarning("[Singleton] Instance '"+ typeof(T) +
-					"' already destroyed on application quit." +
-					" Won't create again - returning null.");
-				return null;
-			}
+    private static bool searchForInstance = true;
 
-			lock(_lock)
-			{
-				if (_instance == null)
-				{
-					_instance = (T) FindObjectOfType(typeof(T));
+    public static void AssertIsInitialized()
+    {
+        Debug.Assert(IsInitialized, string.Format("The {0} singleton has not been initialized.", typeof(T).Name));
+    }
 
-					if ( FindObjectsOfType(typeof(T)).Length > 1 )
-					{
-						Debug.LogError("[Singleton] Something went really wrong " +
-							" - there should never be more than 1 singleton!" +
-							" Reopening the scene might fix it.");
-						return _instance;
-					}
+    /// <summary>
+    /// Returns whether the instance has been initialized or not.
+    /// </summary>
+    public static bool IsInitialized
+    {
+        get
+        {
+            return instance != null;
+        }
+    }
 
-					if (_instance == null)
-					{
-						GameObject singleton = new GameObject();
-						_instance = singleton.AddComponent<T>();
-						singleton.name = "(singleton) "+ typeof(T).ToString();
+    /// <summary>
+    /// Awake and OnEnable safe way to check if a Singleton is initialized.
+    /// </summary>
+    /// <returns>The value of the Singleton's IsInitialized property</returns>
+    public static bool ConfirmInitialized()
+    {
+        T access = Instance;
+        return IsInitialized;
+    }
 
-						DontDestroyOnLoad(singleton);
+    /// <summary>
+    /// Base Awake method that sets the Singleton's unique instance.
+    /// Called by Unity when initializing a MonoBehaviour.
+    /// Scripts that extend Singleton should be sure to call base.Awake() to ensure the
+    /// static Instance reference is properly created.
+    /// </summary>
+    protected virtual void Awake()
+    {
+        if (IsInitialized && instance != this)
+        {
+            if (Application.isEditor)
+            {
+                DestroyImmediate(this);
+            }
+            else
+            {
+                Destroy(this);
+            }
 
-						Debug.Log("[Singleton] An instance of " + typeof(T) + 
-							" is needed in the scene, so '" + singleton +
-							"' was created with DontDestroyOnLoad.");
-					} else {
-						//Debug.Log("[Singleton] Using instance already created: " +_instance.gameObject.name);
-					}
-				}
+            Debug.LogErrorFormat("Trying to instantiate a second instance of singleton class {0}. Additional Instance was destroyed", GetType().Name);
+        }
+        else if (!IsInitialized)
+        {
+            instance = (T)this;
+            searchForInstance = false;
+            //DontDestroyOnLoad(gameObject.GetParentRoot());
+        }
+    }
 
-				return _instance;
-			}
-		}
-	}
-
-	private static bool applicationIsQuitting = false;
-	/// <summary>
-	/// When Unity quits, it destroys objects in a random order.
-	/// In principle, a Singleton is only destroyed when application quits.
-	/// If any script calls Instance after it have been destroyed, 
-	///   it will create a buggy ghost object that will stay on the Editor scene
-	///   even after stopping playing the Application. Really bad!
-	/// So, this was made to be sure we're not creating that buggy ghost object.
-	/// </summary>
-	public void OnDestroy () {
-		applicationIsQuitting = true;
-	}
+    /// <summary>
+    /// Base OnDestroy method that destroys the Singleton's unique instance.
+    /// Called by Unity when destroying a MonoBehaviour. Scripts that extend
+    /// Singleton should be sure to call base.OnDestroy() to ensure the
+    /// underlying static Instance reference is properly cleaned up.
+    /// </summary>
+    protected virtual void OnDestroy()
+    {
+        if (instance == this)
+        {
+            instance = null;
+            searchForInstance = true;
+        }
+    }
 }

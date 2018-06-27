@@ -11,6 +11,20 @@ public class AddresBook : MonoBehaviour {
     public GameObject BookCanvas;
     private List<Person> persons = new List<Person>();
 	private List<Person> services = new List<Person>();
+
+    public void ClickBigBookmark(BigBookmark.BigBookmarkType bookmarkType)
+    {
+        switch (bookmarkType)
+        {
+            case BigBookmark.BigBookmarkType.Abonents:
+                ShowAbonents();
+                break;
+            case BigBookmark.BigBookmarkType.Services:
+                ShowServices();
+                break;
+        }
+    }
+
     public Transform page;
 
     //public Image ServicesMark, AbonentsMark;
@@ -107,13 +121,13 @@ public class AddresBook : MonoBehaviour {
         bookPageCollider.enabled = true;
     }
 
-    public void ShowServices()
+    private void ShowServices()
     {
         ShowPage(new char[] { '.' });
         bookmarks.SetActive(false);
     }
 
-    public void ShowAbonents()
+    private void ShowAbonents()
     {
         bookmarks.SetActive(true);
         ShowPage(lastAlfChars);
