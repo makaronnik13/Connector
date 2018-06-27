@@ -97,11 +97,9 @@ public class DemoCallsController : Singleton<DemoCallsController> {
 			StorryState s = demoStates[playedStates] as StorryState;
 			EmptyPanel.Call(s);
 			playedStates++;
-			if(!s.EndingCall)
-			{
-				StartCoroutine(GenerateNewState(BalanceManager.Instance.GetRate(0, playedStates)));
-				Calling = false;
-			}
+
+			StartCoroutine(GenerateNewState(BalanceManager.Instance.GetRate(0, playedStates)));
+			Calling = false;
 		}
 	}
 		
@@ -116,6 +114,11 @@ public class DemoCallsController : Singleton<DemoCallsController> {
 	{
         if (listeningCallPanel)
 		{
+            if (((StorryState)listeningCallPanel.state).EndingCall)
+            {
+                Debug.Log("the end");
+            }
+
             listeningCallPanel.Skip ();
 			listeningCallPanel = null;
             ConnectionLine.Instance.Hide();

@@ -37,7 +37,7 @@ MonoBehaviour:
     dialog:
       clip: {fileID: 0}
       replics: []
-    connectionNews: {fileID: 11400000, guid: 9e472a314e30d2a47af3991f0f70d68c, type: 2}
+    connectionNews: {fileID: 0}
   - endPoint: {fileID: 11400000, guid: 63b11b0d908076946abbd043831e93ec, type: 2}
     person: {fileID: 11400000, guid: d668e956f816eb34ba6995bb7bbc33a0, type: 2}
     dialog:

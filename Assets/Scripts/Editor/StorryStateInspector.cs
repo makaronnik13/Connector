@@ -24,7 +24,7 @@ public class StorryStateInspector : Editor {
             var element = monologReplics.serializedProperty.GetArrayElementAtIndex(index);
             rect.y += 2;
             EditorGUI.PropertyField(
-                new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight),
+                new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight*2),
                 element, GUIContent.none);
 
         };
@@ -35,7 +35,7 @@ public class StorryStateInspector : Editor {
 
         monologReplics.elementHeightCallback = (int i) =>
         {
-            return 3+(state.monolog.replics.Count) * EditorGUIUtility.singleLineHeight;
+            return 3+ 2.5f * EditorGUIUtility.singleLineHeight;
         };
 
 

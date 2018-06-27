@@ -55,6 +55,11 @@ public class ConnectionLine : Singleton<ConnectionLine> {
 			}
 
 			callPanel.Talk ();
+
+            if (((StorryState)callPanel.state).EndingCall)
+            {
+                Debug.Log("the end");
+            }
         }
 
         GameObject newWire = new GameObject();

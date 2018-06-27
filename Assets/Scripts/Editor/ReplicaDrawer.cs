@@ -23,13 +23,13 @@ public class ReplicaDrawer : PropertyDrawer
         // Calculate rects
    //     var amountRect = new Rect(position.x, position.y, position.width/2-2, position.height);
         var unitRect = new Rect(position.x , position.y, position.width , position.height);
-       
+
 
         // Draw fields - passs GUIContent.none to each so they are drawn without labels
-      //  EditorGUI.PropertyField(amountRect, property.FindPropertyRelative("person"), GUIContent.none);
-        EditorGUI.PropertyField(unitRect, property.FindPropertyRelative("text"), GUIContent.none);
-   
+        //  EditorGUI.PropertyField(amountRect, property.FindPropertyRelative("person"), GUIContent.none);
+        property.FindPropertyRelative("text").stringValue = EditorGUI.TextArea(unitRect, property.FindPropertyRelative("text").stringValue);
 
+        property.serializedObject.ApplyModifiedProperties();
         // Set indent back to what it was
         EditorGUI.indentLevel = indent;
 

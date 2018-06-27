@@ -75,20 +75,24 @@ MonoBehaviour:
     dialog:
       clip: {fileID: 0}
       replics: []
+    connectionNews: {fileID: 0}
   - endPoint: {fileID: 11400000, guid: 52926e565ac0bc340899c120da15ff4a, type: 2}
     person: {fileID: 11400000, guid: b5983eb8f54064da894d180657e0c205, type: 2}
     dialog:
       clip: {fileID: 0}
       replics: []
+    connectionNews: {fileID: 0}
   - endPoint: {fileID: 11400000, guid: a408ab68c6640d14aa005254ff050997, type: 2}
     person: {fileID: 11400000, guid: 5758f533d99e463448fc8311c8aea7e5, type: 2}
     dialog:
       clip: {fileID: 0}
       replics: []
+    connectionNews: {fileID: 0}
   wrongConnectionState:
     endPoint: {fileID: 11400000, guid: ca1a642b82866c642bc291ef11481c46, type: 2}
   autoAddState:
     endPoint: {fileID: 0}
   SkipState:
     endPoint: {fileID: 11400000, guid: ca1a642b82866c642bc291ef11481c46, type: 2}
+  wrongConnectionNews: {fileID: 0}
   EndingCall: 0

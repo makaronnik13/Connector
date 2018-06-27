@@ -94,7 +94,7 @@ public class AddresBook : MonoBehaviour {
         GetComponent<Animator>().SetTrigger("Open");
         if (lastChars == null)
         {
-            lastChars = new char[4] { 'А', 'Б', 'В', 'Г' };
+            lastChars = new char[3] { 'А', 'Б', 'В'};
         }
         ShowPage(lastChars);
     }
