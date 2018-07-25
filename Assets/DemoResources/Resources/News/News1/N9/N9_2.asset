@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee5f856800152547aefa62f8b1e2222, type: 3}
   m_Name: N9_2
   m_EditorClassIdentifier: 
-  img: {fileID: 0}
+  img: {fileID: 21300000, guid: b301f3da73ef5004ca1a7fbc214f2970, type: 3}
   title: "\u041F\u0415\u0428\u041A\u0418 \u0425\u041E\u0414\u042F\u0422 \u0412\u0421\u0415
     \u0422\u0410\u041A \u0416\u0415"
   text: "\u0412 \u0433\u043E\u0440\u043E\u0434\u0435 \u043F\u0440\u043E\u0445\u043E\u0434\u0438\u0442
