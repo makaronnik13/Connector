@@ -31,13 +31,13 @@ MonoBehaviour:
   X: 0
   Y: 0
   combinationLinks:
-  - endPoint: {fileID: 11400000, guid: a3f0628c31aaab94d839fce54ebb9b03, type: 2}
+  - endPoint: {fileID: 11400000, guid: 2009bf0b5d5168c45a3c9b3a6b9a36e1, type: 2}
     person: {fileID: 11400000, guid: fb822c28acb9ebd4fb1bba3cac630dde, type: 2}
     dialog:
       clip: {fileID: 0}
       replics: []
-    connectionNews: {fileID: 0}
-  - endPoint: {fileID: 11400000, guid: 31a84e4e54103614290a6698091c45f3, type: 2}
+    connectionNews: {fileID: 11400000, guid: 1a3beca8fdfc08545ae5d3af518ae4e1, type: 2}
+  - endPoint: {fileID: 11400000, guid: eed49bed3d7488946a761ea6c3d95626, type: 2}
     person: {fileID: 11400000, guid: d668e956f816eb34ba6995bb7bbc33a0, type: 2}
     dialog:
       clip: {fileID: 0}

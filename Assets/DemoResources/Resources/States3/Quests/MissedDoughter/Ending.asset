@@ -140,4 +140,4 @@ MonoBehaviour:
   SkipState:
     endPoint: {fileID: 0}
   wrongConnectionNews: {fileID: 0}
-  EndingCall: 0
+  EndingCall: 1

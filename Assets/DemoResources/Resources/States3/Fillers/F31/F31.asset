@@ -51,10 +51,10 @@ MonoBehaviour:
       replics: []
     connectionNews: {fileID: 0}
   wrongConnectionState:
-    endPoint: {fileID: 11400000, guid: f217f09470f806346b37d08526ad1819, type: 2}
+    endPoint: {fileID: 11400000, guid: e2b854b75ab207f41921c13b194ca06e, type: 2}
   autoAddState:
     endPoint: {fileID: 0}
   SkipState:
-    endPoint: {fileID: 11400000, guid: f217f09470f806346b37d08526ad1819, type: 2}
+    endPoint: {fileID: 11400000, guid: e2b854b75ab207f41921c13b194ca06e, type: 2}
   wrongConnectionNews: {fileID: 0}
   EndingCall: 0
