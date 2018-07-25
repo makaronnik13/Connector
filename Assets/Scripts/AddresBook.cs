@@ -12,6 +12,8 @@ public class AddresBook : MonoBehaviour {
     private List<Person> persons = new List<Person>();
 	private List<Person> services = new List<Person>();
 
+    public Transform services1, services2;
+
     public void ClickBigBookmark(BigBookmark.BigBookmarkType bookmarkType)
     {
         switch (bookmarkType)
@@ -50,6 +52,17 @@ public class AddresBook : MonoBehaviour {
     {
         SoundController.Instance.PlaySound(5);
 
+        foreach (Transform t in services1)
+        {
+            t.gameObject.SetActive(false);
+        }
+
+        foreach (Transform t in services2)
+        {
+            t.gameObject.SetActive(false);
+        }
+
+
         lastChars = chars;
 
         bool isDigitPresent = chars.Any(c => char.IsDigit(c));
@@ -62,19 +75,29 @@ public class AddresBook : MonoBehaviour {
        
         foreach (Transform t in page1.transform)
         {
-            Destroy(t.gameObject);
+            if (t!=services1)
+            {
+                Destroy(t.gameObject);
+            }
+            
         }
         foreach (Transform t in page2.transform)
         {
-            Destroy(t.gameObject);
+            if (t!=services2)
+            {
+                Destroy(t.gameObject);
+            }
         }
 
         List<Person> pagePersons = new List<Person>();
 
 		if (isDigitPresent) 
 		{
-            List<int> services = chars.ToString().Split(',').ToList().Select(int.Parse).ToList();
-		} 
+            int page = int.Parse(chars[0].ToString());
+
+            services1.GetChild(page).gameObject.SetActive(true);
+            services2.GetChild(page).gameObject.SetActive(true);
+        } 
 		else 
 		{
 
@@ -105,6 +128,8 @@ public class AddresBook : MonoBehaviour {
 
     public void OpenBook()
     {
+        bookBlockCollider.GetComponent<SpriteRenderer>().color = new Color(0,0,0,0);
+        bookPageCollider.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
         SoundController.Instance.PlaySound(5);
         GetComponent<Collider2D>().enabled = false;
         CameraController.Instance.SetCameraView(3);
@@ -148,5 +173,16 @@ public class AddresBook : MonoBehaviour {
     {
         bookmarks.SetActive(true);
         ShowPage(lastAlfChars);
+    }
+
+    public void DragAway()
+    {
+        foreach (PaperWithName p in FindObjectsOfType<PaperWithName>())
+        {
+            if (p.Dragging)
+            {
+                CloseBook();
+            }
+        }
     }
 }

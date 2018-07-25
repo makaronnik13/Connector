@@ -39,20 +39,23 @@ MonoBehaviour:
   X: 0
   Y: 0
   combinationLinks:
-  - endPoint: {fileID: 11400000, guid: c232faa38bb3a8740ab0054c7e397851, type: 2}
+  - endPoint: {fileID: 0}
     person: {fileID: 11400000, guid: 3141d71c3a0b66d48a2cd86d453cfdc8, type: 2}
     dialog:
       clip: {fileID: 0}
       replics: []
+    connectionNews: {fileID: 0}
   - endPoint: {fileID: 0}
     person: {fileID: 11400000, guid: 184e414e49978644c8165291aeee687e, type: 2}
     dialog:
       clip: {fileID: 0}
       replics: []
+    connectionNews: {fileID: 0}
   wrongConnectionState:
-    endPoint: {fileID: 11400000, guid: 07f8d4f3280c13f4eb79ba24c3398c63, type: 2}
+    endPoint: {fileID: 0}
   autoAddState:
     endPoint: {fileID: 0}
   SkipState:
-    endPoint: {fileID: 11400000, guid: 07f8d4f3280c13f4eb79ba24c3398c63, type: 2}
+    endPoint: {fileID: 0}
+  wrongConnectionNews: {fileID: 0}
   EndingCall: 0
