@@ -49,6 +49,7 @@ public class Phone : Singleton<Phone>
 
 	private void Ring()
 	{
+        FailsCounter.Instance.AddFail();
 		talking = true;
 		GetComponent<Animator> ().SetBool ("Ringing", true);
 		GetComponent<AudioSource> ().Play ();

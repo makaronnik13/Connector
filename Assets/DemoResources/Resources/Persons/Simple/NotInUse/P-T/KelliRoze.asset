@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: KelliRoze
   m_EditorClassIdentifier: 
   PersonName: "\u041A\u0435\u043B\u043B\u0438 \u0420\u043E\u0443\u0437"
+  Number: 2-13-15
   Service: 0
   hideInBook: 0
   wrongConnectionState: {fileID: 0}

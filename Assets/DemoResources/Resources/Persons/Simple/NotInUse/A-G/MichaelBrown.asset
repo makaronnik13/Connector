@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf28b3e4d697a241a78a3b30f652e45, type: 3}
   m_Name: MichaelBrown
   m_EditorClassIdentifier: 
-  PersonSprite: {fileID: 0}
   PersonName: "\u041C\u0430\u0439\u043A\u043B \u0411\u0440\u0430\u0443\u043D"
+  Number: 6-77-67
   Service: 0
-  wrongConnectionState: {fileID: 0}
   hideInBook: 0
+  wrongConnectionState: {fileID: 0}

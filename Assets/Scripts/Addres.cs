@@ -16,7 +16,15 @@ public class Addres : MonoBehaviour, IDragHandler
 		if (!p.Service) 
 		{
 			GetComponentInChildren<TextMeshProUGUI> ().text = p.Surname + " " + p.FirstName;
-		} else 
+            for (int i = 0; i<34- GetComponentInChildren<TextMeshProUGUI>().text.Length;i++)
+            {
+                GetComponentInChildren<TextMeshProUGUI>().text += "-";
+            }
+
+            GetComponentInChildren<TextMeshProUGUI>().text += p.Number;
+
+
+        } else 
 		{
 			GetComponentInChildren<TextMeshProUGUI> ().text = p.PersonName;
 		}
@@ -37,6 +45,7 @@ public class Addres : MonoBehaviour, IDragHandler
 	public void Click ()
 	{
 		FindObjectOfType<HabsParent> ().AddPerson (person);
+        FindObjectOfType<AddresBook>().CloseBook();
 	}
 
     public void OnHover()

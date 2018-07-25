@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: GermanMolie
   m_EditorClassIdentifier: 
   PersonName: "\u0413\u0435\u0440\u043C\u0430\u043D \u041C\u043E\u043B\u044C\u0435"
+  Number: 5-06-28
   Service: 0
   hideInBook: 1
   wrongConnectionState: {fileID: 0}

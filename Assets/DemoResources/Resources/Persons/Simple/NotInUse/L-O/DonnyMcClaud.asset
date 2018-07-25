@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: DonnyMcClaud
   m_EditorClassIdentifier: 
   PersonName: "\u0414\u043E\u043D\u043D\u0438 \u041C\u0430\u043A\u041A\u043B\u0430\u0443\u0434"
+  Number: 8-48-14
   Service: 0
   hideInBook: 1
   wrongConnectionState: {fileID: 0}

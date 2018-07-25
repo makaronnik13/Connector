@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: EmmaDonovan
   m_EditorClassIdentifier: 
   PersonName: "\u042D\u043C\u043C\u0430 \u0414\u043E\u043D\u043E\u0432\u0430\u043D"
+  Number: 7-83-51
   Service: 0
   hideInBook: 1
   wrongConnectionState: {fileID: 0}

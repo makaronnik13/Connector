@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: GlenDiggity
   m_EditorClassIdentifier: 
   PersonName: "\u0413\u043B\u0435\u043D\u043D \u0414\u0438\u0433\u0433\u0438\u0442\u0438"
+  Number: 7-65-72
   Service: 0
   hideInBook: 1
   wrongConnectionState: {fileID: 0}

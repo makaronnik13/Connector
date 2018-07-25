@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: KaterinLagrand
   m_EditorClassIdentifier: 
   PersonName: "\u041A\u044D\u0442\u0440\u0438\u043D \u041B\u0430\u0433\u0440\u0430\u043D\u0434"
+  Number: 6-88-24
   Service: 0
   hideInBook: 0
   wrongConnectionState: {fileID: 0}

@@ -10,12 +10,19 @@ public class Person : ScriptableObject {
     //[AssetsOnly, InlineEditor(InlineEditorModes.LargePreview)]
     //public Sprite PersonSprite;
     public string PersonName;
-   
+    public string Number;
 
     public bool Service = false;
     public bool hideInBook = false;
 
     public StorryState wrongConnectionState;
+
+    [ContextMenu("Randomize number")]
+    private void GenerateRandomNumber()
+    {
+        Number = Random.Range(1, 9)+"-";
+        Number += Random.Range(0, 9) +""+ Random.Range(0, 9) + "-" + Random.Range(0, 9) +""+ Random.Range(0, 9);
+    }
 
     public string FirstName
     {

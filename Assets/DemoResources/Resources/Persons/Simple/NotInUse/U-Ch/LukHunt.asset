@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: LukHunt
   m_EditorClassIdentifier: 
   PersonName: "\u041B\u044E\u043A \u0425\u0430\u043D\u0442"
+  Number: 4-26-78
   Service: 0
   hideInBook: 0
   wrongConnectionState: {fileID: 0}

@@ -25,7 +25,9 @@ public class AddresBook : MonoBehaviour {
         }
     }
 
-    public Transform page;
+    public Transform page1, page2;
+
+    public GameObject AbonentsThings, ServicesThings;
 
     //public Image ServicesMark, AbonentsMark;
     
@@ -50,21 +52,28 @@ public class AddresBook : MonoBehaviour {
 
         lastChars = chars;
 
-        if (!chars.Contains('.'))
-        {
-            lastAlfChars = chars;
-        }
-        foreach (Transform t in page.transform)
+        bool isDigitPresent = chars.Any(c => char.IsDigit(c));
+
+        AbonentsThings.SetActive(!isDigitPresent);
+        ServicesThings.SetActive(isDigitPresent);
+
+        
+        lastAlfChars = chars;
+       
+        foreach (Transform t in page1.transform)
         {
             Destroy(t.gameObject);
         }
-       
+        foreach (Transform t in page2.transform)
+        {
+            Destroy(t.gameObject);
+        }
 
-		List<Person> pagePersons;
+        List<Person> pagePersons = new List<Person>();
 
-		if (chars.Contains ('.')) 
+		if (isDigitPresent) 
 		{
-			pagePersons = services;
+            List<int> services = chars.ToString().Split(',').ToList().Select(int.Parse).ToList();
 		} 
 		else 
 		{
@@ -78,7 +87,15 @@ public class AddresBook : MonoBehaviour {
 
         for (int i = 0; i< pagePersons.Count; i++)
         {
-            GameObject newAddres = Instantiate(AddresPrefab, page);
+            GameObject newAddres = Instantiate(AddresPrefab);
+            if (i < 7)
+            {
+                newAddres.transform.SetParent(page1);
+            }
+            else
+            {
+                newAddres.transform.SetParent(page2);
+            }
             newAddres.transform.localScale = Vector3.one;
             newAddres.GetComponent<Addres>().Init(pagePersons[i]);
         }

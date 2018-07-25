@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: BenOurell
   m_EditorClassIdentifier: 
   PersonName: "\u0411\u0435\u043D \u041E\u0440\u0443\u044D\u043B\u043B"
+  Number: 2-32-06
   Service: 0
-  hideInBook: 1
+  hideInBook: 0
   wrongConnectionState: {fileID: 0}

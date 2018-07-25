@@ -51,12 +51,12 @@ AnimationClip:
       - serializedVersion: 2
         time: 0.8333333
         value: {x: 3.21, y: -1.67, z: 0.02}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        inSlope: {x: -7.9529405, y: 2.6470587, z: 0}
+        outSlope: {x: -7.9529405, y: 2.6470587, z: 0}
         tangentMode: 0
       - serializedVersion: 2
         time: 0.85
-        value: {x: 4.77, y: -2.26, z: 0}
+        value: {x: -2.04, y: -0.95, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -82,7 +82,7 @@ AnimationClip:
         tangentMode: 0
       - serializedVersion: 2
         time: 0.85
-        value: {x: 0.6330784, y: 0.6330785, z: 0.6330785}
+        value: {x: 0.86500937, y: 0.8650095, z: 0.8650095}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -135,10 +135,32 @@ AnimationClip:
     path: AddresBook/AddresBookCanvas
     classID: 1
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      - serializedVersion: 2
+        time: 0.85
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: AddresBook/Block
+    classID: 61
+    script: {fileID: 0}
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: f936f53bfb9d024458c3b21664cfe53b, type: 3}
+      value: {fileID: 21300000, guid: 39edb498eb0c4924cab4ef0026af19ac, type: 3}
     - time: 0.85
       value: {fileID: 21300000, guid: 66daf953d49219a42b76e639b8f9c108, type: 3}
     attribute: m_Sprite
@@ -188,6 +210,13 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+      path: 3622445457
+      attribute: 3305885265
+      script: {fileID: 0}
+      typeID: 61
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
       path: 284388582
       attribute: 0
       script: {fileID: 0}
@@ -195,7 +224,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: f936f53bfb9d024458c3b21664cfe53b, type: 3}
+    - {fileID: 21300000, guid: 39edb498eb0c4924cab4ef0026af19ac, type: 3}
     - {fileID: 21300000, guid: 66daf953d49219a42b76e639b8f9c108, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
@@ -314,12 +343,12 @@ AnimationClip:
       - serializedVersion: 2
         time: 0.8333333
         value: 3.21
-        inSlope: 0
-        outSlope: 0
+        inSlope: -7.9529405
+        outSlope: -7.9529405
         tangentMode: 136
       - serializedVersion: 2
         time: 0.85
-        value: 4.77
+        value: -2.04
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -342,12 +371,12 @@ AnimationClip:
       - serializedVersion: 2
         time: 0.8333333
         value: -1.67
-        inSlope: 0
-        outSlope: 0
+        inSlope: 2.6470587
+        outSlope: 2.6470587
         tangentMode: 136
       - serializedVersion: 2
         time: 0.85
-        value: -2.26
+        value: -0.95
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -403,7 +432,7 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 0.85
-        value: 0.6330784
+        value: 0.86500937
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -431,7 +460,7 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 0.85
-        value: 0.6330785
+        value: 0.8650095
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -459,7 +488,7 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 0.85
-        value: 0.6330785
+        value: 0.8650095
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -513,6 +542,28 @@ AnimationClip:
     attribute: m_IsActive
     path: AddresBook/AddresBookCanvas
     classID: 1
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      - serializedVersion: 2
+        time: 0.85
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: AddresBook/Block
+    classID: 61
     script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:

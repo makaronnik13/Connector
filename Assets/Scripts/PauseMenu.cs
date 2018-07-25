@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour {
 
     public GameObject menu;
+    public GameObject failMenu;
 
     public void ShowPause()
     {
@@ -21,6 +23,21 @@ public class PauseMenu : MonoBehaviour {
     }
 
     public void Reload()
+    {
+        SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
+    }
+
+    private void Start()
+    {
+        FailsCounter.Instance.OnGameOver += ShowGameOver;
+    }
+
+    private void ShowGameOver()
+    {
+        failMenu.gameObject.SetActive(true);
+    }
+
+    public void Exit()
     {
         SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
     }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: RebeckaMirpul
   m_EditorClassIdentifier: 
   PersonName: "\u0420\u0435\u0431\u0435\u043A\u043A\u0430 \u041C\u0438\u0440\u043F\u0443\u043B"
+  Number: 2-72-83
   Service: 0
-  hideInBook: 1
+  hideInBook: 0
   wrongConnectionState: {fileID: 0}

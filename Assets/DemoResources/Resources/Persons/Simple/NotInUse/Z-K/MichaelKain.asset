@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: MichaelKain
   m_EditorClassIdentifier: 
   PersonName: "\u041C\u0430\u0439\u043A\u043B \u041A\u0430\u0438\u043D"
+  Number: 2-71-51
   Service: 0
   hideInBook: 0
   wrongConnectionState: {fileID: 0}

@@ -6,14 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class GameLauncher : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-        StartCoroutine(Load());
-	}
-
-    private IEnumerator Load()
+    public void Load()
     {
-        yield return new WaitForSeconds(0);
+        StartCoroutine(LoadCor());
+    }
+
+    private IEnumerator LoadCor()
+    {
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

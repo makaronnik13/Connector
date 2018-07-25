@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: JhonFonte
   m_EditorClassIdentifier: 
   PersonName: "\u0414\u0436\u043E\u043D \u0424\u043E\u043D\u0442\u0435"
+  Number: 6-04-36
   Service: 0
   hideInBook: 0
   wrongConnectionState: {fileID: 0}
