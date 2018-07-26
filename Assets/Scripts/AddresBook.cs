@@ -119,6 +119,7 @@ public class AddresBook : MonoBehaviour {
             {
                 newAddres.transform.SetParent(page2);
             }
+            newAddres.transform.localPosition = Vector3.zero;
             newAddres.transform.localScale = Vector3.one;
             newAddres.GetComponent<Addres>().Init(pagePersons[i]);
         }
