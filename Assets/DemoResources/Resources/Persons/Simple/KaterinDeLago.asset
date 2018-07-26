@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cf28b3e4d697a241a78a3b30f652e45, type: 3}
-  m_Name: KaterinLagrand
+  m_Name: KaterinDeLago
   m_EditorClassIdentifier: 
-  PersonName: "\u041A\u044D\u0442\u0440\u0438\u043D \u041B\u0430\u0433\u0440\u0430\u043D\u0434"
+  PersonName: "\u041A\u044D\u0442\u0440\u0438\u043D \u0414\u0435 \u041B\u0430\u0433\u043E"
   Number: 6-88-24
   Service: 0
   hideInBook: 0
