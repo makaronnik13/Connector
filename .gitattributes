@@ -1,1 +1,2 @@
 *.zip -delta
+*.bin filter=lfs diff=lfs merge=lfs -text
