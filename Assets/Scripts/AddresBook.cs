@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class AddresBook : MonoBehaviour {
 
+    private bool _opened = false;
     public Collider2D bookPageCollider, bookBlockCollider;
     public GameObject BookCanvas;
     private List<Person> persons = new List<Person>();
@@ -129,6 +130,12 @@ public class AddresBook : MonoBehaviour {
 
     public void OpenBook()
     {
+        if (_opened)
+        {
+            return;
+        }
+        _opened = true;
+        Debug.Log("Open");
         bookBlockCollider.GetComponent<SpriteRenderer>().color = new Color(0,0,0,0);
         bookPageCollider.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
         SoundController.Instance.PlaySound(5);
@@ -144,6 +151,11 @@ public class AddresBook : MonoBehaviour {
 
     public void CloseBook()
     {
+        if (!_opened)
+        {
+            return;
+        }
+        _opened = false;
         GetComponent<Animator>().SetTrigger("Close");
         CameraController.Instance.SetCameraView(0);
         SoundController.Instance.PlaySound(5);
